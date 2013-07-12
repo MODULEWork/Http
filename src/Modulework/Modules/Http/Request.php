@@ -110,7 +110,7 @@ class Request
 		$this->cookies = new ArrayCase($cookies);
 		$this->files = new FileCase($files);
 		$this->server = new ServerCase($server);
-		$this->headers = new ArrayCase($this->server->getHeaders());
+		$this->headers = new HeaderCase($this->server->getHeaders());
 	}
 
 	/**

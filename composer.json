@@ -1,0 +1,24 @@
+{
+    "name": "modulework/http",
+    "type": "library",
+    "keywords": ["framework"],
+    "description": "HTTP package for the MODULEWork Framework",
+    "require-dev": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ChristianGaertner",
+            "email": "christiangaertner.film@googlemail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Modulework\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

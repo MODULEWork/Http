@@ -11,11 +11,13 @@ include $http_package . 'ArrayCaseInterface.php';
 include $http_package . 'ArrayCase.php';
 include $http_package . 'FileCase.php';
 include $http_package . 'ServerCase.php';
+include $http_package . 'HeaderCase.php';
 include $http_package . 'Request.php';
 
 $req = Request::makeFromGlobals();
 
 echo $req;
 
-echo '<hr>', PHP_EOL;
+echo "<hr>", PHP_EOL;
 var_dump($req);
+echo "<hr>", PHP_EOL;
