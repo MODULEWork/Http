@@ -197,16 +197,29 @@ class Request
 		return $host;
 	}
 
+	/**
+	 * Set the host in the header
+	 * @param string $host The new host
+	 */
 	public function setHost($host)
 	{
 		$this->headers->set('HOST', $host);
 	}
 
+	/**
+	 * Port for the Request
+	 * @return string the port
+	 */
 	public function getPort()
 	{
 		return $this->server->get('SERVER_PORT');
 	}
 
+	/**
+	 * Get the BaseUri
+	 * Calls once: generateBaseUri()
+	 * @return [type] [description]
+	 */
 	public function getBaseUri()
 	{
 		if ($this->uri === null) {
@@ -215,24 +228,48 @@ class Request
 		return $this->uri;
 	}
 
-
+	/**
+	 * Check if the request method equals the given
+	 * @param  string  $method The method to test
+	 * @return boolean         TRUE if match
+	 */
 	public function isMethod($method)
 	{
 		return ($this->getMethod() === strtoupper($method));
 	}
 
+	/**
+	 * Wrapper for isXmlHttpRequest
+	 * @return boolean TRUE if it is a XMLHttpRequest
+	 */
+	public function isAjax()
+	{
+		return $this->isXmlHttpRequest();
+	}
+
+	/**
+	 * Is the request of type XMLHttpRequest
+	 * @return boolean TRUE if it is a XMLHttpRequest
+	 */
 	public function isXmlHttpRequest()
 	{
 		return ('XMLHttpRequest' == $this->headers->get('X-Requested-With'));
 	}
 
+	/**
+	 * Check for HTTPS connection
+	 * @return boolean TRUE if it is a HTTPS connection
+	 */
 	public function isSecure()
 	{
 		return (1 == $this->server->get('HTTPS') || strtolower($this->server->get('HTTPS') == 'on'));
 	}
 
 
-
+	/**
+	 * Generate the BaseUri
+	 * @return string the base uri
+	 */
 	protected function generateBaseUri()
 	{
 		$uri = '';
