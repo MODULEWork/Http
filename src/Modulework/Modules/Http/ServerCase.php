@@ -18,10 +18,9 @@ class ServerCase extends ArrayCase {
 
 		foreach($this->array as $header => $content) {
 			if (0 === strpos($header, 'HTTP_')) {
-				$this->set(substr($header, 5), $content);
+				$headers[substr($header, 5)] = $content;
 			}
 		}
-
 
 		return $headers;
 	}

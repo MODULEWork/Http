@@ -113,6 +113,9 @@ class Request
 		$this->headers = new ArrayCase($this->server->getHeaders());
 	}
 
+	/**
+	 * Write changes to the Request to the globals
+	 */
 	public function applyChanges()
 	{
 		$_GET = $this->query->all();
@@ -121,12 +124,87 @@ class Request
         $_COOKIE = $this->cookies->all();
 	}
 
+	/**
+	 * Returns the request method
+	 * @return string The request method
+	 */
 	public function getMethod()
 	{
 		if ($this->method === null) {
 			$this->method = strtoupper($this->server->get('REQUEST_METHOD', 'GET'));
 		}
 		return $this->method;
+	}
+
+	/**
+	 * Mock the request method
+	 * @param string $method The request method
+	 */
+	public function setMethod($method)
+	{
+		$this->$method = null; //Reset, so it' s getting regenerated properly.
+		$this->server->set('REQUEST_METHOD', $method);
+	}
+
+	/**
+	 * Returns either http or https
+	 * calls isSecure()
+	 * @return string The scheme (http | https)
+	 */
+	public function getScheme()
+	{
+		return $this->isSecure() ? 'https' : 'http';
+	}
+
+	/**
+	 * Returns the HTTP Host (with port if not default)
+	 * 
+	 * For example:
+	 *	localhost
+	 * or
+	 * 	localhost:4000
+	 * 
+	 * @return string The host
+	 */
+	public function getHttpHost()
+	{
+		$port = $this->getPort();
+		$scheme = $this->getScheme();
+
+		if (('https' == $scheme && $port == 443) || ('http' == $scheme && $port == 80)) {
+			// if standard ports then don' t add em
+			return $this->getHost();
+		}
+
+		return $this->getHost() . ':' . $port;
+
+	}
+
+	/**
+	 * Returns the host of the server
+	 * @return [type] [description]
+	 */
+	public function getHost()
+	{
+		if (!$host = $this->headers->get('HOST')) {
+			if (!$host = $this->server->get('SERVER_ADDR')) {
+				$host = $this->server->get('SERVER_NAME', '');
+			}
+		}
+
+		$host = strtolower(preg_replace('/:\d+$/', '', trim($host)));
+
+		return $host;
+	}
+
+	public function setHost($host)
+	{
+		$this->headers->set('HOST', $host);
+	}
+
+	public function getPort()
+	{
+		return $this->server->get('SERVER_PORT');
 	}
 
 	public function getBaseUri()
@@ -148,11 +226,50 @@ class Request
 		return ('XMLHttpRequest' == $this->headers->get('X-Requested-With'));
 	}
 
+	public function isSecure()
+	{
+		return (1 == $this->server->get('HTTPS') || strtolower($this->server->get('HTTPS') == 'on'));
+	}
+
 
 
 	protected function generateBaseUri()
 	{
-		return "Coming soon!";
+		$uri = '';
+
+		/*
+		 * The first check is obvious, all these headers after REQUEST_URI are taken from the Zend Framework,
+		 * they are for IIS and the like setups.
+		 */
+		if ($this->server->has('REQUEST_URI')) {
+			$uri = $this->server->get('REQUEST_URI');
+			// this will be with scheme and host maybe....
+			// We' ll need to cut these out
+			$schemeHost = $this->getScheme() . '://' . $this->getHttpHost();
+			if (strpos($uri, $schemeHost) === 0) {
+				$uri = substr($uri, strlen($schemeHost));
+			}
+
+		} elseif ($this->server->has('ORIG_PATH_INFO')) {
+			$uri = $this->server->get('ORIG_PATH_INFO');
+			if (empty($this->server->get('QUERY_STRING'))) {
+				$uri .= '?' . $this->server->get('QUERY_STRING');
+			}
+
+		} elseif ($this->headers->has('X_ORIGINAL_URL')) {
+			$uri = $this->headers->get('X_ORIGINAL_URL');
+
+		} elseif ($this->headers->has('X_REWRITE_URL')) {
+			$this->headers->has('X_REWRITE_URL');
+
+		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && !empty($this->server->get('UNENCODED_URL'))) {
+			$uri = $this->server->get('UNENCODED_URL');
+
+		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && !empty($this->server->get('UNENCODED_URL'))) {
+			$uri = $this->server->get('UNENCODED_URL');
+			
+		}
+		return $uri;
 	}
 
 }
