@@ -14,7 +14,15 @@ class ServerCase extends ArrayCase {
 
 	public function getHeaders()
 	{
-		// Will get replaced
-		return array();
+		$headers = array();
+
+		foreach($this->array as $header => $content) {
+			if (0 === strpos($header, 'HTTP_')) {
+				$this->set(substr($header, 5), $content);
+			}
+		}
+
+
+		return $headers;
 	}
 }
