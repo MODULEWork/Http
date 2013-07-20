@@ -32,4 +32,17 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
 		$this->assertEquals('bazz', $request->headers->get('FOO'));
 	}
+
+	public function testMock()
+	{
+		$request = Request::mock('http://localhost/foo?bar=baz');
+		$this->assertEquals(80, $request->getPort());
+		$this->assertEquals('localhost', $request->getHttpHost());
+		$this->assertFalse($request->isSecure());
+
+		$request = Request::mock('https://localhost/foo?bar=baz');
+		$this->assertEquals(443, $request->getPort());
+		$this->assertEquals('localhost', $request->getHttpHost());
+		$this->assertTrue($request->isSecure());
+	}
 }

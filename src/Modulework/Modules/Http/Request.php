@@ -137,7 +137,7 @@ class Request
 	 * 
 	 * @return \Modulework\Modules\Http\Request          A new instance based on the info provided
 	 */
-	public function mock($uri, $method = 'GET', array $request = array(), array $cookies = array(), array $files = array(), array $server = array())
+	public static function mock($uri, $method = 'GET', array $request = array(), array $cookies = array(), array $files = array(), array $server = array())
 	{
 		$server = array_replace(array(
 								'SERVER_PROTOCOL' => 'HTTP/1.1',
