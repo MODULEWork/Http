@@ -10,8 +10,27 @@ class RequestTest extends PHPUnit_Framework_TestCase
 	{
 		$request = new Request();
 
-		$request->init(array('foo' => 'bar', 'baz', 'foo'));
+		// GET
+		$request->init(array('foo' => 'bar', 'baz' => 'foo'));
 		$this->assertEquals('bar', $request->query->get('foo'));
+		$this->assertEquals('foo', $request->query->get('baz'));
+
+		// POST
+		$request->init(array(), array('foo' => 'bar', 'baz' => 'foo'));
+		$this->assertEquals('bar', $request->request->get('foo'));
+		$this->assertEquals('foo', $request->request->get('baz'));
+
+		// COOKIE
+		$request->init(array(), array(), array('foo' => 'bar', 'baz' => 'foo'));
+		$this->assertEquals('bar', $request->cookies->get('foo'));
+		$this->assertEquals('foo', $request->cookies->get('baz'));
+
+		// SERVER
+		$request->init(array(), array(), array(), array(), array('foo' => 'bar', 'baz' => 'foo', 'HTTP_FOO' => 'bazz'));
+		$this->assertEquals('bar', $request->server->get('foo'));
+		$this->assertEquals('foo', $request->server->get('baz'));
+
+		$this->assertEquals('bazz', $request->headers->get('FOO'));
 	}
 
 }
