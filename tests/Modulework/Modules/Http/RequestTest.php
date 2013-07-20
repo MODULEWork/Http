@@ -71,6 +71,22 @@ class RequestTest extends PHPUnit_Framework_TestCase
 	public function testQuery()
 	{
 		$this->assertEquals('Christian', $this->request->query->get('username'));
+		$this->assertEquals('foo', $this->request->query->get('password', 'foo'));
+
+
+		$this->assertFalse($this->request->query->has('password'));
+		$this->assertTrue($this->request->query->has('username'));
+
+
+		$this->assertEquals(2, count($this->request->query));
+
+
+		$this->assertTrue($this->request->query->set('username', 'foo', true));
+		$this->assertEquals('foo', $this->request->query->get('username'));
+
+		$this->assertFalse($this->request->query->set('username', 'baz'));
+		$this->assertNotEquals('baz', $this->request->query->get('username'));
+
 	}
 
 
