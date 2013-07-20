@@ -189,7 +189,7 @@ class Request
 		$server['QUERY_STRING'] = $queryString;
 
 
-		$server['REQUEST_URI'] = $parsed['path'] . (empty($queryString) ? '' : '?' . $queryString);
+		$server['REQUEST_URI'] = $parsed['path'] . ('' == $queryString ? '' : '?' . $queryString);
 
 
 		return new static($query, $request, $cookies, $files, $server);
@@ -202,7 +202,7 @@ class Request
 	 */
 	public function normalizeQuery($query)
 	{
-		if (empty($query)) {
+		if ('' == $query) {
 			return '';
 		}
 
@@ -211,7 +211,7 @@ class Request
 		$split = explode('&', $query);
 
 		foreach ($split as $value) {
-			if (empty($value)) {
+			if ('' == $value) {
 				continue;
 			}
 
@@ -444,7 +444,7 @@ class Request
 
 		} elseif ($this->server->has('ORIG_PATH_INFO')) {
 			$uri = $this->server->get('ORIG_PATH_INFO');
-			if (empty($this->server->get('QUERY_STRING'))) {
+			if ('' == $this->server->get('QUERY_STRING')) {
 				$uri .= '?' . $this->server->get('QUERY_STRING');
 			}
 
@@ -454,10 +454,10 @@ class Request
 		} elseif ($this->headers->has('X_REWRITE_URL')) {
 			$this->headers->has('X_REWRITE_URL');
 
-		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && !empty($this->server->get('UNENCODED_URL'))) {
+		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && ('' !== $this->server->get('UNENCODED_URL'))) {
 			$uri = $this->server->get('UNENCODED_URL');
 
-		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && !empty($this->server->get('UNENCODED_URL'))) {
+		} elseif ($this->server->has('IIS_WasUrlRewritten') == '1' && ('' !== $this->server->get('UNENCODED_URL'))) {
 			$uri = $this->server->get('UNENCODED_URL');
 			
 		}
