@@ -350,6 +350,22 @@ class Request
 	}
 
 	/**
+	 * Returns the base path from the root,
+	 * for example if this class was constructed in the subfolder
+	 * 'foo' this method would return 'foo' for this uri:
+	 * http://localhost/foo/index.php 
+	 * @return string The raw path
+	 */
+	public function getBasePath()
+	{
+		if ($this->basePath === null) {
+			$this->basePath = $this->generateBasePath();
+		}
+
+		return $this->basePath;
+	}
+
+	/**
 	 * Check if the request method equals the given
 	 * @param  string  $method The method to test
 	 * @return boolean         TRUE if match
