@@ -1,14 +1,15 @@
-<?php 
+<?php namespace Modulework\Modules\Http;
 /*
  * (c) Christian Gärtner <christiangaertner.film@googlemail.com>
  * This file is part of the Modulework Framework
  * License: View distributed LICENSE file
  */
- 
-namespace Modulework\Modules\Http;
+
 
 /**
-*
+* Extends ArrayCase
+* Adds:
+* - getDate()
 */
 class HeaderCase extends ArrayCase {
 

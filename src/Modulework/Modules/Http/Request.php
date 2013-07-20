@@ -1,14 +1,16 @@
-<?php 
+<?php namespace Modulework\Modules\Http;
 /*
  * (c) Christian Gärtner <christiangaertner.film@googlemail.com>
  * This file is part of the Modulework Framework
  * License: View distributed LICENSE file
  */
  
-namespace Modulework\Modules\Http;
 
 /**
-* 
+* Request
+* This class represents the current HTTP request.
+* It exposes 6 public vars (objects) for getting information
+* For some there are methods for convience.
 */
 class Request
 {
@@ -182,7 +184,7 @@ class Request
 
 	/**
 	 * Returns the host of the server
-	 * @return [type] [description]
+	 * @return string The host of this server
 	 */
 	public function getHost()
 	{
@@ -218,7 +220,7 @@ class Request
 	/**
 	 * Get the BaseUri
 	 * Calls once: generateBaseUri()
-	 * @return [type] [description]
+	 * @return string The base uri for the request
 	 */
 	public function getBaseUri()
 	{

@@ -8,7 +8,8 @@
 namespace Modulework\Modules\Http;
 
 /**
-*
+* ArrayCase
+* A OOP way of handling arrays
 */
 class ArrayCase implements ArrayCaseInterface, \Countable, \IteratorAggregate
 {

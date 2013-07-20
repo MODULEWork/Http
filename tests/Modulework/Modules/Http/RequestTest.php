@@ -19,7 +19,8 @@ class RequestTest extends PHPUnit_Framework_TestCase
 				'skill-level' => 'Awesome'
 				),
 			array(
-				'password' => 'pwd'
+				'password' => 'pwd',
+				'username' => 'Gardner'
 				),
 			array(),
 			array(),
@@ -55,4 +56,22 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals('GET', $this->request->getMethod());
 		
 	}
+
+	public function testGetHost()
+	{
+		$this->assertEquals('localhost', $this->request->getHost());
+		$this->assertEquals('localhost', $this->request->getHttpHost());
+	}
+
+	public function testGetBaseUri()
+	{
+		$this->assertEquals('/index.php', $this->request->getBaseUri());
+	}
+
+	public function testQuery()
+	{
+		$this->assertEquals('Christian', $this->request->query->get('username'));
+	}
+
+
 }
