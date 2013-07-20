@@ -127,6 +127,107 @@ class Request
 	}
 
 	/**
+	 * Mock an request by providing a URI only, to feed more info is still possible
+	 * @param  string $uri     The URI
+	 * @param  string $method  The HTTP request method
+	 * @param  array  $request The _POST values
+	 * @param  array  $cookies The _COOKIES
+	 * @param  array  $files   The _FILES
+	 * @param  array  $server  The _SERVER values
+	 * 
+	 * @return \Modulework\Modules\Http\Request          A new instance based on the info provided
+	 */
+	public function mock($uri, $method = 'GET', array $request = array(), array $cookies = array(), array $files = array(), array $server = array())
+	{
+		$server = array_replace(array(
+								'SERVER_PROTOCOL' => 'HTTP/1.1',
+								'SERVER_NAME' => 'localhost',
+								'SERVER_PORT' => 80,
+								'SCRIPT_NAME' => '',
+								'SCRIPT_FILENAME' => '',
+								'HTTP_HOST' => 'localhost',
+								'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+								'HTTP_USER_AGENT' => 'Modulework/Release',
+								'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
+								'REQUEST_TIME' => time(),
+		), $server);
+
+		$server['REQUEST_METHOD'] = strtoupper($method);
+
+
+		$parsed = parse_url($uri);
+
+		if (isset($parsed['host'])) {
+			$server['SERVER_NAME'] = $parsed['host'];
+			$server['HTTP_HOST'] = $parsed['host'];
+		}
+
+		if (isset($parsed['port'])) {
+			$server['SERVER_PORT'] = $parsed['port'];
+			$server['HTTP_HOST'] .= ':' . $parsed['port'];
+		}
+
+		if (isset($parsed['scheme'])) {
+			if ($parsed['scheme'] === 'https') {
+				$server['SERVER_PORT'] = 443;
+				$server['HTTPS'] = 'on';
+			} else {
+				$server['SERVER_PORT'] = 80;
+				unset($server['HTTPS']);
+			}
+		}
+
+		if (!isset($parsed['path'])) {
+			$parsed['path'] = '/';
+		}
+
+		if (isset($parsed['query'])) {
+			parse_str(html_entity_decode($parsed['query']), $query);
+		}
+
+		$queryString = http_build_query($query, '', '&');
+		$server['QUERY_STRING'] = $queryString;
+
+
+		$server['REQUEST_URI'] = $parsed['path'] . (empty($queryString) ? '' : '?' . $queryString);
+
+
+		return new static($query, $request, $cookies, $files, $server);
+	}
+
+	/**
+	 * Normalize a query string
+	 * @param  string $query Query String
+	 * @return string        The normalized version of $query
+	 */
+	public function normalizeQuery($query)
+	{
+		if (empty($query)) {
+			return '';
+		}
+
+		$parts = array();
+
+		$split = explode('&', $query);
+
+		foreach ($split as $value) {
+			if (empty($value)) {
+				continue;
+			}
+
+			$pair = explode('=', $value);
+
+			if (isset($pair[1])) {
+				rawurlencode(urldecode($pair[0])) . '=' . rawurlencode(urldecode($pair[1]));
+			} else {
+				rawurlencode(urldecode($pair[0]));
+			}
+		}
+
+		return implode('&', $parts);
+	}
+
+	/**
 	 * Returns the request method
 	 * @return string The request method
 	 */
@@ -231,6 +332,24 @@ class Request
 	}
 
 	/**
+	 * Returns the path.
+	 * Examples (this class was initalized at /dev on localhost):
+	 *
+	 * * http://localhost/dev			->	''
+	 * * http://localhost/dev/more		->	'/more'
+	 * * http://localhost/dev/more?foo	->	'/more'
+	 * @return string The path
+	 */
+	public function getPath()
+	{
+		if ($this->path === null) {
+			$this->path = $this->generatePath();
+		}
+
+		return $this->path;
+	}
+
+	/**
 	 * Check if the request method equals the given
 	 * @param  string  $method The method to test
 	 * @return boolean         TRUE if match
@@ -265,6 +384,24 @@ class Request
 	public function isSecure()
 	{
 		return (1 == $this->server->get('HTTPS') || strtolower($this->server->get('HTTPS') == 'on'));
+	}
+
+	/**
+	 * Returns the client' s IP address
+	 * @return string The IP
+	 */
+	public function getClientIp()
+	{
+		return $this->server->get('REMOTE_ADDR');
+	}
+
+	/**
+	 * Returns the current script name
+	 * @return string  The script name
+	 */
+	public function getScript()
+	{
+		return $this->server->get('SCRIPT_NAME');
 	}
 
 

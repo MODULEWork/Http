@@ -32,5 +32,4 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
 		$this->assertEquals('bazz', $request->headers->get('FOO'));
 	}
-
 }
