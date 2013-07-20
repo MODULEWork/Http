@@ -52,7 +52,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
 	public function testGetMethod()
 	{
-		$this->assertEquals('GET', 'GET');
+		$this->assertEquals('GET', $this->request->getMethod());
 		
 	}
 }
