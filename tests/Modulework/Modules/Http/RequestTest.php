@@ -1,4 +1,12 @@
 <?php
+/*
+ * (c) Christian Gärtner <christiangaertner.film@googlemail.com>
+ * This file is part of the Modulework Framework Tests
+ * License: View distributed LICENSE file
+ *
+ * 
+ * This file is meant to be used in PHPUnit Tests
+ */
 use Modulework\Modules\Http\Request;
 /**
 * PHPUnit Test
@@ -39,10 +47,14 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(80, $request->getPort());
 		$this->assertEquals('localhost', $request->getHttpHost());
 		$this->assertFalse($request->isSecure());
+		$this->assertEquals('baz', $request->query->get('bar'));
+		$this->assertEquals('/foo?bar=baz', $request->getBaseUri());
 
-		$request = Request::mock('https://localhost/foo?bar=baz');
+		$request = Request::mock('https://localhost/foo?bar=baz&foo=bar');
 		$this->assertEquals(443, $request->getPort());
 		$this->assertEquals('localhost', $request->getHttpHost());
 		$this->assertTrue($request->isSecure());
+		$this->assertEquals('bar', $request->query->get('foo'));
+		$this->assertEquals('/foo?bar=baz&foo=bar', $request->getBaseUri());
 	}
 }
