@@ -48,7 +48,7 @@ class ArrayCase implements ArrayCaseInterface, \Countable, \IteratorAggregate
 
 	public function remove($key)
 	{
-		unset($this->parameters[$key]);
+		unset($this->array[$key]);
 	}
 
 	public function merge(array $array = array())
