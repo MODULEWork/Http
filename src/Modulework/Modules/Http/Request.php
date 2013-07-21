@@ -331,6 +331,14 @@ class Request
 		return $this->uri;
 	}
 
+	public function getBaseUrl()
+	{
+		if ($this->baseUrl === null) {
+			$this->baseUrl = $this->generateBaseUrl();
+		}
+		return $this->baseUrl;
+	}
+
 	/**
 	 * Returns the path.
 	 * Examples (this class was initalized at /dev on localhost):
@@ -462,6 +470,22 @@ class Request
 			
 		}
 		return $uri;
+	}
+
+	protected function generateBaseUrl()
+	{
+		$filename = basename($this->server->get('SCRIPT_FILENAME'));
+		
+		if (basename($this->getScript()) === $filename) {
+			$baseUrl = $this->getScript();
+		} elseif (basename($this->server->get('PHP_SELF')) === $filename) {
+			$baseUrl = $this->server->get('PHP_SELF');
+		} else {
+			$baseUrl = $this->server->get('SCRIPT_FILENAME');
+		}
+
+		return rtrim($baseUrl, '/');
+
 	}
 
 }
