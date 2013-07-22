@@ -345,6 +345,15 @@ class Request
 	}
 
 	/**
+	 * Retrieve the accepted encoding types from the HTTP headers
+	 * @return array The accepted encodings
+	 */
+	public function getAcceptedEncodings()
+	{
+		return explode(',', $this->headers->get('ACCEPT_ENCODING'));
+	}
+
+	/**
 	 * Get the BaseUri
 	 * Calls once: generateBaseUri()
 	 * @return string The base uri for the request

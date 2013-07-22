@@ -199,17 +199,17 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals('', $request->getBasePath());
 
 
-		$request->init(array(), array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php'));
+		$request->init(array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php'));
 
 		$this->assertEquals('', $request->getBasePath());
 
 
-		$request->init(array(), array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php', 'SCRIPT_NAME' => '/index.php'));
+		$request->init(array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php', 'SCRIPT_NAME' => '/index.php'));
 
 		$this->assertEquals('', $request->getBasePath());
 
 
-		$request->init(array(), array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php', 'PHP_SELF' => '/index.php'));
+		$request->init(array(), array(), array(), array(), array('SCRIPT_FILENAME' => '/foo/bar/baz.php', 'PHP_SELF' => '/index.php'));
 		$request->server->remove('SCRIPT_NAME');
 
 		$this->assertEquals('', $request->getBasePath());
@@ -231,5 +231,14 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$request = new Request;
 		
 		$this->assertEquals('/', $request->getPath());
+	}
+
+	public function testGetAcceptedEncoding()
+	{
+		$request = new Request;
+
+		$request->init(array(), array(), array(), array(), array('HTTP_ACCEPT_ENCODING' => 'gzip,deflate,sdch'));
+
+		$this->assertEquals(array('gzip', 'deflate', 'sdch'), $request->getAcceptedEncodings());
 	}
 }

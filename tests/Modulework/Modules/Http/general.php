@@ -11,7 +11,6 @@ use Modulework\Modules\Http\Request;
 
 echo "General Testing<br />", PHP_EOL ;
 
-
 require '../../../../vendor/autoload.php';
 
 $req = Request::makeFromGlobals();
@@ -19,5 +18,11 @@ $req = Request::makeFromGlobals();
 echo $req;
 
 echo "<hr>", PHP_EOL;
-var_dump($req);
+var_dump($_SERVER);
 echo "<hr>", PHP_EOL;
+
+
+$request = new Request;
+$request->init(array('FOO'), array('FS'), array(), array('F'), array('F'));
+
+var_dump($request);
