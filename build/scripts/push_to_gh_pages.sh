@@ -1,6 +1,5 @@
-export TRAVIS_PULL_REQUEST=false
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-	echo -e "Starting to update gh-pages\n"
+if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+	echo -e "Starting to update gh-pages"
 	# copy data we're interested in to other place
 	cp -R build/result $HOME/build
 	# go to home and setup git
@@ -16,5 +15,10 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	git add -f .
 	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
 	git push -fq origin gh-pages > /dev/null
-	echo -e "Pushed to GitHub\n"
+	echo -e "Pushed to GitHub"
+else
+	echo "Something went wrong..."
+	echo "Additional info:"
+	echo "$TRAVIS_PULL_REQUEST"
+	echo "$POST_BUILD"
 fi
