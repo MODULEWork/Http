@@ -1,3 +1,6 @@
+env: 
+  global: 
+    GH_TOKEN: ORZpJpuJmPP3QyVwJlGSncNMdX2snCceThOvDDmPc1bXOgiFkYtbAPBFBy4FZ52ZKK0NBVcFeqVdZQ+v8N3Uw1xqCHyyg01JIFHVDgx0XBjzNhfbUWMThoAhAG1LvpDRQIOPtwQ1ISehsJawsejO98qDkvpr9z1gzXQ3tC7d/QA=
 language: php
 
 php: 
@@ -16,3 +19,4 @@ after_script:
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
   - php apigen/apigen.php --source src/ --destination build/docs/
+  - sh ./build/scripts/push_to_gh_pages.sh
