@@ -1,5 +1,4 @@
 /vendor/
-/docs/
-/output/
 /apigen/
-/code_coverage/
+/build/docs/
+/build

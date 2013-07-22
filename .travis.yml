@@ -9,10 +9,10 @@ before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --prefer-source --no-interaction --dev
 
-script: phpunit --coverage-html code_coverage/
+script: phpunit --coverage-html build/coverage/
 
 after_script:
   - wget https://github.com/downloads/apigen/apigen/ApiGen-2.8.0-standalone.zip --no-check-certificate
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
-  - php apigen/apigen.php --source src/ --destination docs/
+  - php apigen/apigen.php --source src/ --destination build/docs/
