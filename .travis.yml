@@ -20,4 +20,4 @@ after_script:
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
   - php apigen/apigen.php --source src/ --destination build/result/docs/
-  - sh ./build/scripts/push_to_gh_pages.sh
+  - bash ./build/scripts/push_to_gh_pages.sh
