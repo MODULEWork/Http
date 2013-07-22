@@ -9,6 +9,12 @@
 interface ArrayCaseInterface
 {
 	/**
+	 * Constructor.
+	 * @param array $array The array to "wrap"
+	 */
+	public function __construct(array $array = array());
+
+	/**
 	 * Returns the array
 	 * @return array The array
 	 */

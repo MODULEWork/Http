@@ -12,6 +12,10 @@
 */
 class ArrayCase implements ArrayCaseInterface, \Countable, \IteratorAggregate
 {
+	/**
+	 * The array which gets "wrap" by this class
+	 * @var [type]
+	 */
 	protected $array;
 
 	public function __construct(array $array = array())
