@@ -9,7 +9,7 @@ function error_exit
 if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	echo -e "Starting to update gh-pages"
 	# copy data we're interested in to other place
-	cp -Rv build/result $HOME/build
+	cp -Rv build/result/ $HOME/build
 	# go to home and setup git
 	cd $HOME
 	git config --global user.email "travis@travis-ci.org"
