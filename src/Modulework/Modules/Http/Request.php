@@ -4,7 +4,11 @@
  * This file is part of the Modulework Framework
  * License: View distributed LICENSE file
  */
- 
+
+use Modulework\Modules\Http\Utilities\FileCase;
+use Modulework\Modules\Http\Utilities\ArrayCase;
+use Modulework\Modules\Http\Utilities\HeaderCase;
+use Modulework\Modules\Http\Utilities\ServerCase;
 
 /**
 * Request
