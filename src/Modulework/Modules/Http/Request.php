@@ -20,56 +20,67 @@ class Request
 {
 
 	/**
+	 * The ArrayCase for the QueryString (_GET)
 	 * @var \Modulework\Modules\Http\ArrayCase
 	 */
 	public $query;
 
 	/**
+	 * The ArrayCase for the POST request (_POST)
 	 * @var \Modulework\Modules\Http\ArrayCase
 	 */
 	public $request;
 
 	/**
+	 * The ArrayCase for the server varibales (_SERVER)
 	 * @var \Modulework\Modules\Http\ServerCase
 	 */
 	public $server;
 
 	/**
+	 * The ArrayCase for the files attached to the request (_FILES)
 	 * @var \Modulework\Modules\Http\FileCase
 	 */
 	public $files;
 
 	/**
+	 * The ArrayCase for the cookies (_COOKIE)
 	 * @var \Modulework\Modules\Http\ArrayCase
 	 */
 	public $cookies;
 
 	/**
+	 * The ArrayCase for the HTTP headers
 	 * @var \Modulework\Modules\Http\HeaderCase
 	 */
 	public $headers;
 
 	/**
+	 * The URI of this request
 	 * @var string
 	 */
 	protected $uri;
 
 	/**
+	 * The path information of this request
 	 * @var string
 	 */
 	protected $path;
 
 	/**
+	 * The base URL of this request
 	 * @var string
 	 */
 	protected $baseUrl;
 
 	/**
+	 * The base path of this request
 	 * @var string
 	 */
 	protected $basePath;
 
 	/**
+	 * The HTTP verb (GET/POST/PUT/DELETE)
 	 * @var string
 	 */
 	protected $method;
@@ -96,6 +107,11 @@ class Request
 		$this->init($query, $request, $cookies, $files, $server);
 	}
 
+	/**
+	 * Displays the Request in the following format:
+	 * PROTOCOLL VERB >> BASEURI
+	 * @return string [description]
+	 */
 	public function __toString()
 	{
 		return sprintf('%s %s >> %s', $this->server->get('SERVER_PROTOCOL'), $this->getMethod(), $this->getBaseUri());
@@ -335,6 +351,10 @@ class Request
 		return $this->uri;
 	}
 
+	/**
+	 * The base URL
+	 * @return string The base URL
+	 */
 	public function getBaseUrl()
 	{
 		if ($this->baseUrl === null) {
@@ -435,7 +455,7 @@ class Request
 
 	/**
 	 * Generate the BaseUri
-	 * @return string the base uri
+	 * @return string The base uri
 	 */
 	protected function generateBaseUri()
 	{
@@ -476,6 +496,10 @@ class Request
 		return $uri;
 	}
 
+	/**
+	 * Generate the BaseUrl
+	 * @return string The base url
+	 */
 	protected function generateBaseUrl()
 	{
 		$filename = basename($this->server->get('SCRIPT_FILENAME'));
