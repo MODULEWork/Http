@@ -1,4 +1,4 @@
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+if [ "$TRAVIS_PULL_REQUEST" == "false" ] &&  [ "$TRAVIS_REPO_SLUG" == "MODULEWork/Http" ]; then
 	echo -e "Starting to update gh-pages\n"
 	# copy data we're interested in to other place
 	cp -R build/result $HOME/build
