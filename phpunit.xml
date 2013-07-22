@@ -20,7 +20,7 @@
 	</filter>
 	
 	<logging>
-		<log type="coverage-html" target="build/coverage" title="Doctrine2 Database Migrations" charset="UTF-8" />
+		<log type="coverage-html" target="build/result/coverage" title="MODULEWork Http" charset="UTF-8" />
 	</logging>
 
 	<testsuites>

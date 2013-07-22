@@ -18,5 +18,5 @@ after_script:
   - wget https://github.com/downloads/apigen/apigen/ApiGen-2.8.0-standalone.zip --no-check-certificate
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
-  - php apigen/apigen.php --source src/ --destination build/docs/
+  - php apigen/apigen.php --source src/ --destination build/result/docs/
   - sh ./build/scripts/push_to_gh_pages.sh

@@ -29,7 +29,7 @@ if [ ! -d "apigen" ]; then
 	echo "${txtred}ERROR: Couldn' t find ApiGen installation${txtrst}"
 	exit 1
 else
-	php apigen/apigen.php --source src/ --destination build/docs/
+	php apigen/apigen.php --source src/ --destination build/result/docs/
 fi
 clear
 echo "${txtgrn}Build is done.${txtrst}"
