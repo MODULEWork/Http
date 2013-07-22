@@ -540,7 +540,23 @@ class Request
 
 	public function generatePath()
 	{
-		return '';
+		$baseUrl = $this->getBaseUrl();
+
+		if (($baseUri = $this->getBaseUri()) === null) return '/';
+
+		$path = '/';
+
+		if ($pos = strpos($baseUri, '?')) $baseUri = substr($baseUri, 0, $pos);
+
+		if ((null !== $baseUrl) && (false === ($path = substr($baseUri, strlen($baseUrl))))) {
+			return '/';
+		} elseif ($baseUrl === null) {
+			return $baseUri;
+		}
+
+		return $path;
 	}
+
+	
 
 }

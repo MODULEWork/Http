@@ -213,11 +213,23 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$request->server->remove('SCRIPT_NAME');
 
 		$this->assertEquals('', $request->getBasePath());
+
+
+		$request = Request::mock('http://localhost/foo/bar.php');
+
+		$this->assertEquals('', $request->getBasePath());
+
+
+		$request = Request::mock('http://localhost/foo/bar.php/baz');
+
+		$this->assertEquals('', $request->getBasePath());
+
 	}
 
 	public function testGetPath()
 	{
 		$request = new Request;
-		$request->getPath();
+		
+		$this->assertEquals('/', $request->getPath());
 	}
 }
