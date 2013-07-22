@@ -15,14 +15,15 @@ if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	git config --global user.email "travis@travis-ci.org"
 	git config --global user.name "Travis"
 	#using token clone gh-pages branch
-	git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/MODULEWork/Http.git  gh-pages > /dev/null || error_exit "Error cloning the artifact repository";
+	git clone --quiet https://${GH_TOKEN}@github.com/MODULEWork/Http.git  repo > /dev/null || error_exit "Error cloning the repository";
 	#go into diractory and copy data we're interested in to that directory
-	cd gh-pages
+	cd repo
+	git checkout gh-pages
 	cp -Rf $HOME/build/* .
 	#add, commit and push files
 	git add -f .
 	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
-	git push -fq origin gh-pages > /dev/null
+	git push  > /dev/null
 	echo -e "Pushed to GitHub"
 else
 	echo "Something went wrong..."
