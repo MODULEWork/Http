@@ -1,4 +1,5 @@
-if [ "$TRAVIS_PULL_REQUEST" == "false" ] &&  [ "$TRAVIS_REPO_SLUG" == "MODULEWork/Http" ]; then
+export TRAVIS_PULL_REQUEST=false
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	echo -e "Starting to update gh-pages\n"
 	# copy data we're interested in to other place
 	cp -R build/result $HOME/build
@@ -13,7 +14,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ] &&  [ "$TRAVIS_REPO_SLUG" == "MODULEWor
 	cp -Rf $HOME/build/* .
 	#add, commit and push files
 	git add -f .
-	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages\n"
+	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
 	git push -fq origin gh-pages > /dev/null
 	echo -e "Pushed to GitHub\n"
 fi
