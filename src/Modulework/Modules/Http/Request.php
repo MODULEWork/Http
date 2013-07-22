@@ -182,11 +182,6 @@ class Request
 			$server['HTTP_HOST'] = $parsed['host'];
 		}
 
-		if (isset($parsed['port'])) {
-			$server['SERVER_PORT'] = $parsed['port'];
-			$server['HTTP_HOST'] .= ':' . $parsed['port'];
-		}
-
 		if (isset($parsed['scheme'])) {
 			if ($parsed['scheme'] === 'https') {
 				$server['SERVER_PORT'] = 443;
@@ -197,10 +192,18 @@ class Request
 			}
 		}
 
+		if (isset($parsed['port'])) {
+			$server['SERVER_PORT'] = $parsed['port'];
+			$server['HTTP_HOST'] .= ':' . $parsed['port'];
+		}
+
+		
+
 		if (!isset($parsed['path'])) {
 			$parsed['path'] = '/';
 		}
 
+		$query = array();
 		if (isset($parsed['query'])) {
 			parse_str(html_entity_decode($parsed['query']), $query);
 		}
@@ -220,29 +223,32 @@ class Request
 	 * @param  string $query Query String
 	 * @return string        The normalized version of $query
 	 */
-	public function normalizeQuery($query)
+	public static function normalizeQuery($query)
 	{
 		if ('' == $query) {
 			return '';
 		}
 
 		$parts = array();
+		$sort = array();
 
 		$split = explode('&', $query);
 
 		foreach ($split as $value) {
-			if ('' == $value) {
-				continue;
-			}
+			if ('' == $value || '=' === $value[0]) continue;
 
-			$pair = explode('=', $value);
+			$pair = explode('=', $value, 2);
 
 			if (isset($pair[1])) {
-				rawurlencode(urldecode($pair[0])) . '=' . rawurlencode(urldecode($pair[1]));
+				$parts[] = rawurlencode(urldecode($pair[0])) . '=' . rawurlencode(urldecode($pair[1]));
 			} else {
-				rawurlencode(urldecode($pair[0]));
+				$parts[] = rawurlencode(urldecode($pair[0]));
 			}
+
+			$sort[] = urldecode($pair[0]);
 		}
+
+		array_multisort($sort, SORT_ASC, $parts);
 
 		return implode('&', $parts);
 	}
@@ -266,7 +272,7 @@ class Request
 	public function setMethod($method)
 	{
 		$this->$method = null; //Reset, so it' s getting regenerated properly.
-		$this->server->set('REQUEST_METHOD', $method);
+		$this->server->set('REQUEST_METHOD', strtoupper($method), true);
 	}
 
 	/**
@@ -326,7 +332,7 @@ class Request
 	 */
 	public function setHost($host)
 	{
-		$this->headers->set('HOST', $host);
+		$this->headers->set('HOST', $host, true);
 	}
 
 	/**
@@ -514,6 +520,27 @@ class Request
 
 		return rtrim($baseUrl, '/');
 
+	}
+
+	protected function generateBasePath()
+	{
+		$filename = basename($this->server->get('SCRIPT_FILENAME'));
+		$baseUrl = $this->getBaseUrl();
+
+		if (empty($baseUrl)) return '';
+
+		$basePath = (basename($baseUrl) === $filename) ? dirname($baseUrl) : $baseUrl;
+
+		if ('\\' === DIRECTORY_SEPARATOR) { // We are on Windows
+            $basePath = str_replace('\\', '/', $basePath);
+        }
+
+        return rtrim($basePath, '/');
+	}
+
+	public function generatePath()
+	{
+		return '';
 	}
 
 }
