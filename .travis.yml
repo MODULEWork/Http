@@ -8,8 +8,9 @@ php:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --prefer-source --no-interaction --dev
-  - wget http://www.phpdoc.org/phpDocumentor.phar
-  - chmod +x phpDocumentor.phar
-  - php phpDocumentor.phar -d src/ -t docs
+  - wget https://github.com/downloads/apigen/apigen/ApiGen-2.8.0-standalone.zip --no-check-certificate
+  - unzip ApiGen-2.8.0-standalone.zip
+  - rm ApiGen-2.8.0-standalone.zip
+  - php apigen/apigen.php --source src/ --destination docs/
 
 script: phpunit

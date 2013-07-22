@@ -7,6 +7,6 @@
 
 
 /**
-*
-*/
+ * {@inheritdoc}
+ */
 class FileCase extends ArrayCase { }

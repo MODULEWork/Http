@@ -1,4 +1,4 @@
 /vendor/
 /docs/
 /output/
-phpDocumentor.phar
+/apigen/

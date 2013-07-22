@@ -6,12 +6,16 @@
  */
 
 /**
-* Extends ArrayCase
-* Adds:
-* - getHeaders()
-*/
+ * {@inheritdoc}
+ * Adds:
+ * - getHeaders()
+ */
 class ServerCase extends ArrayCase {
 
+	/**
+	 * Returns the HTTP headers
+	 * @return array The HTTP headers
+	 */
 	public function getHeaders()
 	{
 		$headers = array();

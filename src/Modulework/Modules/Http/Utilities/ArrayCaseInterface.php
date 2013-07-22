@@ -5,7 +5,9 @@
  * License: View distributed LICENSE file
  */
  
-
+/**
+ * ArrayCase is an OOP way of handling arrays
+ */
 interface ArrayCaseInterface
 {
 	/**

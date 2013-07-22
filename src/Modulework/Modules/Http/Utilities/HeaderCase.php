@@ -7,10 +7,10 @@
 
 
 /**
-* Extends ArrayCase
-* Adds:
-* - getDate()
-*/
+ * {@inheritdoc}
+ * Adds:
+ * - getDate()
+ */
 class HeaderCase extends ArrayCase {
 
 	/**
