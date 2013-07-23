@@ -9,19 +9,24 @@ function error_exit
 if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	echo -e "Starting to update gh-pages"
 	# copy data we're interested in to other place
-	cp -Rv build/result/ $HOME/build
+	cp -Rv build/result/coverage $HOME/build/coverage
+	cp -Rv build/result/docs $HOME/build/docs
 	# go to home and setup git
 	cd $HOME
 	git config --global user.email "travis@travis-ci.org"
 	git config --global user.name "Travis"
-	#using token clone gh-pages branch
+	
+	# using token clone gh-pages branch
 	git clone --quiet https://${GH_TOKEN}@github.com/MODULEWork/Http.git  repo > /dev/null || error_exit "Error cloning the repository";
-	#go into diractory and copy data we're interested in to that directory
+
+	# go into repo anc copy data
 	cd repo
 	git checkout gh-pages
-	cp -Rfv $HOME/build/* .
-	#add, commit and push files
-	git add -f .
+	cp -Rv $HOME/build/coverage coverage
+	cp -Rv $HOME/build/docs docs
+	
+	# add, commit and push files
+	git add .
 	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
 	git push  > /dev/null
 	echo -e "Pushed to GitHub"
