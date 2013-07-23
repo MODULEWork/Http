@@ -133,6 +133,13 @@ class Request
 		$this->files = new FileCase($files);
 		$this->server = new ServerCase($server);
 		$this->headers = new HeaderCase($this->server->getHeaders());
+
+		// Reset propertys
+		$this->uri = null;
+		$this->path = null;
+		$this->baseUrl = null;
+		$this->basePath = null;
+		$this->method = null;
 	}
 
 	/**
@@ -508,6 +515,9 @@ class Request
 			$uri = $this->server->get('UNENCODED_URL');
 			
 		}
+
+		$this->server->set('REQUEST_URI', $uri);
+
 		return $uri;
 	}
 
@@ -519,13 +529,49 @@ class Request
 	{
 		$filename = basename($this->server->get('SCRIPT_FILENAME'));
 		
-		if (basename($this->getScript()) === $filename) {
-			$baseUrl = $this->getScript();
+		if (basename($this->server->get('SCRIPT_NAME')) === $filename) {
+			$baseUrl = $this->server->get('SCRIPT_NAME');
 		} elseif (basename($this->server->get('PHP_SELF')) === $filename) {
 			$baseUrl = $this->server->get('PHP_SELF');
-		} else {
-			$baseUrl = $this->server->get('SCRIPT_FILENAME');
+		} elseif (basename($this->server->get('ORIG_SCRIPT_NAME')) === $filename) {
+			$baseUrl = $this->server->get('ORIG_SCRIPT_NAME');
+        } else {			
+        	$path = $this->server->get('PHP_SELF', '');
+        	$file = $this->server->get('SCRIPT_FILENAME', '');
+
+        	$parts = array_reverse(explode('/', trim($file, '/')));
+
+        	$i = 0;
+
+        	$prev = count($parts);
+
+        	$baseUrl = '';
+
+        	do {
+        		$part = $parts[$i];
+        		$baseUrl = '/' . $part . $baseUrl;
+        		$i++;
+        	} while (($prev > $i) && (($pos = strpos($path, $baseUrl)) !== false) && (0 !== $pos));
 		}
+
+		$uri = $this->getBaseUri();
+
+		if ($baseUrl && false !== $pre = self::getPrefixUrlEncoded($uri, $baseUrl)) return $pre;
+
+		if ($baseUrl && false !== $pre = self::getPrefixUrlEncoded($uri, dirname($baseUrl))) return rtrim($prefix, '/');
+
+		if (($pos = strpos($uri, '?')) !== false) {
+			$queryLessUri = substr($uri, 0, $pos);
+		} else {
+			$queryLessUri = $uri;
+		}
+
+		$base = basename($baseUrl);
+
+		if (empty($base) || !strpos(rawurldecode($queryLessUri), $base)) return '';
+		
+
+
 
 		return rtrim($baseUrl, '/');
 
@@ -547,7 +593,7 @@ class Request
         return rtrim($basePath, '/');
 	}
 
-	public function generatePath()
+	protected function generatePath()
 	{
 		$baseUrl = $this->getBaseUrl();
 
@@ -564,6 +610,27 @@ class Request
 		}
 
 		return $path;
+	}
+
+	/**
+	 * Returns the string prefix if it' s the string' s prefix (URL Encoded)
+	 * false otherwise
+	 * @param  string $str 		The urlencoded string
+	 * @param  string $pre 		The NOT encoeded prefix
+	 * @return string|false		The prefix as it is encoded in $str or false
+	 */
+	protected static function getPrefixUrlEncoded($str, $pre)
+	{
+		if (strpos(rawurldecode($str), $pre) !== 0) return false;
+
+		$length = strlen($pre);
+
+		/*
+		NOTE! THIS REGEX is COPIED from the ZEND Framework (BSD License)
+		 */
+		if (preg_match("#^(%[[:xdigit:]]{2}|.){{$length}}#", $str, $match)) return $match[0];
+
+		return false;
 	}
 
 	

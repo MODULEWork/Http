@@ -231,6 +231,16 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$request = new Request;
 		
 		$this->assertEquals('/', $request->getPath());
+
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar'));
+
+		$this->assertEquals('/foo/bar', $request->getPath());
+
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar?baz'));
+
+		$this->assertEquals('/foo/bar', $request->getPath());
 	}
 
 	public function testGetAcceptedEncoding()
@@ -240,5 +250,33 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$request->init(array(), array(), array(), array(), array('HTTP_ACCEPT_ENCODING' => 'gzip,deflate,sdch'));
 
 		$this->assertEquals(array('gzip', 'deflate', 'sdch'), $request->getAcceptedEncodings());
+	}
+
+	/**
+	 * @dataProvider urlencodedStringPrefixData
+	 */
+	public function testGetPrefixUrlEncoded($string, $prefix, $expect)
+	{
+		$request = new Request;
+
+		$rm = new \ReflectionMethod($request, 'getPrefixUrlEncoded');
+		$rm->setAccessible(true);
+
+		$this->assertSame($expect, $rm->invoke($request, $string, $prefix));
+	}
+
+	public function urlencodedStringPrefixData()
+	{
+		return array(
+				array('foo', 'foo', 'foo'),
+				array('fo%6f', 'foo', 'fo%6f'),
+				array('foo/bar', 'foo', 'foo'),
+				array('fo%6f/bar', 'foo', 'fo%6f'),
+				array('f%6f%6f/bar', 'foo', 'f%6f%6f'),
+				array('%66%6F%6F/bar', 'foo', '%66%6F%6F'),
+				array('fo+o/bar', 'fo+o', 'fo+o'),
+				array('fo%2Bo/bar', 'fo+o', 'fo%2Bo'),
+				array('foobar', 'baz', false),
+			);
 	}
 }
