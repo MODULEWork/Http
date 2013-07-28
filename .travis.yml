@@ -16,6 +16,8 @@ script: phpunit
 
 after_script:
   - export POST_BUILD=true
+  - wget http://pear.phpunit.de/get/phploc.phar
+  - php phploc.phar src/ > build/result/phploc.txt
   - wget https://github.com/downloads/apigen/apigen/ApiGen-2.8.0-standalone.zip --no-check-certificate
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
