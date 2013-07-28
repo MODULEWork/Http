@@ -25,7 +25,8 @@ if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 	git checkout gh-pages
 	cp -Rv $HOME/build/coverage coverage
 	cp -Rv $HOME/build/docs docs
-	
+	cp -Rv $HOME/build/phploc.txt phploc.txt
+
 	# add, commit and push files
 	git add .
 	git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
