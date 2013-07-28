@@ -31,6 +31,8 @@ if [ ! -d "apigen" ]; then
 else
 	php apigen/apigen.php --source src/ --destination build/result/docs/
 fi
+wget http://pear.phpunit.de/get/phploc.phar
+php phploc.phar src/ > build/result/phploc.txt
 clear
 echo "${txtgrn}Build is done.${txtrst}"
 
