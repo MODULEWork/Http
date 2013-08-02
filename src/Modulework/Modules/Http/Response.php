@@ -7,7 +7,7 @@
 
 use DateTime;
 use DateTimeZone;
-use Modulework\Modules\Http\Utilities\ArrayCase;
+use Modulework\Modules\Http\Utilities\HeaderCase;
 
 /**
 * Response
@@ -133,7 +133,7 @@ class Response {
 	{
 		$this->setStatusCode($code);
 		$this->setContent($content);
-		$this->headers = new ArrayCase($headers);
+		$this->headers = new HeaderCase($headers);
 		if ($this->headers->has('Date')) {
 			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
 		}
