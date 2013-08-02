@@ -144,7 +144,7 @@ class Response {
 		$this->setContent($content);
 		
 		$this->headers = new HeaderCase($headers);
-		$this->cookies = new ArrayCase($headers);
+		$this->cookies = new ArrayCase();
 
 		if (!$this->headers->has('Date')) {
 			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
@@ -189,6 +189,11 @@ class Response {
 		foreach ($this->cookies->all() as $cookie) {
 			setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
 		}
+	}
+
+	public function addCookie()
+	{
+		
 	}
 
 	public function setStatusCode($code = 200, $txt = null)
