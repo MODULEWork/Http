@@ -10,6 +10,7 @@ use DateTimeZone;
 use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Utilities\ArrayCase;
 use Modulework\Modules\Http\Utilities\HeaderCase;
+use Modulework\Modules\Http\Utilities\HeaderWrapper;
 
 
 /**
@@ -128,9 +129,15 @@ class Response
 
 	/**
 	 * The cookies to get sent
-	 * @var \Modulework\Modules\Http\Utilities\CookieCase
+	 * @var \Modulework\Modules\Http\Utilities\ArrayCase
 	 */
 	public $cookies;
+
+	/**
+	 * The HeaderWrapper
+	 * @var \Modulework\Modules\Http\Utilities\HeaderWrapperInterface
+	 */
+	protected $headerWrapper;
 
 	/**
 	 * Factory for the Response object
@@ -140,12 +147,12 @@ class Response
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Request object
 	 */
-	public static function make($code = 200, $headers = array(), $content = '')
+	public static function make($code = 200, $headers = array(), $content = '', HeaderWrapperInterface $headerWrapper = null)
 	{
-		return new static($code, $headers, $content);
+		return new static($code, $headers, $content, $headerWrapper);
 	}
 
-	public function __construct($code = 200, $headers = array(), $content = '')
+	public function __construct($code = 200, $headers = array(), $content = '', HeaderWrapperInterface $headerWrapper = null)
 	{
 		$this->setStatusCode($code);
 		$this->setContent($content);
@@ -156,6 +163,8 @@ class Response
 		if (!$this->headers->has('Date')) {
 			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
 		}
+
+		$this->setHeaderWrapper($headerWrapper);
 	}
 
 	public function __toString()
@@ -164,6 +173,15 @@ class Response
 		sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText) . "\r\n" .
 		$this->headers->showForResponse() . "\r\n" .
 		$this->getContent();
+	}
+
+	public function setHeaderWrapper(HeaderWrapperInterface $headerWrapper = null)
+	{
+		if ($headerWrapper === null) {
+			$this->headerWrapper = new HeaderWrapper;
+		} else {
+			$this->headerWrapper = $headerWrapper;
+		}
 	}
 
 

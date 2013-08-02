@@ -49,6 +49,12 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals("HTTP/1.0 200 OK", $response[0]);
 	}
 
+	public function testSetHeaderWrapper()
+	{
+		$response = Response::make();
+
+	}
+
 	public function testGetDate()
 	{
 		$response = Response::make();
@@ -167,4 +173,49 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 	}
 
 
+}
+
+/**
+ * Mocked Classes:
+ * - UnitHeaderWrapper
+ *
+ */
+
+class UnitHeaderWrapper extends \Modulework\Modules\Http\Utilities\HeaderWrapperInterface
+{
+	public static $headersSent;
+	public static $headers = array();
+	public static $cookies = array();
+
+	public static function headers_sent(&$file = null, &$line = null)
+	{
+		return (self::$headersSent);
+	}
+
+	public static function header($string, $replace = true, $http_response_code = null)
+	{
+		$tmp = array(
+			'string' => $string,
+			'replace' => $replace,
+			'http_response_code' => $http_response_code
+			);
+		self::$headers[] = $tmp;
+	}
+	
+
+	public static function setcookie($name, $value = null, $expire = 0, $path = null, $domain = null, $secure = false, $httponly = false)
+	{
+		$tmp = array(
+			'name' => $name,
+			'value' => $value,
+			'expire' => $expire,
+			'path' => $path,
+			'domain' => $domain,
+			'secure' => $secure,
+			'httponly' => $httponly
+			);
+		self::$cookies[] = $tmp;
+		return true;
+	}
+	
 }
