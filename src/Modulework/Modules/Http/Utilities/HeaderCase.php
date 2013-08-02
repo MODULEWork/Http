@@ -27,4 +27,9 @@ class HeaderCase extends ArrayCase {
 		if (false === $date = \DateTime::createFromFormat(DATE_RFC2822, $val)) throw new \RuntimeException(sprintf('The %s HTTP header is not parseable (%s).', $key, $val));
 		return $date;
 	}
+
+	public function showForResponse()
+	{
+		return implode("\r\n", $this->all());
+	}
 }
