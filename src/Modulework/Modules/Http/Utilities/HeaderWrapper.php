@@ -6,12 +6,8 @@
  */
 
 /**
-* HeaderWrapper
-* This class wraps header releated methods:
-* - headers_sent()
-* - header()
-* - setcookie()
-*/
+ * {@inheritdoc}
+ */
 class HeaderWrapper implements HeaderWrapperInterface
 {
 	/**
@@ -34,5 +30,13 @@ class HeaderWrapper implements HeaderWrapperInterface
 		} else {
 			header($string, $replace, $http_response_code);
 		}
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public static function setcookie($name, $value = null, $expire = 0, $path = null, $domain = null, $secure = false, $httponly = false)
+	{
+		return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
 	}
 }

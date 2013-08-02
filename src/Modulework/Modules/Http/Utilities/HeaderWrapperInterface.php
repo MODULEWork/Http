@@ -6,8 +6,12 @@
  */
  
 /**
- * HeaderWrapperInterface is an OOP way of handling headers
- */
+* HeaderWrapper
+* This class wraps header releated methods:
+* - headers_sent()
+* - header()
+* - setcookie()
+*/
 interface HeaderWrapperInterface
 {
 	/**
@@ -25,5 +29,18 @@ interface HeaderWrapperInterface
 	 * @param  int     $http_response_code The HTTP response code
 	 */
 	public static function header($string, $replace = true, $http_response_code = null);
+
+	/**
+	 * Wrapper for PHP' s setcookie()
+	 * @param  strign  $name     The name of the cookie
+	 * @param  string  $value    The value of the cookie
+	 * @param  integer $expire   Expire date of the cookie
+	 * @param  string  $path     Valid path for the cookie
+	 * @param  string  $domain   Domain name of the cookie
+	 * @param  bool    $secure   Only accessable with SSL (HTTPS)
+	 * @param  bool    $httponly Only accessable through HTTP protocol
+	 * @return bool
+	 */
+	public static function setcookie($name, $value = null, $expire = 0, $path = null, $domain = null, $secure = false, $httponly = false);
 	
 }
