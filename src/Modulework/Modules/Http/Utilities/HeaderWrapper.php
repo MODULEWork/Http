@@ -31,7 +31,7 @@ class HeaderWrapper implements HeaderWrapperInterface
 			header($string, $replace, $http_response_code);
 		}
 	}
-	
+
 	/**
 	 * {@inheritdoc}
 	 */

@@ -52,6 +52,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 	public function testSetHeaderWrapper()
 	{
 		$response = Response::make();
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
 
 	}
 
@@ -136,27 +137,52 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 	public function testSendHeaders()
 	{
-		$response = Response::make();
-		$headers = $response->sendHeaders();
+		$headersSent = false;
+		$headers = array();
+		$cookies = array();
 
-		$this->assertObjectHasAttribute('content', $headers);
-		$this->assertObjectHasAttribute('statusCode', $headers);
-		$this->assertObjectHasAttribute('statusText', $headers);
-		$this->assertObjectHasAttribute('protocolVersion', $headers);
-		$this->assertObjectHasAttribute('headers', $headers);
+		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
+
+		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
+		$response->sendHeaders();
+
+		
+		$this->assertEquals('HTTP/1.0 302 Found', $headers[0]['string']);
+		$this->assertEquals('Location: foo.bar', $headers[1]['string']);
 
 	}
 
 	public function testSendCookies()
 	{
-		$response = Response::make();
-		$coo = $response->sendCookies();
 
-		$this->assertObjectHasAttribute('content', $coo);
-		$this->assertObjectHasAttribute('statusCode', $coo);
-		$this->assertObjectHasAttribute('statusText', $coo);
-		$this->assertObjectHasAttribute('protocolVersion', $coo);
-		$this->assertObjectHasAttribute('headers', $coo);
+		$headersSent = true;
+		$headers = array();
+		$cookies = array();
+
+		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
+
+		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
+		$response->addCookie(Cookie::make('foo'));
+		$response->sendCookies();
+
+		$this->assertCount(0, $cookies);
+
+		
+		$headersSent = false;
+		$headers = array();
+		$cookies = array();
+
+		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
+
+		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
+		$response->addCookie(Cookie::make('foo'));
+		$response->sendCookies();
+
+		$this->assertEquals('foo', $cookies[0]['name']);
+
 	}
 
 	public function testSend()
@@ -183,10 +209,16 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 class UnitHeaderWrapper implements \Modulework\Modules\Http\Utilities\HeaderWrapperInterface
 {
-	public static $headersSent;
+	public static $headersSent = false;
 	public static $headers = array();
 	public static $cookies = array();
 
+	public static function setUp(&$headersSent = array(), &$headers = array(), &$cookies = array())
+	{
+		self::$headersSent 	= &$headersSent;
+		self::$headers 		= &$headers;
+		self::$cookies 		= &$cookies;
+	}
 	public static function headers_sent(&$file = null, &$line = null)
 	{
 		return (self::$headersSent);

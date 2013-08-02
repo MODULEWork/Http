@@ -11,6 +11,7 @@ use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Utilities\ArrayCase;
 use Modulework\Modules\Http\Utilities\HeaderCase;
 use Modulework\Modules\Http\Utilities\HeaderWrapper;
+use Modulework\Modules\Http\Utilities\HeaderWrapperInterface;
 
 
 /**
@@ -187,16 +188,14 @@ class Response
 
 	public function sendHeaders()
 	{
-		if (headers_sent()) {
+		if ($this->headerWrapper->headers_sent()) {
 			return $this;
 		}
 
-		header(sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText));
+		$this->headerWrapper->header(sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText));
 
-		foreach ($this->headers->all() as $name => $values) {
-			foreach ($values as $value) {
-				header($name . ': ' . $value, false);
-			}
+		foreach ($this->headers->all() as $name => $value) {
+			$this->headerWrapper->header($name . ': ' . $value, false);
 		}
 
 		$this->sendCookies();
@@ -207,12 +206,12 @@ class Response
 
 	public function sendCookies()
 	{
-		if (headers_sent()) {
+		if ($this->headerWrapper->headers_sent()) {
 			return $this;
 		}
 
 		foreach ($this->cookies->all() as $cookie) {
-			setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
+			$this->headerWrapper->setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
 		}
 		return $this;
 	}

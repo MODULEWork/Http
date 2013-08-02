@@ -61,6 +61,11 @@ class Cookie {
 		return $this->expire;
 	}
 
+	public function getPath()
+	{
+		return $this->path;
+	}
+
 	public function getDomain()
 	{
 		return $this->domain;
