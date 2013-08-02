@@ -7,7 +7,10 @@
 
 use DateTime;
 use DateTimeZone;
+use Modulework\Modules\Http\Cookie;
+use Modulework\Modules\Http\Utilities\ArrayCase;
 use Modulework\Modules\Http\Utilities\HeaderCase;
+
 
 /**
 * Response
@@ -117,6 +120,12 @@ class Response {
 	public $headers;
 
 	/**
+	 * The cookies to get sent
+	 * @var \Modulework\Modules\Http\Utilities\CookieCase
+	 */
+	public $cookies;
+
+	/**
 	 * Factory for the Response object
 	 * @param  integer $code    The HTTP status code
 	 * @param  array   $headers The HTTP headers
@@ -133,7 +142,10 @@ class Response {
 	{
 		$this->setStatusCode($code);
 		$this->setContent($content);
+		
 		$this->headers = new HeaderCase($headers);
+		$this->cookies = new ArrayCase($headers);
+
 		if (!$this->headers->has('Date')) {
 			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
 		}
@@ -145,6 +157,38 @@ class Response {
 		sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText) . "\r\n" .
 		$this->headers->showForResponse() . "\r\n" .
 		$this->getContent();
+	}
+
+
+	public function sendHeaders()
+	{
+		if (headers_sent()) {
+			return $this;
+		}
+
+		header(sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText));
+
+		foreach ($this->headers->all() as $name => $values) {
+			foreach ($values as $value) {
+				header($name . ': ' . $value, false);
+			}
+		}
+
+		$this->sendCookies();
+
+		return $this;
+
+	}
+
+	public function sendCookies()
+	{
+		if (headers_sent()) {
+			return $this;
+		}
+
+		foreach ($this->cookies->all() as $cookie) {
+			setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
+		}
 	}
 
 	public function setStatusCode($code = 200, $txt = null)
