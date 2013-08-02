@@ -88,6 +88,15 @@ class ArrayCaseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(array_keys($this->arr), $case->keys());
 	}
 
+	public function testPush()
+	{
+		$case = new ArrayCase();
+		$case->push('foo');
+		$case->push('bar');
+
+		$this->assertEquals(array('foo', 'bar'), $case->all());
+	}
+
 	public function testGetIterator()
 	{
 		$tmp = array();
