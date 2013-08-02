@@ -137,6 +137,20 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 	public function testSendHeaders()
 	{
+		$headersSent = true;
+		$headers = array();
+		$cookies = array();
+
+		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
+
+		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
+		$response->sendHeaders();
+
+		
+		$this->assertCount(0, $headers);
+
+
 		$headersSent = false;
 		$headers = array();
 		$cookies = array();
@@ -187,14 +201,19 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 	public function testSend()
 	{
-		$response = Response::make();
-		$res = $response->send();
+		$headersSent = false;
+		$headers = array();
+		$cookies = array();
 
-		$this->assertObjectHasAttribute('content', $res);
-		$this->assertObjectHasAttribute('statusCode', $res);
-		$this->assertObjectHasAttribute('statusText', $res);
-		$this->assertObjectHasAttribute('protocolVersion', $res);
-		$this->assertObjectHasAttribute('headers', $res);
+		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
+
+		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response->setHeaderWrapper(new UnitHeaderWrapper);
+		$response->send();
+
+		
+		$this->assertEquals('HTTP/1.0 302 Found', $headers[0]['string']);
+		$this->assertEquals('Location: foo.bar', $headers[1]['string']);
 
 	}
 
