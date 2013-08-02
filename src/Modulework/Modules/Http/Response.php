@@ -5,6 +5,10 @@
  * License: View distributed LICENSE file
  */
 
+use DateTime;
+use DateTimeZone;
+use Modulework\Modules\Http\Utilities\ArrayCase;
+
 /**
 * Response
 * This class should represent the HTTP response,
@@ -25,16 +29,16 @@ class Response {
 	protected $statusCode;
 
 	/**
-	 * The status text assoc to the status code
-	 * @var string
-	 */
-	protected $statusCode;
-
-	/**
 	 * The charset (header)
 	 * @var string
 	 */
 	protected $charset;
+
+	/**
+	 * The HTTP protocol version
+	 * @var string
+	 */
+	protected $protocolVersion;
 
 	/**
 	 * The status code registry
@@ -105,5 +109,55 @@ class Response {
 		510 => 'Not Extended',
 		511 => 'Network Authentication Required'
 		);
+	
+	/**
+	 * The headers to get sent
+	 * @var \Modulework\Modules\Http\Utilities\ArrayCase
+	 */
+	public $headers;
+
+	/**
+	 * Factory for the Response object
+	 * @param  integer $code    The HTTP status code
+	 * @param  array   $headers The HTTP headers
+	 * @param  string  $content The body of the HTTP response
+	 * 
+	 * @return \Modulework\Modules\Http\Response The new Request object
+	 */
+	public static function make($code = 200, $headers = array(), $content = '')
+	{
+		return new static($code, $headers, $content);
+	}
+
+	public function __construct($code = 200, $headers = array(), $content = '')
+	{
+		$this->setStatusCode($code);
+		$this->setContent($content);
+		$this->headers = new ArrayCase($headers);
+		if ($this->headers->has('Date')) {
+			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
+		}
+	}
+
+	public function __toString()
+	{
+		return
+		sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText) . "\r\n" .
+		$this->headers->showForResponse() . "\r\n" .
+		$this->getContent();
+	}
+
+	public function setStatusCode($code = 200)
+	{
+		$this->statusCode = $code;
+	}
+
+	public function setContent($content = '')
+	{
+		$this->content = $content;
+	}
+
+
+
 
 }

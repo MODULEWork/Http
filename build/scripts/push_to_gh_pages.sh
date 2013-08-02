@@ -1,3 +1,4 @@
+#!/bin/bash
 start=$(date +%s)
 
 function error_exit

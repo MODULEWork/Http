@@ -1,3 +1,4 @@
+#!/bin/bash
 #################
 #Build Script
 #This will build the project.
@@ -31,7 +32,9 @@ if [ ! -d "apigen" ]; then
 else
 	php apigen/apigen.php --source src/ --destination build/result/docs/
 fi
-wget http://pear.phpunit.de/get/phploc.phar
+if [ ! -f "phploc.phar" ]; then
+	wget http://pear.phpunit.de/get/phploc.phar
+fi
 php phploc.phar src/ > build/result/phploc.txt
 clear
 echo "${txtgrn}Build is done.${txtrst}"
