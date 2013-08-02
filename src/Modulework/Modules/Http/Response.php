@@ -191,9 +191,9 @@ class Response {
 		}
 	}
 
-	public function addCookie()
+	public function addCookie(Cookie $cookie)
 	{
-		
+		$this->cookies->push($cookie);
 	}
 
 	public function setStatusCode($code = 200, $txt = null)

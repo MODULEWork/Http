@@ -22,6 +22,11 @@ class Cookie {
 	protected $secure;
 	protected $httpOnly;
 
+	public function make($name, $value = null, $expire = 0, $path = '/', $domain = null, $secure = false, $httpOnly = true)
+	{
+		return new static($name, $value, $expire, $path, $domain, $secure, $httpOnly);
+	}
+	
 	public function __construct($name, $value = null, $expire = 0, $path = '/', $domain = null, $secure = false, $httpOnly = true)
 	{
 		if ($name == '') throw new InvalidArgumentExceptionException('Cookie name cannot be empty');
