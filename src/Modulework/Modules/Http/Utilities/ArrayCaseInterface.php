@@ -70,4 +70,10 @@ interface ArrayCaseInterface
 	 * @return array The keys in a array
 	 */
 	public function keys();
+
+	/**
+	 * Pushes a parameter
+	 * @param mixed	$value	The value to store
+	 */
+	public function push($value);
 }

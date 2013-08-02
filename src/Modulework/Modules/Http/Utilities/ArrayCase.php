@@ -98,6 +98,14 @@ class ArrayCase implements ArrayCaseInterface, \Countable, \IteratorAggregate
 	/**
 	 * {@inheritdoc}
 	 */
+	public function push($value)
+	{
+		$this->array[] = $value;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function getIterator()
 	{
 		return new \ArrayIterator($this->array);
