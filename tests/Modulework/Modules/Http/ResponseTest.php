@@ -7,7 +7,9 @@
  * 
  * This file is meant to be used in PHPUnit Tests
  */
+
 use Modulework\Modules\Http\Response;
+
 /**
 * PHPUnit Test
 */
@@ -44,6 +46,50 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$response = Response::make();
 		$response = explode("\r\n", $response);
 		$this->assertEquals("HTTP/1.0 200 OK", $response[0]);
+	}
+
+	/**
+	 * @dataProvider setStatusCodeData
+	 */
+	public function testSetStatusCode($code, $txt, $expTxt)
+	{
+		$response = Response::make();
+		$response->setStatusCode($code, $txt);
+		$statusText = new \ReflectionProperty($response, 'statusText');
+		$statusText->setAccessible(true);
+
+		$this->assertEquals($expTxt, $statusText->getValue($response));
+	}
+
+	public function setStatusCodeData()
+	{
+		return array(
+			array(
+				200,
+				null,
+				'OK'
+				),
+			array(
+				200,
+				false,
+				''
+				),
+			array(
+				200,
+				'foo',
+				'foo'
+				),
+			array(
+				199,
+				'foo',
+				'foo'
+				),
+			array(
+				199,
+				null,
+				''
+				),
+			);
 	}
 
 

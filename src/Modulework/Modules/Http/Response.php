@@ -161,7 +161,7 @@ class Response {
 			return $this;
 		}
 
-		$this->statusText = $text;
+		$this->statusText = $txt;
 
 		return $this;
 	}
