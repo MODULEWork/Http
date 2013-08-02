@@ -8,6 +8,7 @@
  * This file is meant to be used in PHPUnit Tests
  */
 
+use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Response;
 
 /**
@@ -107,6 +108,62 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 				''
 				),
 			);
+	}
+
+	public function testAddCookie()
+	{
+		$response = Response::make();
+		$response->addCookie(Cookie::make('foo'));
+
+		$this->assertEquals(1, count($response->cookies));
+	}
+
+	public function testSendContent()
+	{
+		$response = Response::make(200, array(), 'foo');
+		ob_start();
+		$response->sendContent();
+		$actual = ob_get_clean();
+
+		$this->assertEquals('foo', $actual);
+	}
+
+	public function testSendHeaders()
+	{
+		$response = Response::make();
+		$headers = $response->sendHeaders();
+
+		$this->assertObjectHasAttribute('content', $headers);
+		$this->assertObjectHasAttribute('statusCode', $headers);
+		$this->assertObjectHasAttribute('statusText', $headers);
+		$this->assertObjectHasAttribute('protocolVersion', $headers);
+		$this->assertObjectHasAttribute('headers', $headers);
+
+	}
+
+	public function testSendCookies()
+	{
+		$response = Response::make();
+		$coo = $response->sendCookies();
+
+		$this->assertObjectHasAttribute('content', $coo);
+		$this->assertObjectHasAttribute('statusCode', $coo);
+		$this->assertObjectHasAttribute('statusText', $coo);
+		$this->assertObjectHasAttribute('protocolVersion', $coo);
+		$this->assertObjectHasAttribute('headers', $coo);
+	}
+
+	public function testSend()
+	{
+		$response = Response::make();
+		$res = $response->send();
+
+		$this->assertObjectHasAttribute('content', $res);
+		$this->assertObjectHasAttribute('statusCode', $res);
+		$this->assertObjectHasAttribute('statusText', $res);
+		$this->assertObjectHasAttribute('protocolVersion', $res);
+		$this->assertObjectHasAttribute('headers', $res);
+
 	}
 
 

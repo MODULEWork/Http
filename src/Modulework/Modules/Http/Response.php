@@ -17,7 +17,8 @@ use Modulework\Modules\Http\Utilities\HeaderCase;
 * This class should represent the HTTP response,
 * done by the application.
 */
-class Response {
+class Response
+{
 
 	/**
 	 * The main content
@@ -30,6 +31,12 @@ class Response {
 	 * @var integer
 	 */
 	protected $statusCode;
+
+	/**
+	 * The HTTP status Text
+	 * @var string
+	 */
+	protected $statusText;
 
 	/**
 	 * The charset (header)
@@ -189,6 +196,22 @@ class Response {
 		foreach ($this->cookies->all() as $cookie) {
 			setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
 		}
+		return $this;
+	}
+
+	public function sendContent()
+	{
+		echo $this->content;
+
+		return $this;
+	}
+
+	public function send()
+	{
+		$this->sendHeaders();
+		$this->sendContent();
+
+		return $this;
 	}
 
 	public function addCookie(Cookie $cookie)
