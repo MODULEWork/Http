@@ -78,6 +78,6 @@ class Cookie {
 
 	public function stillExists()
 	{
-		return ($this->expire < time());
+		return ($this->expire > time());
 	}
 }
