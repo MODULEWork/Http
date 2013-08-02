@@ -181,7 +181,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
  *
  */
 
-class UnitHeaderWrapper extends \Modulework\Modules\Http\Utilities\HeaderWrapperInterface
+class UnitHeaderWrapper implements \Modulework\Modules\Http\Utilities\HeaderWrapperInterface
 {
 	public static $headersSent;
 	public static $headers = array();
