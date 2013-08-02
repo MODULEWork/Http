@@ -48,6 +48,23 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals("HTTP/1.0 200 OK", $response[0]);
 	}
 
+	public function testGetDate()
+	{
+		$response = Response::make();
+
+		$date = new DateTime(null, new DateTimeZone('UTC'));
+
+		$this->assertEquals($date->format('D, d M Y H:i:s') . ' GMT', $response->getDate());
+	}
+
+	public function testSetProtocolVersion()
+	{
+		$response = Response::make();
+		$response->setProtocolVersion('1.1');
+
+		$this->assertEquals('1.1', $response->getProtocolVersion());
+	}
+
 	/**
 	 * @dataProvider setStatusCodeData
 	 */
@@ -55,7 +72,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 	{
 		$response = Response::make();
 		$response->setStatusCode($code, $txt);
-		$statusText = new \ReflectionProperty($response, 'statusText');
+		$statusText = new ReflectionProperty($response, 'statusText');
 		$statusText->setAccessible(true);
 
 		$this->assertEquals($expTxt, $statusText->getValue($response));
