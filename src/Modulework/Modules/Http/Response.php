@@ -38,14 +38,14 @@ class Response {
 	 * The HTTP protocol version
 	 * @var string
 	 */
-	protected $protocolVersion;
+	protected $protocolVersion = '1.0';
 
 	/**
 	 * The status code registry
 	 * List according to {@link http://www.iana.org/assignments/http-status-codes/http-status-codes.txt}
 	 * @var array
 	 */
-	public $statusCodeRegistry = array(
+	public static $statusCodeRegistry = array(
 		100 => 'Continue',
 		101 => 'Switching Protocols',
 		102 => 'Processing',
@@ -134,7 +134,7 @@ class Response {
 		$this->setStatusCode($code);
 		$this->setContent($content);
 		$this->headers = new HeaderCase($headers);
-		if ($this->headers->has('Date')) {
+		if (!$this->headers->has('Date')) {
 			$this->setDate(new DateTime(null, new DateTimeZone('UTC')));
 		}
 	}
@@ -147,14 +147,58 @@ class Response {
 		$this->getContent();
 	}
 
-	public function setStatusCode($code = 200)
+	public function setStatusCode($code = 200, $txt = null)
 	{
 		$this->statusCode = $code;
+
+		if ($txt === null) {
+			$this->statusText = isset(self::$statusCodeRegistry[$code]) ? self::$statusCodeRegistry[$code] : '';
+			return $this;
+		}
+
+		if ($txt === false) {
+			$this->statusText = '';
+			return $this;
+		}
+
+		$this->statusText = $text;
+
+		return $this;
+	}
+
+	public function getStatusCode()
+	{
+		return $this->statusCode;
 	}
 
 	public function setContent($content = '')
 	{
 		$this->content = $content;
+	}
+
+	public function getContent($content = '')
+	{
+		return $this->content;
+	}
+
+	public function setDate(DateTime $date)
+	{
+		$this->headers->set('Date', $date->format('D, d M Y H:i:s') . ' GMT');
+	}
+
+	public function getDate()
+	{
+		 return $this->headers->get('Date', new \DateTime());
+	}
+
+	public function setProtocolVersion($version = '1.0')
+	{
+		$this->protocolVersion = $version;
+	}
+
+	public function getProtocolVersion()
+	{
+		return $this->protocolVersion;
 	}
 
 
