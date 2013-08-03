@@ -67,6 +67,17 @@ class CookieTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(555, $cookie->getExpiresTime());
 	}
 
+	public function testGetPath()
+	{
+		$cookie = Cookie::make('foo');
+
+		$this->assertEquals('/', $cookie->getPath());
+
+		$cookie = Cookie::make('foo', 'bar', true, 'baz');
+
+		$this->assertEquals('baz', $cookie->getPath());
+	}
+
 	public function testGetDomain()
 	{
 		$cookie = Cookie::make('foo');
@@ -113,4 +124,54 @@ class CookieTest extends PHPUnit_Framework_TestCase
 
 		$this->assertTrue($cookie->stillExists());
 	}
+
+	public function testSetName()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setName('bar');
+		$this->assertEquals('bar', $cookie->getName());
+	}
+
+	public function testSetValue()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setValue('bar');
+		$this->assertEquals('bar', $cookie->getValue());
+	}
+
+	public function testSetExpiresTime()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setExpiresTime(123456789);
+		$this->assertEquals(123456789, $cookie->getExpiresTime());
+	}
+
+	public function testSetPath()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setPath('bar');
+		$this->assertEquals('bar', $cookie->getPath());
+	}
+
+	public function testSetDomain()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setDomain('foo.bar');
+		$this->assertEquals('foo.bar', $cookie->getDomain());
+	}
+
+	public function testSetSecure()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setSecure(true);
+		$this->assertTrue($cookie->isSecure());
+	}
+
+	public function testSetHttpOnly()
+	{
+		$cookie = Cookie::make('foo');
+		$cookie->setHttpOnly(false);
+		$this->assertFalse($cookie->isHttpOnly());
+	}
+
 }
