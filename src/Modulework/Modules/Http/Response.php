@@ -155,6 +155,16 @@ class Response
 		return new static($content, $code, $headers, $headerWrapper);
 	}
 
+	/**
+	 * Constructor.
+	 * @param  string  $content The body of the HTTP response
+	 * @param  integer $code    The HTTP status code
+	 * @param  array   $headers The HTTP headers
+	 * 
+	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
+	 * 
+	 * @return \Modulework\Modules\Http\Response The new Request object
+	 */
 	public function __construct($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		$this->setStatusCode($code);
@@ -170,6 +180,15 @@ class Response
 		$this->setHeaderWrapper($headerWrapper);
 	}
 
+	/**
+	 * PHP' s magic method __toString
+	 * Format:
+	 * HTTP/{VERSION} {STATUSCODE} {STATUSTEXT}
+	 * {HEADERS}
+	 * {BODY}
+	 * 
+	 * @return string The response as string
+	 */
 	public function __toString()
 	{
 		return
@@ -178,16 +197,38 @@ class Response
 		$this->getContent();
 	}
 
+	/**
+	 * Dependency injection for the HeaderWrapper (also availbe thru the constructor)
+	 * If null is passed it will create a new instance of \Modulework\Modules\Http\Utilities\HeaderWrapper
+	 *
+	 * It returns the "previous" HeaderWrapper or null
+	 * 
+	 * @param \Modulework\Modules\Http\Utilities\HeaderWrapperInterface $headerWrapper The HeaderWrapper
+	 *
+	 * @return \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null 	"previous" HeaderWrapper | null
+	 */
 	public function setHeaderWrapper(HeaderWrapperInterface $headerWrapper = null)
 	{
+		if ($this->headerWrapper !== null) {
+			$ret = $this->headerWrapper;
+		} else {
+			$ret = null;
+		}
+
 		if ($headerWrapper === null) {
 			$this->headerWrapper = new HeaderWrapper;
 		} else {
 			$this->headerWrapper = $headerWrapper;
 		}
+
+		return $ret;
 	}
 
-
+	/**
+	 * Send the headers and cookies to the client
+	 * @uses sendCookies
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function sendHeaders()
 	{
 		if ($this->headerWrapper->headers_sent()) {
@@ -206,6 +247,10 @@ class Response
 
 	}
 
+	/**
+	 * Send the cookies only to the client
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function sendCookies()
 	{
 		if ($this->headerWrapper->headers_sent()) {
@@ -218,6 +263,10 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Sends the content to the client
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function sendContent()
 	{
 		echo $this->content;
@@ -225,6 +274,12 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Send the response to the client (headers, cookies, content)
+	 * @uses sendHeaders
+	 * @uses sendContent
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function send()
 	{
 		$this->sendHeaders();
@@ -233,16 +288,33 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Add a cookie to the response
+	 * @param Cookie $cookie The cookie object
+	 */
 	public function addCookie(Cookie $cookie)
 	{
 		$this->cookies->push($cookie);
 	}
 
+	/**
+	 * Add a header to the response
+	 * @param string  $name      The name of the header (e.g. "Location")
+	 * @param string  $value     The value of the header (e.g. "foo.bar")
+	 * @param boolean $overwrite Whether it should replaces existing headers
+	 */
 	public function addHeader($name, $value, $overwrite = false)
 	{
 		$this->headers->set($name, $value, $overwrite);
 	}
 
+	/**
+	 * Set the status code of the response
+	 * If the text is null it will try to determine the text from the internal lib
+	 * @param integer $code The status code
+	 * @param string  $txt  The status text
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function setStatusCode($code = 200, $txt = null)
 	{
 		$this->statusCode = $code;
@@ -262,26 +334,51 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Returns the status code of this response
+	 * @return integer The status code
+	 */
 	public function getStatusCode()
 	{
 		return $this->statusCode;
 	}
 
+	/**
+	 * Set the content for this response
+	 * @param string $content The content
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function setContent($content = '')
 	{
 		$this->content = $content;
+		return $this;
 	}
 
+	/**
+	 * Returns the content of this response
+	 * @param  string $content [description]
+	 * @return [type]          [description]
+	 */
 	public function getContent($content = '')
 	{
 		return $this->content;
 	}
 
+	/**
+	 * Set the date for this request
+	 * @param DateTime $date The DateTime object
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function setDate(DateTime $date)
 	{
 		$this->headers->set('Date', $date->format('D, d M Y H:i:s') . ' GMT');
+		return $this;
 	}
 
+	/**
+	 * Returns the date of this response
+	 * @return string The Date
+	 */
 	public function getDate()
 	{
 		$default = new DateTime();
@@ -290,11 +387,21 @@ class Response
 		return $this->headers->get('Date', $default);
 	}
 
+	/**
+	 * Set the HTTP protocol version for this response
+	 * @param string $version The HTTP protocol version
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function setProtocolVersion($version = '1.0')
 	{
 		$this->protocolVersion = $version;
+		return $this;
 	}
 
+	/**
+	 * Returns the HTTP protocol version of this response
+	 * @return string The HTTP protocol version
+	 */
 	public function getProtocolVersion()
 	{
 		return $this->protocolVersion;
