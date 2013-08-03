@@ -229,6 +229,84 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(array('Location' => 'foo.bar'), $response->headers->all());
 	}
 
+	public function testSetContent()
+	{
+		$response = Response::make();
+		$response->setContent('foo');
+
+		$this->assertEquals('foo', $response->getContent());
+	}
+
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testSetContentInvalid()
+	{
+		$response = Response::make();
+		$response->setContent(array());
+	}
+
+	public function testAppendContent()
+	{
+		$response = Response::make('foo');
+		$response->appendContent('bar');
+
+		$this->assertEquals('foobar', $response->getContent());
+
+		$response = Response::make();
+		$response->appendContent('bar');
+
+		$this->assertEquals('bar', $response->getContent());
+	}
+
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testAppendContentInvalid()
+	{
+		$response = Response::make('foo');
+		$response->appendContent(array());
+	}
+
+	/**
+	 * @dataProvider validateContenteData
+	 */
+	public function testValidateContent($var, $exp)
+	{
+		$response = Response::make();
+
+		$rm = new \ReflectionMethod($response, 'validateContent');
+		$rm->setAccessible(true);
+
+		$this->assertEquals($exp, $rm->invoke($response, $var));
+	}
+
+	public function validateContenteData()
+	{
+		return array(
+			array(
+				'string', true
+				),
+			array(
+				111, true
+				),
+			array(
+				new Response, true
+				),
+			array(
+				new stdClass, false
+				),
+			array(
+				function() {
+					return 'string';
+				}, false
+				),
+			array(
+				array(), false
+				)
+			);
+	}
+
 
 }
 

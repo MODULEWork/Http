@@ -7,7 +7,9 @@
 
 use DateTime;
 use DateTimeZone;
+use InvalidArgumentException;
 use Modulework\Modules\Http\Cookie;
+use Modulework\Modules\Http\Request;
 use Modulework\Modules\Http\Utilities\ArrayCase;
 use Modulework\Modules\Http\Utilities\HeaderCase;
 use Modulework\Modules\Http\Utilities\HeaderWrapper;
@@ -149,6 +151,8 @@ class Response
 	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Request object
+	 *
+	 * @throws InvalidArgumentException (from Constructor)
 	 */
 	public static function make($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -164,6 +168,8 @@ class Response
 	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Request object
+	 *
+	 * @throws InvalidArgumentException (from setContent)
 	 */
 	public function __construct($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -288,6 +294,29 @@ class Response
 		return $this;
 	}
 
+	public function prepare(Request $req)
+	{
+
+		// This method tries may cause some issues, if 200 is REQUIRED even when it' s
+		// redirect response. If you want to change the status code just call it AFTER
+		// this method:
+		// e. g. [...]->prepare()->setStatusCode(301)[...]
+		if ($this->statusCode === 200 && $this->headers->has('Location')) {
+			$this->setStatusCode('302');
+		}
+
+		if ($req->isMethod('HEAD')) $this->content = null;
+
+		if ('HTTP/1.0' != $request->server->get('SERVER_PROTOCOL')) $this->setProtocolVersion('1.1');
+
+		if ('1.0' == $this->getProtocolVersion() && 'no-cache' == $this->headers->get('Cache-Control')) {
+			$this->headers->set('pragma', 'no-cache');
+			$this->headers->set('expires', -1);
+		}
+
+		return $this;
+	}
+
 	/**
 	 * Add a cookie to the response
 	 * @param Cookie $cookie The cookie object
@@ -347,19 +376,46 @@ class Response
 	 * Set the content for this response
 	 * @param string $content The content
 	 * @return \Modulework\Modules\Http\Response THIS
+	 *
+	 * @throws InvalidArgumentException
 	 */
 	public function setContent($content = '')
 	{
-		$this->content = $content;
+		if (!$this->validateContent($content)) {
+			throw new InvalidArgumentException('The Response content must be a string or an object implementing __toString() magic method, "' . gettype($content) . '" given.');
+		}
+
+		$this->content = (string) $content;
+		
 		return $this;
 	}
 
 	/**
-	 * Returns the content of this response
-	 * @param  string $content [description]
-	 * @return [type]          [description]
+	 * Append to the content for this response
+	 * @param string $content The content to append
+	 * @return \Modulework\Modules\Http\Response THIS
+	 *
+	 * @throws InvalidArgumentException
 	 */
-	public function getContent($content = '')
+	public function appendContent($content = '')
+	{
+		if (!$this->validateContent($content)) {
+			throw new InvalidArgumentException('The Response content must be a string or an object implementing __toString() magic method, "' . gettype($content) . '" given.');
+		}
+
+		if ($this->content === '') {
+			return $this->setContent($content);
+		}
+
+		$this->content .= (string) $content;
+		
+		return $this;
+	}
+	/**
+	 * Returns the content of this response
+	 * @return string          The content
+	 */
+	public function getContent()
 	{
 		return $this->content;
 	}
@@ -405,6 +461,25 @@ class Response
 	public function getProtocolVersion()
 	{
 		return $this->protocolVersion;
+	}
+
+	/**
+	 * Validate the content
+	 * Allowed types:
+	 * - string
+	 * - integers
+	 * - objects implementing __toString()
+	 * 
+	 * @param  mixed $content The content to check
+	 * @return bool          Whether the content is valid
+	 */
+	protected static function validateContent($content)
+	{
+		if (!is_string($content) && !is_numeric($content) && !is_callable(array($content, '__toString'))) {
+			return false;
+		}
+
+		return true;
 	}
 
 
