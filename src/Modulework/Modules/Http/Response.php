@@ -142,18 +142,20 @@ class Response
 
 	/**
 	 * Factory for the Response object
+	 * @param  string  $content The body of the HTTP response
 	 * @param  integer $code    The HTTP status code
 	 * @param  array   $headers The HTTP headers
-	 * @param  string  $content The body of the HTTP response
+	 * 
+	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Request object
 	 */
-	public static function make($code = 200, $headers = array(), $content = '', HeaderWrapperInterface $headerWrapper = null)
+	public static function make($content = '', $code = 200, $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		return new static($code, $headers, $content, $headerWrapper);
 	}
 
-	public function __construct($code = 200, $headers = array(), $content = '', HeaderWrapperInterface $headerWrapper = null)
+	public function __construct($content = '', $code = 200, $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		$this->setStatusCode($code);
 		$this->setContent($content);
