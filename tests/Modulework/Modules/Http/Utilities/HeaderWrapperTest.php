@@ -21,4 +21,35 @@ class HeaderWrapperTest extends PHPUnit_Framework_TestCase
 		$num = 12;
 		HeaderWrapper::headers_sent($str, $num);
 	}
+
+	/**
+	 * @dataProvider headerData
+	 * @expectedException PHPUnit_Framework_Error
+	 */
+	public function testheader($str, $rep, $code)
+	{
+		HeaderWrapper::header($str, $rep, $code);
+	}
+
+	public function headerData()
+	{
+		return array(
+			array(
+				'foo', true, null
+				),
+			array(
+				'foo', true, 404
+				)
+			);
+	}
+
+	/**
+	 * @expectedException PHPUnit_Framework_Error
+	 */
+	public function testsetcookie()
+	{
+		HeaderWrapper::setcookie('foo');
+	}
+
+
 }

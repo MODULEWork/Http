@@ -207,8 +207,10 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response = Response::make(302, array('Location' => 'foo.bar'), 'foo');
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
+
+		$this->expectOutputString('foo');
 		$response->send();
 
 		

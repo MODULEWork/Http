@@ -27,6 +27,7 @@ interface HeaderWrapperInterface
 	 * @param  string  $string             Der Header-String.
 	 * @param  boolean $replace            Replace existing headers
 	 * @param  int     $http_response_code The HTTP response code
+	 * @return void 
 	 */
 	public static function header($string, $replace = true, $http_response_code = null);
 

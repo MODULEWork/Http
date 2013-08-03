@@ -26,9 +26,9 @@ class HeaderWrapper implements HeaderWrapperInterface
 	public static function header($string, $replace = true, $http_response_code = null)
 	{
 		if ($http_response_code === null) {
-			header($string, $replace);
+			return header($string, $replace);
 		} else {
-			header($string, $replace, $http_response_code);
+			return header($string, $replace, $http_response_code);
 		}
 	}
 
