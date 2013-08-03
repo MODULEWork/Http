@@ -24,7 +24,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertEquals('', $response->getContent());
 
-		$response = Response::make(302, array('Foo' => 'bar'), 'FooBarBody');
+		$response = Response::make('FooBarBody', 302, array('Foo' => 'bar'));
 		$this->assertInstanceOf('Modulework\Modules\Http\Response', $response);
 		$this->assertEquals(302, $response->getStatusCode());
 		$this->assertEquals('FooBarBody', $response->getContent());
@@ -37,7 +37,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(200, $response->getStatusCode());
 		$this->assertEquals('', $response->getContent());
 
-		$response = new Response(302, array(), 'FooBarBody');
+		$response = new Response('FooBarBody', 302, array());
 		$this->assertEquals(302, $response->getStatusCode());
 		$this->assertEquals('FooBarBody', $response->getContent());
 	}
@@ -127,12 +127,10 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 	public function testSendContent()
 	{
-		$response = Response::make(200, array(), 'foo');
-		ob_start();
+		$response = Response::make('foo', 200, array());
+		$this->expectOutputString('foo');
 		$response->sendContent();
-		$actual = ob_get_clean();
 
-		$this->assertEquals('foo', $actual);
 	}
 
 	public function testSendHeaders()
@@ -143,7 +141,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response = Response::make('', 302, array('Location' => 'foo.bar'));
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
 		$response->sendHeaders();
 
@@ -157,7 +155,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response = Response::make('', 302, array('Location' => 'foo.bar'));
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
 		$response->sendHeaders();
 
@@ -176,7 +174,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response = Response::make('', 302, array('Location' => 'foo.bar'));
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
 		$response->addCookie(Cookie::make('foo'));
 		$response->sendCookies();
@@ -190,7 +188,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'));
+		$response = Response::make('', 302, array('Location' => 'foo.bar'));
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
 		$response->addCookie(Cookie::make('foo'));
 		$response->sendCookies();
@@ -207,7 +205,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 		UnitHeaderWrapper::setUp($headersSent, $headers, $cookies);
 
-		$response = Response::make(302, array('Location' => 'foo.bar'), 'foo');
+		$response = Response::make('foo', 302, array('Location' => 'foo.bar'));
 		$response->setHeaderWrapper(new UnitHeaderWrapper);
 
 		$this->expectOutputString('foo');

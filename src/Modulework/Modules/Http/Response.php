@@ -150,12 +150,12 @@ class Response
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Request object
 	 */
-	public static function make($content = '', $code = 200, $headers = array(), HeaderWrapperInterface $headerWrapper = null)
+	public static function make($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
-		return new static($code, $headers, $content, $headerWrapper);
+		return new static($content, $code, $headers, $headerWrapper);
 	}
 
-	public function __construct($content = '', $code = 200, $headers = array(), HeaderWrapperInterface $headerWrapper = null)
+	public function __construct($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		$this->setStatusCode($code);
 		$this->setContent($content);
