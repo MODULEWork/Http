@@ -217,6 +217,18 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
 	}
 
+	public function testAddHeader()
+	{
+		$response = Response::make();
+
+		$response->addHeader('Location', 'foo.bar');
+
+		// Not relevant for this test
+		$response->headers->remove('Date');
+
+		$this->assertEquals(array('Location' => 'foo.bar'), $response->headers->all());
+	}
+
 
 }
 

@@ -238,9 +238,9 @@ class Response
 		$this->cookies->push($cookie);
 	}
 
-	public function addHeader($name, $value, $replace)
+	public function addHeader($name, $value, $overwrite = false)
 	{
-		$this->headers->set($name, $value, $replace);
+		$this->headers->set($name, $value, $overwrite);
 	}
 
 	public function setStatusCode($code = 200, $txt = null)
@@ -284,7 +284,10 @@ class Response
 
 	public function getDate()
 	{
-		 return $this->headers->get('Date', new \DateTime());
+		$default = new DateTime();
+		$default = $default->format('D, d M Y H:i:s') . 'GMT';
+
+		return $this->headers->get('Date', $default);
 	}
 
 	public function setProtocolVersion($version = '1.0')
