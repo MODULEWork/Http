@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Modulework\Modules\Http\Response</title>
+
+	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
+	<script type="text/javascript" src="elementlist.js?1487976363"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Modulework.html">Modulework<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.html">Modules<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.Http.html">Http<span></span></a>
+						<ul>
+				<li><a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Modulework.Modules.Http.Cookie.html">Cookie</a></li>
+				<li><a href="class-Modulework.Modules.Http.Request.html">Request</a></li>
+				<li class="active"><a href="class-Modulework.Modules.Http.Response.html">Response</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Modulework.Modules.Http.html" title="Summary of Modulework\Modules\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Response</h1>
+
+
+	<div class="description">
+	
+<p>Response This class should represent the HTTP response, done by the
+application.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Response.html#17-306" title="Go to source code">Modulework/Modules/Http/Response.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="make" id="_make">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_make">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#143-156" title="Go to source code">make</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Factory for the Response object</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Factory for the Response object</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#158-171" title="Go to source code">__construct</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#173-179" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHeaderWrapper" id="_setHeaderWrapper">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHeaderWrapper">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#181-188" title="Go to source code">setHeaderWrapper</a>( <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sendHeaders" id="_sendHeaders">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sendHeaders">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#191-207" title="Go to source code">sendHeaders</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sendCookies" id="_sendCookies">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sendCookies">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#209-219" title="Go to source code">sendCookies</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sendContent" id="_sendContent">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sendContent">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#221-226" title="Go to source code">sendContent</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#228-234" title="Go to source code">send</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addCookie" id="_addCookie">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addCookie">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#236-239" title="Go to source code">addCookie</a>( <span><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code> <var>$cookie</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addHeader" id="_addHeader">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addHeader">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#241-244" title="Go to source code">addHeader</a>( <span>mixed <var>$name</var></span>, <span>mixed <var>$value</var></span>, <span>mixed <var>$overwrite</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setStatusCode" id="_setStatusCode">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setStatusCode">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#246-263" title="Go to source code">setStatusCode</a>( <span>mixed <var>$code</var> = <span class="php-num">200</span></span>, <span>mixed <var>$txt</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getStatusCode" id="_getStatusCode">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getStatusCode">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#265-268" title="Go to source code">getStatusCode</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setContent" id="_setContent">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setContent">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#270-273" title="Go to source code">setContent</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getContent" id="_getContent">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getContent">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#275-278" title="Go to source code">getContent</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDate" id="_setDate">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDate">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#280-283" title="Go to source code">setDate</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDate" id="_getDate">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDate">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#285-291" title="Go to source code">getDate</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setProtocolVersion" id="_setProtocolVersion">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setProtocolVersion">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#293-296" title="Go to source code">setProtocolVersion</a>( <span>mixed <var>$version</var> = <span class="php-quote">'1.0'</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getProtocolVersion" id="_getProtocolVersion">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getProtocolVersion">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#298-301" title="Go to source code">getProtocolVersion</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="content" id="$content">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#25-29" title="Go to source code"><var>$content</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$content" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The main content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The main content</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="statusCode" id="$statusCode">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#31-35" title="Go to source code"><var>$statusCode</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$statusCode" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The HTTP status code</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The HTTP status code</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="statusText" id="$statusText">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#37-41" title="Go to source code"><var>$statusText</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$statusText" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The HTTP status Text</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The HTTP status Text</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="charset" id="$charset">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#43-47" title="Go to source code"><var>$charset</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$charset" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The charset (header)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The charset (header)</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="protocolVersion" id="$protocolVersion">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#49-53" title="Go to source code"><var>$protocolVersion</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'1.0'</span></code></td>
+		<td class="description"><div>
+			<a href="#$protocolVersion" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The HTTP protocol version</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The HTTP protocol version</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="statusCodeRegistry" id="$statusCodeRegistry">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#55-123" title="Go to source code"><var>$statusCodeRegistry</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-num">100</span> =&gt; <span class="php-quote">'Continue'</span>,
+	<span class="php-num">101</span> =&gt; <span class="php-quote">'Switching Protocols'</span>,
+	<span class="php-num">102</span> =&gt; <span class="php-quote">'Processing'</span>,
+	<span class="php-num">200</span> =&gt; <span class="php-quote">'OK'</span>,
+	<span class="php-num">201</span> =&gt; <span class="php-quote">'Created'</span>,
+	<span class="php-num">202</span> =&gt; <span class="php-quote">'Accepted'</span>,
+	<span class="php-num">203</span> =&gt; <span class="php-quote">'Non-Authoritative Information'</span>,
+	<span class="php-num">204</span> =&gt; <span class="php-quote">'No Content'</span>,
+	<span class="php-num">205</span> =&gt; <span class="php-quote">'Reset Content'</span>,
+	<span class="php-num">206</span> =&gt; <span class="php-quote">'Partial Content'</span>,
+	<span class="php-num">207</span> =&gt; <span class="php-quote">'Multi-Status'</span>,
+	<span class="php-num">208</span> =&gt; <span class="php-quote">'Already Reported'</span>,
+	<span class="php-num">226</span> =&gt; <span class="php-quote">'IM Used'</span>,
+	<span class="php-num">300</span> =&gt; <span class="php-quote">'Multiple Choices'</span>,
+	<span class="php-num">301</span> =&gt; <span class="php-quote">'Moved Permanently'</span>,
+	<span class="php-num">302</span> =&gt; <span class="php-quote">'Found'</span>,
+	<span class="php-num">303</span> =&gt; <span class="php-quote">'See Other'</span>,
+	<span class="php-num">304</span> =&gt; <span class="php-quote">'Not Modified'</span>,
+	<span class="php-num">305</span> =&gt; <span class="php-quote">'Use Proxy'</span>,
+	<span class="php-num">306</span> =&gt; <span class="php-quote">'Reserved'</span>,
+	<span class="php-num">307</span> =&gt; <span class="php-quote">'Temporary Redirect'</span>,
+	<span class="php-num">308</span> =&gt; <span class="php-quote">'Permanent Redirect'</span>,
+	<span class="php-num">400</span> =&gt; <span class="php-quote">'Bad Request'</span>,
+	<span class="php-num">401</span> =&gt; <span class="php-quote">'Unauthorized'</span>,
+	<span class="php-num">402</span> =&gt; <span class="php-quote">'Payment Required'</span>,
+	<span class="php-num">403</span> =&gt; <span class="php-quote">'Forbidden'</span>,
+	<span class="php-num">404</span> =&gt; <span class="php-quote">'Not Found'</span>,
+	<span class="php-num">405</span> =&gt; <span class="php-quote">'Method Not Allowed'</span>,
+	<span class="php-num">406</span> =&gt; <span class="php-quote">'Not Acceptable'</span>,
+	<span class="php-num">407</span> =&gt; <span class="php-quote">'Proxy Authentication Required'</span>,
+	<span class="php-num">408</span> =&gt; <span class="php-quote">'Request Timeout'</span>,
+	<span class="php-num">409</span> =&gt; <span class="php-quote">'Conflict'</span>,
+	<span class="php-num">410</span> =&gt; <span class="php-quote">'Gone'</span>,
+	<span class="php-num">411</span> =&gt; <span class="php-quote">'Length Required'</span>,
+	<span class="php-num">412</span> =&gt; <span class="php-quote">'Precondition Failed'</span>,
+	<span class="php-num">413</span> =&gt; <span class="php-quote">'Request Entity Too Large '</span>,
+	<span class="php-num">414</span> =&gt; <span class="php-quote">'Request-URI Too Long'</span>,
+	<span class="php-num">415</span> =&gt; <span class="php-quote">'Unsupported Media Type'</span>,
+	<span class="php-num">416</span> =&gt; <span class="php-quote">'Requested Range Not Satisfiable'</span>,
+	<span class="php-num">417</span> =&gt; <span class="php-quote">'Expectation Failed'</span>,
+	<span class="php-num">422</span> =&gt; <span class="php-quote">'Unprocessable Entity'</span>,
+	<span class="php-num">423</span> =&gt; <span class="php-quote">'Locked'</span>,
+	<span class="php-num">424</span> =&gt; <span class="php-quote">'Failed Dependency '</span>,
+	<span class="php-num">425</span> =&gt; <span class="php-quote">'Unassigned'</span>,
+	<span class="php-num">426</span> =&gt; <span class="php-quote">'Upgrade Required'</span>,
+	<span class="php-num">427</span> =&gt; <span class="php-quote">'Unassigned'</span>,
+	<span class="php-num">428</span> =&gt; <span class="php-quote">'Precondition Required'</span>,
+	<span class="php-num">429</span> =&gt; <span class="php-quote">'Too Many Requests'</span>,
+	<span class="php-num">430</span> =&gt; <span class="php-quote">'Unassigned'</span>,
+	<span class="php-num">431</span> =&gt; <span class="php-quote">'Request Header Fields Too Large '</span>,
+	<span class="php-num">500</span> =&gt; <span class="php-quote">'Internal Server Error'</span>,
+	<span class="php-num">501</span> =&gt; <span class="php-quote">'Not Implemented'</span>,
+	<span class="php-num">502</span> =&gt; <span class="php-quote">'Bad Gateway'</span>,
+	<span class="php-num">503</span> =&gt; <span class="php-quote">'Service Unavailable'</span>,
+	<span class="php-num">504</span> =&gt; <span class="php-quote">'Gateway Timeout'</span>,
+	<span class="php-num">505</span> =&gt; <span class="php-quote">'HTTP Version Not Supported'</span>,
+	<span class="php-num">506</span> =&gt; <span class="php-quote">'Variant Also Negotiates (Experimental)'</span>,
+	<span class="php-num">507</span> =&gt; <span class="php-quote">'Insufficient Storage'</span>,
+	<span class="php-num">508</span> =&gt; <span class="php-quote">'Loop Detected'</span>,
+	<span class="php-num">509</span> =&gt; <span class="php-quote">'Unassigned'</span>,
+	<span class="php-num">510</span> =&gt; <span class="php-quote">'Not Extended'</span>,
+	<span class="php-num">511</span> =&gt; <span class="php-quote">'Network Authentication Required'</span>
+	)</code></td>
+		<td class="description"><div>
+			<a href="#$statusCodeRegistry" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The status code registry List according to <a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.txt">http://www.iana.org/assignments/http-status-codes/http-status-codes.txt</a></p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The status code registry List according to <a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.txt">http://www.iana.org/assignments/http-status-codes/http-status-codes.txt</a></p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="headers" id="$headers">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-Modulework.Modules.Http.Utilities.ArrayCase.html">Modulework\Modules\Http\Utilities\ArrayCase</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#125-129" title="Go to source code"><var>$headers</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$headers" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The headers to get sent</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The headers to get sent</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="cookies" id="$cookies">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-Modulework.Modules.Http.Utilities.ArrayCase.html">Modulework\Modules\Http\Utilities\ArrayCase</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#131-135" title="Go to source code"><var>$cookies</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$cookies" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The cookies to get sent</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The cookies to get sent</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="headerWrapper" id="$headerWrapper">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.Response.html#137-141" title="Go to source code"><var>$headerWrapper</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$headerWrapper" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The HeaderWrapper</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The HeaderWrapper</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
