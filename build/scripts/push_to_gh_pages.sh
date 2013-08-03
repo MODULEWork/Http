@@ -23,9 +23,18 @@ if [ "$POST_BUILD" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
 	# go into repo anc copy data
 	cd repo
+	
+	# checkout gh-pages
 	git checkout gh-pages
-	cp -Rv $HOME/build/coverage coverage
-	cp -Rv $HOME/build/docs docs
+	
+	# Remove "old" stuff
+	rm -rf coverage/
+	rm -rf docs/
+	rm phploc.txt
+
+	# copy stuff
+	cp -Rv $HOME/build/coverage/ coverage/
+	cp -Rv $HOME/build/docs/ docs/
 	cp -Rv $HOME/build/phploc.txt phploc.txt
 
 	# add, commit and push files
@@ -38,6 +47,7 @@ else
 	echo "Additional info:"
 	echo "$TRAVIS_PULL_REQUEST"
 	echo "$POST_BUILD"
+	ls -la
 fi
 
 end=$(date +%s)
