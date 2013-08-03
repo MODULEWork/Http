@@ -6,7 +6,7 @@
  *
  * 
  * This file is meant to be used in PHPUnit Tests
- * <strong>This just for the code coverage report, it' s not TESTED, but run</strong>
+ * <strong>This just for the code coverage report, it' s not TESTING, but RUNNING the code</strong>
  */
 use Modulework\Modules\Http\Utilities\HeaderWrapper;
 /**
