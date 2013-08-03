@@ -294,6 +294,14 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Prepares the response based on the Request object
+	 * This method is not essential and can be cut out of the chain.
+	 * However it cleans up the headers and does some other stuff under the hood.
+	 * @param  Request $req The request object
+	 * 
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
 	public function prepare(Request $req)
 	{
 
