@@ -9,6 +9,7 @@
  */
 
 use Modulework\Modules\Http\Cookie;
+use Modulework\Modules\Http\Request;
 use Modulework\Modules\Http\Response;
 
 /**
@@ -305,6 +306,37 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 				array(), false
 				)
 			);
+	}
+
+	public function testPrepare()
+	{
+		$req = new Request;
+
+		$response = Response::make();
+		$response->addHeader('Location', 'foo.bar');
+		$response->prepare($req);
+
+		$this->assertEquals(302, $response->getStatusCode());
+
+		$req = new Request;
+		$req->setMethod('HEAD');
+
+		$response = Response::make();
+		$response->prepare($req);
+
+		$this->assertNull($response->getContent());
+
+		$req = new Request;
+		$req->setMethod('HEAD');
+
+		$response = Response::make();
+		$response->addHeader('Cache-Control', 'no-cache');
+		
+		$ret = $response->prepare($req);
+
+		$this->assertEquals('no-cache', $response->headers->get('pragma'));
+		$this->assertEquals(-1, $response->headers->get('expires'));
+		$this->assertInstanceOf('Modulework\Modules\Http\Response', $ret);
 	}
 
 

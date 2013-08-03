@@ -302,7 +302,7 @@ class Response
 	 * 
 	 * @return \Modulework\Modules\Http\Response THIS
 	 */
-	public function prepare(Request $req)
+	public function prepare(Request $request)
 	{
 
 		// This method tries may cause some issues, if 200 is REQUIRED even when it' s
@@ -313,9 +313,9 @@ class Response
 			$this->setStatusCode('302');
 		}
 
-		if ($req->isMethod('HEAD')) $this->content = null;
-
-		if ('HTTP/1.0' != $request->server->get('SERVER_PROTOCOL')) $this->setProtocolVersion('1.1');
+		if ($request->isMethod('HEAD')) {
+			$this->content = null;
+		}
 
 		if ('1.0' == $this->getProtocolVersion() && 'no-cache' == $this->headers->get('Cache-Control')) {
 			$this->headers->set('pragma', 'no-cache');
