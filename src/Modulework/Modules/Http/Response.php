@@ -197,7 +197,7 @@ class Response
 		$this->headerWrapper->header(sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->statusCode, $this->statusText));
 
 		foreach ($this->headers->all() as $name => $value) {
-			$this->headerWrapper->header($name . ': ' . $value, false);
+			$this->headerWrapper->header($name . ': ' . $value);
 		}
 
 		$this->sendCookies();
@@ -236,6 +236,11 @@ class Response
 	public function addCookie(Cookie $cookie)
 	{
 		$this->cookies->push($cookie);
+	}
+
+	public function addHeader($name, $value, $replace)
+	{
+		$this->headers->set($name, $value, $replace);
 	}
 
 	public function setStatusCode($code = 200, $txt = null)
