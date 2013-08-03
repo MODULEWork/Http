@@ -46,9 +46,21 @@ class Cookie {
 		$this->httpOnly 	= (Boolean) $httpOnly;
 	}
 
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
+
 	public function getName()
 	{
 		return $this->name;
+	}
+
+	public function setValue($value)
+	{
+		$this->value = $value;
+		return $this;
 	}
 
 	public function getValue()
@@ -56,9 +68,21 @@ class Cookie {
 		return $this->value;
 	}
 
+	public function setExpiresTime($expire)
+	{
+		$this->expire = $expire;
+		return $this;
+	}
+
 	public function getExpiresTime()
 	{
 		return $this->expire;
+	}
+
+	public function setPath($path)
+	{
+		$this->path = $path;
+		return $this;
 	}
 
 	public function getPath()
@@ -66,14 +90,32 @@ class Cookie {
 		return $this->path;
 	}
 
+	public function setDomain($domain)
+	{
+		$this->domain = $domain;
+		return $this;
+	}
+
 	public function getDomain()
 	{
 		return $this->domain;
 	}
 
+	public function setSecure($secure)
+	{
+		$this->secure = $secure;
+		return $this;
+	}
+
 	public function isSecure()
 	{
 		return $this->secure;
+	}
+
+	public function setHttpOnly($httpOnly)
+	{
+		$this->httpOnly = $httpOnly;
+		return $this;
 	}
 
 	public function isHttpOnly()
