@@ -7,7 +7,7 @@
 	<title>Class Modulework\Modules\Http\Response</title>
 
 	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
-	<script type="text/javascript" src="elementlist.js?3228232428"></script>
+	<script type="text/javascript" src="elementlist.js?3865731269"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -110,7 +110,7 @@ application.</p>
 		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Response.html#17-306" title="Go to source code">Modulework/Modules/Http/Response.php</a><br />
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Response.html#19-496" title="Go to source code">Modulework/Modules/Http/Response.php</a><br />
 	</div>
 
 
@@ -128,7 +128,7 @@ application.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_make">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#143-156" title="Go to source code">make</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#145-160" title="Go to source code">make</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -159,6 +159,10 @@ application.</p>
 					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
 				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from Constructor)<br />
+				</div>
 
 
 
@@ -169,25 +173,48 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#158-171" title="Go to source code">__construct</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#162-187" title="Go to source code">__construct</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Constructor.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Constructor.</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from setContent)<br />
+				</div>
 
 
 
@@ -198,24 +225,34 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#173-179" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#189-204" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			
+<p>PHP' s magic method __toString Format: HTTP/{VERSION} {STATUSCODE}
+{STATUSTEXT} {HEADERS} {BODY}</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>PHP' s magic method __toString Format: HTTP/{VERSION} {STATUSCODE}
+{STATUSTEXT} {HEADERS} {BODY}</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The response as string<br />
+				</div>
 
 
 
@@ -227,24 +264,43 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setHeaderWrapper">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#181-188" title="Go to source code">setHeaderWrapper</a>( <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#206-231" title="Go to source code">setHeaderWrapper</a>( <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Dependency injection for the HeaderWrapper (also availbe thru the
+constructor) If null is passed it will create a new instance of
+\Modulework\Modules\Http\Utilities\HeaderWrapper</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Dependency injection for the HeaderWrapper (also availbe thru the
+constructor) If null is passed it will create a new instance of
+\Modulework\Modules\Http\Utilities\HeaderWrapper</p>
+
+<p>It returns the "previous" HeaderWrapper or null</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>$headerWrapper The HeaderWrapper</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null "previous" HeaderWrapper | null<br />
+				</div>
 
 
 
@@ -256,26 +312,42 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendHeaders">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#191-207" title="Go to source code">sendHeaders</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#233-254" title="Go to source code">sendHeaders</a>( )</code>
 
 		<div class="description short">
 			
+<p>Send the headers and cookies to the client</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Send the headers and cookies to the client</p>
 
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
+
+				<h4>Uses</h4>
+				<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_sendCookies">Modulework\Modules\Http\Response::sendCookies()</a></code></code> <br />
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_send">Modulework\Modules\Http\Response::send()</a></code></code> <br />
+				</div>
 
 
 		</div>
@@ -285,26 +357,38 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendCookies">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#209-219" title="Go to source code">sendCookies</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#256-270" title="Go to source code">sendCookies</a>( )</code>
 
 		<div class="description short">
 			
+<p>Send the cookies only to the client</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Send the cookies only to the client</p>
 
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
+
+				<h4>Used by</h4>
+				<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_sendHeaders">Modulework\Modules\Http\Response::sendHeaders()</a></code></code> <br />
+				</div>
 
 
 		</div>
@@ -314,26 +398,38 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendContent">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#221-226" title="Go to source code">sendContent</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#272-281" title="Go to source code">sendContent</a>( )</code>
 
 		<div class="description short">
 			
+<p>Sends the content to the client</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Sends the content to the client</p>
 
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
+
+				<h4>Used by</h4>
+				<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_send">Modulework\Modules\Http\Response::send()</a></code></code> <br />
+				</div>
 
 
 		</div>
@@ -343,24 +439,83 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#228-234" title="Go to source code">send</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#283-295" title="Go to source code">send</a>( )</code>
 
 		<div class="description short">
 			
+<p>Send the response to the client (headers, cookies, content)</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Send the response to the client (headers, cookies, content)</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
+
+
+				<h4>Uses</h4>
+				<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_sendHeaders">Modulework\Modules\Http\Response::sendHeaders()</a></code></code> <br />
+						<code><code><a href="class-Modulework.Modules.Http.Response.html#_sendContent">Modulework\Modules\Http\Response::sendContent()</a></code></code> <br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="prepare" id="_prepare">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prepare">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#297-326" title="Go to source code">prepare</a>( <span><code><a href="class-Modulework.Modules.Http.Request.html">Modulework\Modules\Http\Request</a></code> <var>$request</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Prepares the response based on the Request object This method is not
+essential and can be cut out of the chain. However it cleans up the headers and
+does some other stuff under the hood.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Prepares the response based on the Request object This method is not
+essential and can be cut out of the chain. However it cleans up the headers and
+does some other stuff under the hood.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$request</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Request.html">Modulework\Modules\Http\Request</a></code></code><br>$req The request object</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -379,16 +534,25 @@ application.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addCookie">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#236-239" title="Go to source code">addCookie</a>( <span><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code> <var>$cookie</var></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#328-335" title="Go to source code">addCookie</a>( <span><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code> <var>$cookie</var></span> )</code>
 
 		<div class="description short">
 			
+<p>Add a cookie to the response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Add a cookie to the response</p>
 
 
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$cookie</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code></code><br>$cookie The cookie object</dd>
+				</dl></div>
 
 
 
@@ -408,16 +572,29 @@ application.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addHeader">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#241-244" title="Go to source code">addHeader</a>( <span>mixed <var>$name</var></span>, <span>mixed <var>$value</var></span>, <span>mixed <var>$overwrite</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#337-346" title="Go to source code">addHeader</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span>, <span>boolean <var>$overwrite</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Add a header to the response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Add a header to the response</p>
 
 
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name The name of the header (e.g. "Location")</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value The value of the header (e.g. "foo.bar")</dd>
+					<dt><var>$overwrite</var></dt>
+					<dd><code>boolean</code><br>$overwrite Whether it should replaces existing headers</dd>
+				</dl></div>
 
 
 
@@ -430,24 +607,41 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setStatusCode">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#246-263" title="Go to source code">setStatusCode</a>( <span>mixed <var>$code</var> = <span class="php-num">200</span></span>, <span>mixed <var>$txt</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#348-372" title="Go to source code">setStatusCode</a>( <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>string <var>$txt</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the status code of the response If the text is null it will try to
+determine the text from the internal lib</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the status code of the response If the text is null it will try to
+determine the text from the internal lib</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The status code</dd>
+					<dt><var>$txt</var></dt>
+					<dd><code>string</code><br>$txt The status text</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -459,24 +653,32 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			integer
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getStatusCode">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#265-268" title="Go to source code">getStatusCode</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#374-381" title="Go to source code">getStatusCode</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the status code of this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the status code of this response</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The status code<br />
+				</div>
 
 
 
@@ -488,25 +690,88 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setContent">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#270-273" title="Go to source code">setContent</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#383-399" title="Go to source code">setContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the content for this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the content for this response</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>string</code><br>$content The content</dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="appendContent" id="_appendContent">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_appendContent">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#401-421" title="Go to source code">appendContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Append to the content for this response</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Append to the content for this response</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>string</code><br>$content The content to append</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br />
+				</div>
 
 
 
@@ -517,24 +782,32 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getContent">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#275-278" title="Go to source code">getContent</a>( <span>mixed <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#422-429" title="Go to source code">getContent</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the content of this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the content of this response</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The content<br />
+				</div>
 
 
 
@@ -546,24 +819,37 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDate">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#280-283" title="Go to source code">setDate</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#431-440" title="Go to source code">setDate</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the date for this request</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the date for this request</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$date</var></dt>
+					<dd><code><code><a href="class-DateTime.html">DateTime</a></code></code><br>$date The DateTime object</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -575,24 +861,32 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDate">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#285-291" title="Go to source code">getDate</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#442-452" title="Go to source code">getDate</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the date of this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the date of this response</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The Date<br />
+				</div>
 
 
 
@@ -604,24 +898,37 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setProtocolVersion">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#293-296" title="Go to source code">setProtocolVersion</a>( <span>mixed <var>$version</var> = <span class="php-quote">'1.0'</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#454-463" title="Go to source code">setProtocolVersion</a>( <span>string <var>$version</var> = <span class="php-quote">'1.0'</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the HTTP protocol version for this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the HTTP protocol version for this response</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$version</var></dt>
+					<dd><code>string</code><br>$version The HTTP protocol version</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -633,24 +940,90 @@ application.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getProtocolVersion">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.Response.html#298-301" title="Go to source code">getProtocolVersion</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#465-472" title="Go to source code">getProtocolVersion</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the HTTP protocol version of this response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the HTTP protocol version of this response</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The HTTP protocol version<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validateContent" id="_validateContent">
+
+		<td class="attributes"><code>
+			 protected static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validateContent">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Response.html#474-491" title="Go to source code">validateContent</a>( <span>mixed <var>$content</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Validate the content Allowed types:</p>
+
+<ul>
+	<li>string</li>
+
+	<li>integers</li>
+
+	<li>objects implementing __toString()</li>
+</ul>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Validate the content Allowed types:</p>
+
+<ul>
+	<li>string</li>
+
+	<li>integers</li>
+
+	<li>objects implementing __toString()</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$content</var></dt>
+					<dd><code>mixed</code><br>$content The content to check</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether the content is valid<br />
+				</div>
 
 
 
@@ -680,7 +1053,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#25-29" title="Go to source code"><var>$content</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#27-31" title="Go to source code"><var>$content</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -707,7 +1080,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#31-35" title="Go to source code"><var>$statusCode</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#33-37" title="Go to source code"><var>$statusCode</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -734,7 +1107,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#37-41" title="Go to source code"><var>$statusText</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#39-43" title="Go to source code"><var>$statusText</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -761,7 +1134,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#43-47" title="Go to source code"><var>$charset</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#45-49" title="Go to source code"><var>$charset</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -788,7 +1161,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#49-53" title="Go to source code"><var>$protocolVersion</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#51-55" title="Go to source code"><var>$protocolVersion</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">'1.0'</span></code></td>
 		<td class="description"><div>
@@ -815,7 +1188,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#55-123" title="Go to source code"><var>$statusCodeRegistry</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#57-125" title="Go to source code"><var>$statusCodeRegistry</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-num">100</span> =&gt; <span class="php-quote">'Continue'</span>,
@@ -905,7 +1278,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#125-129" title="Go to source code"><var>$headers</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#127-131" title="Go to source code"><var>$headers</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -932,7 +1305,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#131-135" title="Go to source code"><var>$cookies</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#133-137" title="Go to source code"><var>$cookies</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -959,7 +1332,7 @@ application.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Modulework.Modules.Http.Response.html#137-141" title="Go to source code"><var>$headerWrapper</var></a>
+				<a href="source-class-Modulework.Modules.Http.Response.html#139-143" title="Go to source code"><var>$headerWrapper</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
