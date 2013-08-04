@@ -30,9 +30,9 @@ class RedirectResponse extends Response
 	 *
 	 * @throws \InvalidArgumentException (from Constructor)
 	 */
-	public static function make($url, $code = 302, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
+	public static function make($url = null, $code = 302, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
-		return new static($json, $code, $headers, $headerWrapper);
+		return new static($url, $code, $headers, $headerWrapper);
 	}
 
 	/**
