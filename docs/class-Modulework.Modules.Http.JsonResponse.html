@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Modulework\Modules\Http\JsonResponse</title>
+
+	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
+	<script type="text/javascript" src="elementlist.js?3185530004"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Modulework.html">Modulework<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.html">Modules<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.Http.html">Http<span></span></a>
+						<ul>
+				<li><a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Modulework.Modules.Http.Cookie.html">Cookie</a></li>
+				<li class="active"><a href="class-Modulework.Modules.Http.JsonResponse.html">JsonResponse</a></li>
+				<li><a href="class-Modulework.Modules.Http.Request.html">Request</a></li>
+				<li><a href="class-Modulework.Modules.Http.Response.html">Response</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Modulework.Modules.Http.html" title="Summary of Modulework\Modules\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class JsonResponse</h1>
+
+
+	<div class="description">
+	
+<p>JSON-Response A HTTP Response in the JSON format (application/json)</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Modulework.Modules.Http.Response.html"><span>Modulework\Modules\Http\Response</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Modulework\Modules\Http\JsonResponse</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.JsonResponse.html#11-146" title="Go to source code">Modulework/Modules/Http/JsonResponse.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="make" id="_make">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_make">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#23-26" title="Go to source code">make</a>( <span>string <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Factory for the Response object</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Factory for the Response object</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$json</var></dt>
+					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from Constructor)<br />
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Modulework.Modules.Http.Response.html#_make">Modulework\Modules\Http\Response::make()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#28-37" title="Go to source code">__construct</a>( <span>string <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$json</var></dt>
+					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from setContent)<br />
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Modulework.Modules.Http.Response.html#___construct">Modulework\Modules\Http\Response::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setJson" id="_setJson">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setJson">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#39-45" title="Go to source code">setJson</a>( <span>mixed <var>$json</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getJson" id="_getJson">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getJson">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#47-50" title="Go to source code">getJson</a>( <span>mixed <var>$raw</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCallback" id="_setCallback">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCallback">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#52-63" title="Go to source code">setCallback</a>( <span>mixed <var>$callback</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCallback" id="_getCallback">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCallback">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#65-68" title="Go to source code">getCallback</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="refresh" id="_refresh">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_refresh">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#70-84" title="Go to source code">refresh</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isValidIdentifier" id="_isValidIdentifier">
+
+		<td class="attributes"><code>
+			 protected static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isValidIdentifier">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#86-145" title="Go to source code">isValidIdentifier</a>( <span>string <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the string is a valid javascript identifier Taken from <a
+href="http://www.geekality.net/2011/08/03/valid-javascript-identifier">http://www.geekality.net/2011/08/03/valid-javascript-identifier</a>
+Formatting modified + minor changes</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the string is a valid javascript identifier Taken from <a
+href="http://www.geekality.net/2011/08/03/valid-javascript-identifier">http://www.geekality.net/2011/08/03/valid-javascript-identifier</a>
+Formatting modified + minor changes</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd><code>string</code><br>$callback The string to check</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether the string is valid<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Modulework.Modules.Http.Response.html#methods">Modulework\Modules\Http\Response</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Modulework.Modules.Http.Response.html#___toString">__toString()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_addCookie">addCookie()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_addHeader">addHeader()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_appendContent">appendContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getContent">getContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getDate">getDate()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getProtocolVersion">getProtocolVersion()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getStatusCode">getStatusCode()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_prepare">prepare()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_send">send()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendContent">sendContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendCookies">sendCookies()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendHeaders">sendHeaders()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setContent">setContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setDate">setDate()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setHeaderWrapper">setHeaderWrapper()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setProtocolVersion">setProtocolVersion()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setStatusCode">setStatusCode()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_validateContent">validateContent()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="CONTENTTYPE_JS" id="CONTENTTYPE_JS">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Modulework.Modules.Http.JsonResponse.html#17" title="Go to source code"><b>CONTENTTYPE_JS</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'application/javascript'</span></code></td>
+		<td class="description"><div>
+			<a href="#CONTENTTYPE_JS" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="CONTENTTYPE_JSON" id="CONTENTTYPE_JSON">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Modulework.Modules.Http.JsonResponse.html#18" title="Go to source code"><b>CONTENTTYPE_JSON</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'application/json'</span></code></td>
+		<td class="description"><div>
+			<a href="#CONTENTTYPE_JSON" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="callback" id="$callback">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.JsonResponse.html#19" title="Go to source code"><var>$callback</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$callback" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="json" id="$json">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.JsonResponse.html#20" title="Go to source code"><var>$json</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$json" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="rawdata" id="$rawdata">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.JsonResponse.html#21" title="Go to source code"><var>$rawdata</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$rawdata" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Modulework.Modules.Http.Response.html#properties">Modulework\Modules\Http\Response</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Modulework.Modules.Http.Response.html#$charset"><var>$charset</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$content"><var>$content</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$cookies"><var>$cookies</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$headerWrapper"><var>$headerWrapper</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$headers"><var>$headers</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$protocolVersion"><var>$protocolVersion</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusCode"><var>$statusCode</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusCodeRegistry"><var>$statusCodeRegistry</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusText"><var>$statusText</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
