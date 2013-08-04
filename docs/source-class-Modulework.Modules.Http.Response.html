@@ -8,7 +8,7 @@
 	<title>File Modulework/Modules/Http/Response.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
-	<script type="text/javascript" src="elementlist.js?3228602691"></script>
+	<script type="text/javascript" src="elementlist.js?3950699865"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -44,6 +44,7 @@
 			<ul>
 				<li><a href="class-Modulework.Modules.Http.Cookie.html">Cookie</a></li>
 				<li><a href="class-Modulework.Modules.Http.JsonResponse.html">JsonResponse</a></li>
+				<li><a href="class-Modulework.Modules.Http.RedirectResponse.html">RedirectResponse</a></li>
 				<li><a href="class-Modulework.Modules.Http.Request.html">Request</a></li>
 				<li class="active"><a href="class-Modulework.Modules.Http.Response.html">Response</a></li>
 			</ul>
@@ -242,7 +243,7 @@
 </span></span><span id="152" class="l"><a class="l" href="#152">152: </a><span class="php-comment">     * 
 </span></span><span id="153" class="l"><a class="l" href="#153">153: </a><span class="php-comment">     * @return \Modulework\Modules\Http\Response The new Response object
 </span></span><span id="154" class="l"><a class="l" href="#154">154: </a><span class="php-comment">     *
-</span></span><span id="155" class="l"><a class="l" href="#155">155: </a><span class="php-comment">     * @throws InvalidArgumentException (from Constructor)
+</span></span><span id="155" class="l"><a class="l" href="#155">155: </a><span class="php-comment">     * @throws \InvalidArgumentException (from Constructor)
 </span></span><span id="156" class="l"><a class="l" href="#156">156: </a><span class="php-comment">     */</span>
 </span><span id="157" class="l"><a class="l" href="#157">157: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_make" href="#_make">make</a>(<span class="php-var">$content</span> = <span class="php-quote">''</span>, <span class="php-var">$code</span> = <span class="php-num">200</span>, <span class="php-keyword1">array</span> <span class="php-var">$headers</span> = <span class="php-keyword1">array</span>(), HeaderWrapperInterface <span class="php-var">$headerWrapper</span> = <span class="php-keyword1">null</span>)
 </span><span id="158" class="l"><a class="l" href="#158">158: </a>    {
@@ -259,7 +260,7 @@
 </span></span><span id="169" class="l"><a class="l" href="#169">169: </a><span class="php-comment">     * 
 </span></span><span id="170" class="l"><a class="l" href="#170">170: </a><span class="php-comment">     * @return \Modulework\Modules\Http\Response The new Response object
 </span></span><span id="171" class="l"><a class="l" href="#171">171: </a><span class="php-comment">     *
-</span></span><span id="172" class="l"><a class="l" href="#172">172: </a><span class="php-comment">     * @throws InvalidArgumentException (from setContent)
+</span></span><span id="172" class="l"><a class="l" href="#172">172: </a><span class="php-comment">     * @throws \InvalidArgumentException (from setContent)
 </span></span><span id="173" class="l"><a class="l" href="#173">173: </a><span class="php-comment">     */</span>
 </span><span id="174" class="l"><a class="l" href="#174">174: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(<span class="php-var">$content</span> = <span class="php-quote">''</span>, <span class="php-var">$code</span> = <span class="php-num">200</span>, <span class="php-keyword1">array</span> <span class="php-var">$headers</span> = <span class="php-keyword1">array</span>(), HeaderWrapperInterface <span class="php-var">$headerWrapper</span> = <span class="php-keyword1">null</span>)
 </span><span id="175" class="l"><a class="l" href="#175">175: </a>    {
@@ -475,7 +476,7 @@
 </span></span><span id="385" class="l"><a class="l" href="#385">385: </a><span class="php-comment">     * @param string $content The content
 </span></span><span id="386" class="l"><a class="l" href="#386">386: </a><span class="php-comment">     * @return \Modulework\Modules\Http\Response THIS
 </span></span><span id="387" class="l"><a class="l" href="#387">387: </a><span class="php-comment">     *
-</span></span><span id="388" class="l"><a class="l" href="#388">388: </a><span class="php-comment">     * @throws InvalidArgumentException
+</span></span><span id="388" class="l"><a class="l" href="#388">388: </a><span class="php-comment">     * @throws \InvalidArgumentException
 </span></span><span id="389" class="l"><a class="l" href="#389">389: </a><span class="php-comment">     */</span>
 </span><span id="390" class="l"><a class="l" href="#390">390: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setContent" href="#_setContent">setContent</a>(<span class="php-var">$content</span> = <span class="php-quote">''</span>)
 </span><span id="391" class="l"><a class="l" href="#391">391: </a>    {
@@ -493,7 +494,7 @@
 </span></span><span id="403" class="l"><a class="l" href="#403">403: </a><span class="php-comment">     * @param string $content The content to append
 </span></span><span id="404" class="l"><a class="l" href="#404">404: </a><span class="php-comment">     * @return \Modulework\Modules\Http\Response THIS
 </span></span><span id="405" class="l"><a class="l" href="#405">405: </a><span class="php-comment">     *
-</span></span><span id="406" class="l"><a class="l" href="#406">406: </a><span class="php-comment">     * @throws InvalidArgumentException
+</span></span><span id="406" class="l"><a class="l" href="#406">406: </a><span class="php-comment">     * @throws \InvalidArgumentException
 </span></span><span id="407" class="l"><a class="l" href="#407">407: </a><span class="php-comment">     */</span>
 </span><span id="408" class="l"><a class="l" href="#408">408: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_appendContent" href="#_appendContent">appendContent</a>(<span class="php-var">$content</span> = <span class="php-quote">''</span>)
 </span><span id="409" class="l"><a class="l" href="#409">409: </a>    {
@@ -561,29 +562,34 @@
 </span><span id="471" class="l"><a class="l" href="#471">471: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;protocolVersion;
 </span><span id="472" class="l"><a class="l" href="#472">472: </a>    }
 </span><span id="473" class="l"><a class="l" href="#473">473: </a>
-</span><span id="474" class="l"><a class="l" href="#474">474: </a>    <span class="php-comment">/**
-</span></span><span id="475" class="l"><a class="l" href="#475">475: </a><span class="php-comment">     * Validate the content
-</span></span><span id="476" class="l"><a class="l" href="#476">476: </a><span class="php-comment">     * Allowed types:
-</span></span><span id="477" class="l"><a class="l" href="#477">477: </a><span class="php-comment">     * - string
-</span></span><span id="478" class="l"><a class="l" href="#478">478: </a><span class="php-comment">     * - integers
-</span></span><span id="479" class="l"><a class="l" href="#479">479: </a><span class="php-comment">     * - objects implementing __toString()
-</span></span><span id="480" class="l"><a class="l" href="#480">480: </a><span class="php-comment">     * 
-</span></span><span id="481" class="l"><a class="l" href="#481">481: </a><span class="php-comment">     * @param  mixed $content The content to check
-</span></span><span id="482" class="l"><a class="l" href="#482">482: </a><span class="php-comment">     * @return bool          Whether the content is valid
-</span></span><span id="483" class="l"><a class="l" href="#483">483: </a><span class="php-comment">     */</span>
-</span><span id="484" class="l"><a class="l" href="#484">484: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_validateContent" href="#_validateContent">validateContent</a>(<span class="php-var">$content</span>)
-</span><span id="485" class="l"><a class="l" href="#485">485: </a>    {
-</span><span id="486" class="l"><a class="l" href="#486">486: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$content</span>) &amp;&amp; !<span class="php-keyword2">is_numeric</span>(<span class="php-var">$content</span>) &amp;&amp; !<span class="php-keyword2">is_callable</span>(<span class="php-keyword1">array</span>(<span class="php-var">$content</span>, <span class="php-quote">'__toString'</span>))) {
-</span><span id="487" class="l"><a class="l" href="#487">487: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="488" class="l"><a class="l" href="#488">488: </a>        }
-</span><span id="489" class="l"><a class="l" href="#489">489: </a>
-</span><span id="490" class="l"><a class="l" href="#490">490: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="491" class="l"><a class="l" href="#491">491: </a>    }
-</span><span id="492" class="l"><a class="l" href="#492">492: </a>
-</span><span id="493" class="l"><a class="l" href="#493">493: </a>
+</span><span id="474" class="l"><a class="l" href="#474">474: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_isRedirect" href="#_isRedirect">isRedirect</a>()
+</span><span id="475" class="l"><a class="l" href="#475">475: </a>    {
+</span><span id="476" class="l"><a class="l" href="#476">476: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;headers-&gt;has(<span class="php-quote">'Location'</span>);
+</span><span id="477" class="l"><a class="l" href="#477">477: </a>    }
+</span><span id="478" class="l"><a class="l" href="#478">478: </a>
+</span><span id="479" class="l"><a class="l" href="#479">479: </a>    <span class="php-comment">/**
+</span></span><span id="480" class="l"><a class="l" href="#480">480: </a><span class="php-comment">     * Validate the content
+</span></span><span id="481" class="l"><a class="l" href="#481">481: </a><span class="php-comment">     * Allowed types:
+</span></span><span id="482" class="l"><a class="l" href="#482">482: </a><span class="php-comment">     * - string
+</span></span><span id="483" class="l"><a class="l" href="#483">483: </a><span class="php-comment">     * - integers
+</span></span><span id="484" class="l"><a class="l" href="#484">484: </a><span class="php-comment">     * - objects implementing __toString()
+</span></span><span id="485" class="l"><a class="l" href="#485">485: </a><span class="php-comment">     * 
+</span></span><span id="486" class="l"><a class="l" href="#486">486: </a><span class="php-comment">     * @param  mixed $content The content to check
+</span></span><span id="487" class="l"><a class="l" href="#487">487: </a><span class="php-comment">     * @return bool          Whether the content is valid
+</span></span><span id="488" class="l"><a class="l" href="#488">488: </a><span class="php-comment">     */</span>
+</span><span id="489" class="l"><a class="l" href="#489">489: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_validateContent" href="#_validateContent">validateContent</a>(<span class="php-var">$content</span>)
+</span><span id="490" class="l"><a class="l" href="#490">490: </a>    {
+</span><span id="491" class="l"><a class="l" href="#491">491: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$content</span>) &amp;&amp; !<span class="php-keyword2">is_numeric</span>(<span class="php-var">$content</span>) &amp;&amp; !<span class="php-keyword2">is_callable</span>(<span class="php-keyword1">array</span>(<span class="php-var">$content</span>, <span class="php-quote">'__toString'</span>))) {
+</span><span id="492" class="l"><a class="l" href="#492">492: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="493" class="l"><a class="l" href="#493">493: </a>        }
 </span><span id="494" class="l"><a class="l" href="#494">494: </a>
-</span><span id="495" class="l"><a class="l" href="#495">495: </a>
-</span><span id="496" class="l"><a class="l" href="#496">496: </a></span>}</code></pre>
+</span><span id="495" class="l"><a class="l" href="#495">495: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="496" class="l"><a class="l" href="#496">496: </a>    }
+</span><span id="497" class="l"><a class="l" href="#497">497: </a>
+</span><span id="498" class="l"><a class="l" href="#498">498: </a>
+</span><span id="499" class="l"><a class="l" href="#499">499: </a>
+</span><span id="500" class="l"><a class="l" href="#500">500: </a>
+</span><span id="501" class="l"><a class="l" href="#501">501: </a></span>}</code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

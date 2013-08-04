@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Modulework\Modules\Http\RedirectResponse</title>
+
+	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
+	<script type="text/javascript" src="elementlist.js?3950699865"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Modulework.html">Modulework<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.html">Modules<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.Http.html">Http<span></span></a>
+						<ul>
+				<li><a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Modulework.Modules.Http.Cookie.html">Cookie</a></li>
+				<li><a href="class-Modulework.Modules.Http.JsonResponse.html">JsonResponse</a></li>
+				<li class="active"><a href="class-Modulework.Modules.Http.RedirectResponse.html">RedirectResponse</a></li>
+				<li><a href="class-Modulework.Modules.Http.Request.html">Request</a></li>
+				<li><a href="class-Modulework.Modules.Http.Response.html">Response</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Modulework.Modules.Http.html" title="Summary of Modulework\Modules\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class RedirectResponse</h1>
+
+
+	<div class="description">
+	
+<p>Redirect-Response A HTTP header redirect</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Modulework.Modules.Http.Response.html"><span>Modulework\Modules\Http\Response</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Modulework\Modules\Http\RedirectResponse</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.RedirectResponse.html#11-102" title="Go to source code">Modulework/Modules/Http/RedirectResponse.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="make" id="_make">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_make">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.RedirectResponse.html#21-36" title="Go to source code">make</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">302</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Factory for the Response object</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Factory for the Response object</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$content The target URL</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code (302 = default)</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers (Location header is done automagical)</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>The new RedirectResponse object<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from Constructor)<br />
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Modulework.Modules.Http.Response.html#_make">Modulework\Modules\Http\Response::make()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Modulework.Modules.Http.RedirectResponse.html">Modulework\Modules\Http\RedirectResponse</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.RedirectResponse.html#38-60" title="Go to source code">__construct</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">302</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$content The target URL</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>integer</code><br>$code The HTTP status code</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers The HTTP headers</dd>
+					<dt><var>$headerWrapper</var></dt>
+					<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.RedirectResponse.html">Modulework\Modules\Http\RedirectResponse</a></code></code><br>The new RedirectResponse object<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from setContent, setUrl)<br />
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Modulework.Modules.Http.Response.html#___construct">Modulework\Modules\Http\Response::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setUrl" id="_setUrl">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Modulework.Modules.Http.RedirectResponse.html">Modulework\Modules\Http\RedirectResponse</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setUrl">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.RedirectResponse.html#62-94" title="Go to source code">setUrl</a>( <span>string <var>$url</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the target URL</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the target URL</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$url The target URL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.RedirectResponse.html">Modulework\Modules\Http\RedirectResponse</a></code></code><br>THIS<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from setContent, setUrl)<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUrl" id="_getUrl">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUrl">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.RedirectResponse.html#96-99" title="Go to source code">getUrl</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Modulework.Modules.Http.Response.html#methods">Modulework\Modules\Http\Response</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Modulework.Modules.Http.Response.html#___toString">__toString()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_addCookie">addCookie()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_addHeader">addHeader()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_appendContent">appendContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getContent">getContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getDate">getDate()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getProtocolVersion">getProtocolVersion()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_getStatusCode">getStatusCode()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_isRedirect">isRedirect()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_prepare">prepare()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_send">send()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendContent">sendContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendCookies">sendCookies()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_sendHeaders">sendHeaders()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setContent">setContent()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setDate">setDate()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setHeaderWrapper">setHeaderWrapper()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setProtocolVersion">setProtocolVersion()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_setStatusCode">setStatusCode()</a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#_validateContent">validateContent()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="url" id="$url">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Modulework.Modules.Http.RedirectResponse.html#18" title="Go to source code"><var>$url</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$url" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Modulework.Modules.Http.Response.html#properties">Modulework\Modules\Http\Response</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Modulework.Modules.Http.Response.html#$charset"><var>$charset</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$content"><var>$content</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$cookies"><var>$cookies</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$headerWrapper"><var>$headerWrapper</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$headers"><var>$headers</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$protocolVersion"><var>$protocolVersion</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusCode"><var>$statusCode</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusCodeRegistry"><var>$statusCodeRegistry</var></a>, 
+			<a href="class-Modulework.Modules.Http.Response.html#$statusText"><var>$statusText</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

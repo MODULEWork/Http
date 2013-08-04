@@ -1,29 +1,29 @@
 phploc 1.7.4 by Sebastian Bergmann.
 
 Directories:                                          1
-Files:                                               12
+Files:                                               13
 
-Lines of Code (LOC):                               1919
+Lines of Code (LOC):                               2025
   Cyclomatic Complexity / Lines of Code:           0.09
-Comment Lines of Code (CLOC):                       734
-Non-Comment Lines of Code (NCLOC):                 1185
+Comment Lines of Code (CLOC):                       777
+Non-Comment Lines of Code (NCLOC):                 1248
 
 Namespaces:                                           2
 Interfaces:                                           2
 Traits:                                               0
-Classes:                                             10
+Classes:                                             11
   Abstract:                                           0 (0.00%)
-  Concrete:                                          10 (100.00%)
-  Average Class Length (NCLOC):                     126
-Methods:                                            113
+  Concrete:                                          11 (100.00%)
+  Average Class Length (NCLOC):                     120
+Methods:                                            118
   Scope:
-    Non-Static:                                      92 (81.42%)
-    Static:                                          21 (18.58%)
+    Non-Static:                                      96 (81.36%)
+    Static:                                          22 (18.64%)
   Visibility:
-    Public:                                         100 (88.50%)
-    Non-Public:                                      13 (11.50%)
+    Public:                                         104 (88.14%)
+    Non-Public:                                      14 (11.86%)
   Average Method Length (NCLOC):                     11
-  Cyclomatic Complexity / Number of Methods:       1.97
+  Cyclomatic Complexity / Number of Methods:       1.96
 
 Anonymous Functions:                                  0
 Functions:                                            0
