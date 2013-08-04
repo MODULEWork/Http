@@ -150,7 +150,7 @@ class Response
 	 * 
 	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
 	 * 
-	 * @return \Modulework\Modules\Http\Response The new Request object
+	 * @return \Modulework\Modules\Http\Response The new Response object
 	 *
 	 * @throws InvalidArgumentException (from Constructor)
 	 */
@@ -167,7 +167,7 @@ class Response
 	 * 
 	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
 	 * 
-	 * @return \Modulework\Modules\Http\Response The new Request object
+	 * @return \Modulework\Modules\Http\Response The new Response object
 	 *
 	 * @throws InvalidArgumentException (from setContent)
 	 */

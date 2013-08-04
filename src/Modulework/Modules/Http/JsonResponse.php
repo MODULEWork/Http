@@ -20,11 +20,35 @@ class JsonResponse extends Response
 	protected $json;
 	protected $rawdata;
 
+	/**
+	 * Factory for the Response object
+	 * @param  mixed  $content 	The data which gets encoded to json
+	 * @param  integer $code    The HTTP status code
+	 * @param  array   $headers The HTTP headers
+	 * 
+	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
+	 * 
+	 * @return \Modulework\Modules\Http\JsonResponse The new JsonResponse object
+	 *
+	 * @throws InvalidArgumentException (from Constructor)
+	 */
 	public static function make($json = null, $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		return new static($json, $code, $headers, $headerWrapper);
 	}
 
+	/**
+	 * Constructor.
+	 * @param  mixed   $content The data which gets encoded to json
+	 * @param  integer $code    The HTTP status code
+	 * @param  array   $headers The HTTP headers
+	 * 
+	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
+	 * 
+	 * @return \Modulework\Modules\Http\JsonResponse The new JsonResponse object
+	 *
+	 * @throws InvalidArgumentException (from setContent)
+	 */
 	public function __construct($json = null, $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		parent::__construct('', $code, $headers, $headerWrapper);
@@ -36,19 +60,40 @@ class JsonResponse extends Response
 		$this->setJson($json);
 	}
 
-	public function setJson($json = array())
+	/**
+	 * Set the json data for the response
+	 * @param mixed   $json        The data (a JSON string is possible as well) which gets encoded
+	 * @param boolean $json_string Whether the input doesn' t need to get encoded
+	 *
+	 * @return \Modulework\Modules\Http\JsonResponse THIS
+	 */
+	public function setJson($json = array(), $json_string = false)
 	{
 		$this->rawdata = $json;
-		$this->json = json_encode($json);
+		$this->json = ($json_string) ? $json : json_encode($json);
 
 		return $this->refresh();
 	}
 
+	/**
+	 * Returns the json data
+	 * @param  boolean $raw Whether it shoud return the raw or encoded data
+	 * 
+	 * @return mixed|string The json data
+	 */
 	public function getJson($raw = false)
 	{
 		return ($raw) ? $this->rawdata : $this->json;
 	}
 
+	/**
+	 * Set the json callback for the response
+	 * @param string $callback The callback
+	 *
+	 * @return \Modulework\Modules\Http\JsonResponse THIS
+	 *
+	 * @throws \InvalidArgumentException
+	 */
 	public function setCallback($callback = null)
 	{
 		if ($callback !== null) {
@@ -62,11 +107,20 @@ class JsonResponse extends Response
 		return $this->refresh();
 	}
 
+	/**
+	 * Returns the callback
+	 * @return string The callback
+	 */
 	public function getCallback()
 	{
 		return $this->callback;
 	}
 
+	/**
+	 * Updates all parameters (changing headers and setting content)
+	 *
+	 * @return \Modulework\Modules\Http\JsonResponse THIS
+	 */
 	protected function refresh()
 	{
 		if ($this->callback !== null) {
