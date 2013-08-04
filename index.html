@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="javascripts/readme.js"></script>
 
     <title>Http by MODULEWork</title>
   </head>
@@ -38,100 +41,9 @@
           <h3>PHPLoc</h3>
         </a>
         <hr>
-        <h3>General Documentation:</h3>
-It provides a convient way of handling HTTP request and HTTP response.<br /> 
-<br />
-So for example you could already create a application with these two classes:<br />
-<pre>
-$req = Request::makeFromGlobals();
-
-$content = 'Hello ' . $req->query->get('name', 'Stranger');
-
-$res = Response::make($content);
-$res->send();
-</pre>
-This will app will great every vistor with their name or if the vistor didn' t provide the name in the query string it will fallback to "Stranger".<br />
-<br />
-Of course this is a very basic example but it can do a lot more!<br />
-<br />
-We could expand this and save the name into a cookie:<br />
-<pre>
-$req = Request::makeFromGlobals();
-
-$name = $req->query->get('name', Stranger);
-$content = 'Hello ' . $name;
-
-$res = Response::make($content);
-$res->addCookie(Cookie::make(
-        'name',
-        $name
-        ));
-$res->send();
-</pre>
-Or check if the method is GET or POST, so a user could also POST it' s name:<br />
-<pre>
-$req = Request::makeFromGlobals();
-
-$name = $req->query->get('name',
-    $req->request->get('name', 'Stranger')
-    );
-// Or just getting the method:
-$method = $req->getMethod();
-
-$content = 'Hello ' . $name;
-
-$res = Response::make($content);
-$res->addCookie(Cookie::make(
-        'name',
-        $name
-        ));
-$res->send();
-</pre>
-Or display the client' s IP:<br />
-<pre>
-echo Request::makeFromGlobals()->getClientIp();
-</pre>
-Now we also send a cookie a too the user. But we can do even more:<br />
-<pre>
-$res = Response::make()
-->setContent('Foo')
-->setStatusCode(200)
-->addHeader('Expire', 'never')
-->setDate(new DateTime)
-->addCookie(Cookie::make('foo')
-    ->setValue('bar')
-    ->setSecure(false)
-    ->setHttpOnly(false)
-)
-->prepare($request)
-->send();
-</pre>
-<strong>Chained methods! Custom Headers! Custom Status Codes! And much more!</strong><br />
-<br />
-The Response class is intelligent enough to set the status code, if a redirect is issued:<br />
-<pre>
-$res = Response::make()
-->addHeader('Location', 'foo.bar')
-->prepare($request)
-->send()
-</pre>
-Will result in this header<br />
-<pre>
-HTTP/1.0 302 Found
-Location: foo.bar
-Date [...]
-</pre>
-But the Request class can do even more, we can use it for very basic routing:<br />
-<pre>
-$req = Request::makeFromGlobals();
-if ('/' == $req->getPath()) {
-    echo "You are on the homepage"
-} elseif ('/foo/bar' == $req->getPath()) {
-    echo "You are on the bar page of foo!"
-}
-</pre>
-This is very basic and not best practice, but it shows for what we can use this class for!<br />
+        <div class='readme_js' data-owner='MODULEWork' data-repo='Http'></div>
       </section>
+      
     </div>
 
     
