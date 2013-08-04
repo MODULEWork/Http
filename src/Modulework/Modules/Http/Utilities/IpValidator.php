@@ -12,24 +12,21 @@
  */
 class IpValidator
 {
+	/**
+	 * Checks if it is a valid IPv4 or IPv6 address
+	 * Private, reserved and broadcast addresses will return false.
+	 * @param  string $ip The IP to check
+	 * @return boolean    Whether it is a valid IP address
+	 */
 	public static function all($ip)
 	{
-		if (!self::ipv4($ip)) {
-			return false;
 
-		} elseif (!self::ipv6($ip)) {
+		$func = false !== strpos($ip, ':') ? 'ipv6': 'ipv4';
+		
+		if (self::privateIp($ip) || self::reserved($ip) || self::broadcast($ip)) {
 			return false;
-
-		} elseif (!self::notPrivate($ip)) {
-			return false;
-
-		} elseif (!self::notReserved($ip)) {
-			return false;
-
-		} elseif (!self::notBroadcast($ip)) {
-			return false;
-
 		}
+		return self::$func($ip);
 	}
 
 	/**
@@ -39,7 +36,7 @@ class IpValidator
 	 */
 	public static function ipv4($ip)
 	{
-		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
+		return (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false);
 	}
 
 	/**
@@ -49,42 +46,50 @@ class IpValidator
 	 */
 	public static function ipv6($ip)
 	{
-		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
+		return (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false);
 	}
 
 	/**
-	 * Checks if the given string is not a private IP address
+	 * Checks if the given string is a private IP address
 	 * (in private range (RFC 1918))
 	 * @param  string $ip 	The IP
-	 * @return boolean     	TRUE if the IP is NOT a private address
+	 * @return boolean     	TRUE if the IP is a private address
 	 */
-	public static function notPrivate($ip)
+	public static function privateIp($ip)
 	{
-		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE);
+		if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE)) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/**
-	 * Checks if the given string is not a reserved IP address
+	 * Checks if the given string is a reserved IP address
 	 * (in reserved range)
 	 * @param  string $ip 	The IP
-	 * @return boolean     	TRUE if the IP is NOT a private address
+	 * @return boolean     	TRUE if the IP is a reserved IP address
 	 */
-	public static function notReserved($ip)
+	public static function reserved($ip)
 	{
-		return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE);
+		if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE)) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/**
-	 * Checks if the given string is not a broadcast IP address
+	 * Checks if the given string is a broadcast IP address
 	 * e.g. 0.0.0.0
 	 * @param  string $ip 	The IP
-	 * @return boolean     	TRUE if the IP is NOT a broadcast address | FALSE if not a valid IP
+	 * @return boolean     	TRUE if the IP is a broadcast address | FALSE if not a valid IP
 	 */
-	public static function notBroadcast($ip)
+	public static function broadcast($ip)
 	{
 		$segments = explode('.', $ip);
 		if (isset($segments[3])) {
-			return !($segments[3] == '0' || $segments[3] == '255');
+			return ($segments[3] == '0' || $segments[3] == '255');
 		} else {
 			return false;
 		}
