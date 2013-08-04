@@ -82,7 +82,7 @@ class RedirectResponse extends Response
 
 							<title>Redirect to ' . htmlspecialchars($url) . '</title>
 						</head>
-							<body>
+						<body>
 							Redirecting to <a href="%1$s">%1$s</a>...
 						</body>
 					</html>'
