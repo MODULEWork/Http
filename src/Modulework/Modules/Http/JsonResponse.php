@@ -18,6 +18,7 @@ class JsonResponse extends Response
 	const CONTENTTYPE_JSON = 'application/json';
 	protected $callback;
 	protected $json;
+	protected $rawdata;
 
 	public static function make($json = null, $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -37,14 +38,15 @@ class JsonResponse extends Response
 
 	public function setJson($json = array())
 	{
+		$this->rawdata = $json;
 		$this->json = json_encode($json);
 
 		return $this->refresh();
 	}
 
-	public function getJson()
+	public function getJson($raw = false)
 	{
-		return $this->json;
+		return ($raw) ? $this->rawdata : $this->json;
 	}
 
 	public function setCallback($callback = null)
@@ -71,12 +73,14 @@ class JsonResponse extends Response
 			$this->headers->set('Content-Type', self::CONTENTTYPE_JS);
 
 			// This will produce "CALLBACK(JSON);"
-			return $this->setJson($this->callback . '(' .  $this->data . ');');
+			return $this->setContent($this->callback . '(' .  $this->json . ');');
 		}
 
 		if (!$this->headers->has('Content-Type') || $this->headers->get('Content-Type') === self::CONTENTTYPE_JS) {
 			$this->headers->set('Content-Type', self::CONTENTTYPE_JSON);
 		}
+
+		return $this->setContent($this->json);
 	}
 
 	/**
