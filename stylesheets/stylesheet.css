@@ -10,9 +10,10 @@ body {
 
 /* General & 'Reset' Stuff */
 
+
 .container {
   width: 90%;
-  max-width: 600px;
+  max-width: 1000px; /*MODIFIED! In the orginal template the maxwidth was 600px*/
   margin: 0 auto;
 }
 
