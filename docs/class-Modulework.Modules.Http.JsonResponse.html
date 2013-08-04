@@ -7,7 +7,7 @@
 	<title>Class Modulework\Modules\Http\JsonResponse</title>
 
 	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
-	<script type="text/javascript" src="elementlist.js?3106827362"></script>
+	<script type="text/javascript" src="elementlist.js?2338261682"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -124,7 +124,7 @@
 		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.JsonResponse.html#11-146" title="Go to source code">Modulework/Modules/Http/JsonResponse.php</a><br />
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.JsonResponse.html#11-200" title="Go to source code">Modulework/Modules/Http/JsonResponse.php</a><br />
 	</div>
 
 
@@ -135,14 +135,14 @@
 
 		<td class="attributes"><code>
 			 public static
-			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_make">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#23-26" title="Go to source code">make</a>( <span>string <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#23-38" title="Go to source code">make</a>( <span>mixed <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -159,7 +159,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$json</var></dt>
-					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dd><code>mixed</code><br>$content The data which gets encoded to json</dd>
 					<dt><var>$code</var></dt>
 					<dd><code>integer</code><br>$code The HTTP status code</dd>
 					<dt><var>$headers</var></dt>
@@ -170,7 +170,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>The new JsonResponse object<br />
 				</div>
 
 				<h4>Throws</h4>
@@ -189,14 +189,14 @@
 
 		<td class="attributes"><code>
 			 public 
-			<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#28-37" title="Go to source code">__construct</a>( <span>string <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#40-61" title="Go to source code">__construct</a>( <span>mixed <var>$json</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -213,7 +213,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$json</var></dt>
-					<dd><code>string</code><br>$content The body of the HTTP response</dd>
+					<dd><code>mixed</code><br>$content The data which gets encoded to json</dd>
 					<dt><var>$code</var></dt>
 					<dd><code>integer</code><br>$code The HTTP status code</dd>
 					<dt><var>$headers</var></dt>
@@ -224,7 +224,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Request object<br />
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>The new JsonResponse object<br />
 				</div>
 
 				<h4>Throws</h4>
@@ -243,24 +243,39 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setJson">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#39-45" title="Go to source code">setJson</a>( <span>mixed <var>$json</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#63-76" title="Go to source code">setJson</a>( <span>mixed <var>$json</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$json_string</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the json data for the response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the json data for the response</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$json</var></dt>
+					<dd><code>mixed</code><br>$json The data (a JSON string is possible as well) which gets encoded</dd>
+					<dt><var>$json_string</var></dt>
+					<dd><code>boolean</code><br>$json_string Whether the input doesn' t need to get encoded</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -272,24 +287,37 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			mixed|string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getJson">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#47-50" title="Go to source code">getJson</a>( <span>mixed <var>$raw</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#78-87" title="Go to source code">getJson</a>( <span>boolean <var>$raw</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Returns the json data</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the json data</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$raw</var></dt>
+					<dd><code>boolean</code><br>$raw Whether it shoud return the raw or encoded data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed|string</code><br>The json data<br />
+				</div>
 
 
 
@@ -301,25 +329,42 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCallback">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#52-63" title="Go to source code">setCallback</a>( <span>mixed <var>$callback</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#89-108" title="Go to source code">setCallback</a>( <span>string <var>$callback</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
+<p>Set the json callback for the response</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Set the json callback for the response</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd><code>string</code><br>$callback The callback</dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>THIS<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br />
+				</div>
 
 
 
@@ -330,24 +375,32 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCallback">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#65-68" title="Go to source code">getCallback</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#110-117" title="Go to source code">getCallback</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the callback</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the callback</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The callback<br />
+				</div>
 
 
 
@@ -359,24 +412,32 @@
 
 		<td class="attributes"><code>
 			 protected 
-			
+			<code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_refresh">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#70-84" title="Go to source code">refresh</a>( )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#119-138" title="Go to source code">refresh</a>( )</code>
 
 		<div class="description short">
 			
+<p>Updates all parameters (changing headers and setting content)</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Updates all parameters (changing headers and setting content)</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Modulework.Modules.Http.JsonResponse.html">Modulework\Modules\Http\JsonResponse</a></code></code><br>THIS<br />
+				</div>
 
 
 
@@ -395,7 +456,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isValidIdentifier">#</a>
-		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#86-145" title="Go to source code">isValidIdentifier</a>( <span>string <var>$callback</var></span> )</code>
+		<code><a href="source-class-Modulework.Modules.Http.JsonResponse.html#140-199" title="Go to source code">isValidIdentifier</a>( <span>string <var>$callback</var></span> )</code>
 
 		<div class="description short">
 			

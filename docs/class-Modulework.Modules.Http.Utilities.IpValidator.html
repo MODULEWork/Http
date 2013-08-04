@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Modulework\Modules\Http\Utilities\IpValidator</title>
+
+	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
+	<script type="text/javascript" src="elementlist.js?2338261682"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Modulework.html">Modulework<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.html">Modules<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.Http.html">Http<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Modulework.Modules.Http.Utilities.ArrayCase.html">ArrayCase</a></li>
+				<li><a href="class-Modulework.Modules.Http.Utilities.FileCase.html">FileCase</a></li>
+				<li><a href="class-Modulework.Modules.Http.Utilities.HeaderCase.html">HeaderCase</a></li>
+				<li><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapper.html">HeaderWrapper</a></li>
+				<li class="active"><a href="class-Modulework.Modules.Http.Utilities.IpValidator.html">IpValidator</a></li>
+				<li><a href="class-Modulework.Modules.Http.Utilities.ServerCase.html">ServerCase</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Modulework.Modules.Http.Utilities.ArrayCaseInterface.html">ArrayCaseInterface</a></li>
+				<li><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">HeaderWrapperInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Modulework.Modules.Http.Utilities.html" title="Summary of Modulework\Modules\Http\Utilities"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class IpValidator</h1>
+
+
+	<div class="description">
+	
+<p>IP Validator Validates IPv4 and IPv6 address</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a>\<a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#9-98" title="Go to source code">Modulework/Modules/Http/Utilities/IpValidator.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="all" id="_all">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_all">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#15-30" title="Go to source code">all</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if it is a valid IPv4 or IPv6 address Private, reserved and broadcast
+addresses will return false.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if it is a valid IPv4 or IPv6 address Private, reserved and broadcast
+addresses will return false.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP to check</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether it is a valid IP address<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ipv4" id="_ipv4">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ipv4">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#32-40" title="Go to source code">ipv4</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the given string is valid IPv4 address</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the given string is valid IPv4 address</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether it is a valid IPv4 address<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ipv6" id="_ipv6">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ipv6">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#42-50" title="Go to source code">ipv6</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the given string is valid IPv6 address</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the given string is valid IPv6 address</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Whether it is a valid IPv6 address<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="privateIp" id="_privateIp">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_privateIp">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#52-65" title="Go to source code">privateIp</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the given string is a private IP address (in private range (RFC
+1918))</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the given string is a private IP address (in private range (RFC
+1918))</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>TRUE if the IP is a private address<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="reserved" id="_reserved">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reserved">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#67-80" title="Go to source code">reserved</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the given string is a reserved IP address (in reserved range)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the given string is a reserved IP address (in reserved range)</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>TRUE if the IP is a reserved IP address<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="broadcast" id="_broadcast">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_broadcast">#</a>
+		<code><a href="source-class-Modulework.Modules.Http.Utilities.IpValidator.html#82-97" title="Go to source code">broadcast</a>( <span>string <var>$ip</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks if the given string is a broadcast IP address e.g. 0.0.0.0</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the given string is a broadcast IP address e.g. 0.0.0.0</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip The IP</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>TRUE if the IP is a broadcast address | FALSE if not a valid IP<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
