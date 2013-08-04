@@ -8,6 +8,7 @@
 use stdClass;
 use InvalidArgumentException;
 use Modulework\Modules\Http\Utilities\HeaderWrapperInterface;
+
 /**
 * JSON-Response
 * A HTTP Response in the JSON format (application/json)
