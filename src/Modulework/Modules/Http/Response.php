@@ -152,7 +152,7 @@ class Response
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Response object
 	 *
-	 * @throws InvalidArgumentException (from Constructor)
+	 * @throws \InvalidArgumentException (from Constructor)
 	 */
 	public static function make($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -169,7 +169,7 @@ class Response
 	 * 
 	 * @return \Modulework\Modules\Http\Response The new Response object
 	 *
-	 * @throws InvalidArgumentException (from setContent)
+	 * @throws \InvalidArgumentException (from setContent)
 	 */
 	public function __construct($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -385,7 +385,7 @@ class Response
 	 * @param string $content The content
 	 * @return \Modulework\Modules\Http\Response THIS
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	public function setContent($content = '')
 	{
@@ -403,7 +403,7 @@ class Response
 	 * @param string $content The content to append
 	 * @return \Modulework\Modules\Http\Response THIS
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	public function appendContent($content = '')
 	{
@@ -469,6 +469,11 @@ class Response
 	public function getProtocolVersion()
 	{
 		return $this->protocolVersion;
+	}
+
+	public function isRedirect()
+	{
+		return $this->headers->has('Location');
 	}
 
 	/**
