@@ -2,3 +2,6 @@
 /apigen/
 /build/result/
 phploc.phar
+http.sublime-workspace
+http.sublime-project
+/.nbproject/
