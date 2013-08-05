@@ -1,6 +1,7 @@
 HTTP Package
 ------------
 
+[![Latest Stable Version](https://poser.pugx.org/MODULEWork/Http/v/stable.png)](https://packagist.org/packages/MODULEWork/Http)
 [![Build Status](https://travis-ci.org/MODULEWork/Http.png?branch=master)](https://travis-ci.org/MODULEWork/Http)
 
 
