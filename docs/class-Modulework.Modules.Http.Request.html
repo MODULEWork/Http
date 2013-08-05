@@ -114,7 +114,7 @@ convience.</p>
 		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Request.html#13-638" title="Go to source code">Modulework/Modules/Http/Request.php</a><br />
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Request.html#13-695" title="Go to source code">Modulework/Modules/Http/Request.php</a><br />
 	</div>
 
 
@@ -882,6 +882,161 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="root" id="_root">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_root">#</a>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#422-429" title="Go to source code">root</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns the root URL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the root URL</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>The root URL<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="url" id="_url">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_url">#</a>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#431-438" title="Go to source code">url</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns the URL (without query string)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the URL (without query string)</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>The URL<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="segments" id="_segments">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_segments">#</a>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#441-454" title="Go to source code">segments</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns all URI segments (or empty array if path = '/')</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns all URI segments (or empty array if path = '/')</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The URI segments<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="segment" id="_segment">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_segment">#</a>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#456-477" title="Go to source code">segment</a>( <span>integer <var>$index</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Get a URI segment 1 based index</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Get a URI segment 1 based index</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$index</var></dt>
+						<dd><code>integer</code><br>$index The index</dd>
+						<dt><var>$default</var></dt>
+						<dd><code>mixed</code><br>$default If the segement does not exists this will get returned</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br>The URI segment | $default<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="isMethod" id="_isMethod">
 
 			<td class="attributes"><code>
@@ -893,7 +1048,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isMethod">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#422-430" title="Go to source code">isMethod</a>( <span>string <var>$method</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#479-487" title="Go to source code">isMethod</a>( <span>string <var>$method</var></span> )</code>
 
 			<div class="description short">
 				
@@ -935,7 +1090,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isAjax">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#432-439" title="Go to source code">isAjax</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#489-496" title="Go to source code">isAjax</a>( )</code>
 
 			<div class="description short">
 				
@@ -972,7 +1127,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isXmlHttpRequest">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#441-448" title="Go to source code">isXmlHttpRequest</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#498-505" title="Go to source code">isXmlHttpRequest</a>( )</code>
 
 			<div class="description short">
 				
@@ -1009,7 +1164,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isSecure">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#450-457" title="Go to source code">isSecure</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#507-514" title="Go to source code">isSecure</a>( )</code>
 
 			<div class="description short">
 				
@@ -1046,7 +1201,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClientIp">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#459-466" title="Go to source code">getClientIp</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#516-523" title="Go to source code">getClientIp</a>( )</code>
 
 			<div class="description short">
 				
@@ -1083,7 +1238,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getScript">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#468-475" title="Go to source code">getScript</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#525-532" title="Go to source code">getScript</a>( )</code>
 
 			<div class="description short">
 				
@@ -1120,7 +1275,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_generateBaseUri">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#478-522" title="Go to source code">generateBaseUri</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#535-579" title="Go to source code">generateBaseUri</a>( )</code>
 
 			<div class="description short">
 				
@@ -1157,7 +1312,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_generateBaseUrl">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#524-578" title="Go to source code">generateBaseUrl</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#581-635" title="Go to source code">generateBaseUrl</a>( )</code>
 
 			<div class="description short">
 				
@@ -1194,7 +1349,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_generateBasePath">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#580-594" title="Go to source code">generateBasePath</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#637-651" title="Go to source code">generateBasePath</a>( )</code>
 
 			<div class="description short">
 				
@@ -1223,7 +1378,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_generatePath">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#596-613" title="Go to source code">generatePath</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#653-670" title="Go to source code">generatePath</a>( )</code>
 
 			<div class="description short">
 				
@@ -1252,7 +1407,7 @@ constructed in the subfolder 'foo' this method would return 'foo' for this uri:
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getPrefixUrlEncoded">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Request.html#615-634" title="Go to source code">getPrefixUrlEncoded</a>( <span>string <var>$str</var></span>, <span>string <var>$pre</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Request.html#672-691" title="Go to source code">getPrefixUrlEncoded</a>( <span>string <var>$str</var></span>, <span>string <var>$pre</var></span> )</code>
 
 			<div class="description short">
 				
