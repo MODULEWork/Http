@@ -8,5 +8,6 @@
 
 /**
  * {@inheritdoc}
+ * NOTE: This class will require the (not yet written) "File" module
  */
 class FileCase extends ArrayCase { }
