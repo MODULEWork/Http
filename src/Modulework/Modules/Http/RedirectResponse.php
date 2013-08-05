@@ -6,6 +6,7 @@
  */
 
 use InvalidArgumentException;
+use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Utilities\HeaderWrapperInterface;
 
 /**
@@ -93,9 +94,27 @@ class RedirectResponse extends Response
 		return $this;
 	}
 
+	/**
+	 * Returns the target URL
+	 * @return string The target URL
+	 */
 	public function getUrl()
 	{
 		return $this->url;
+	}
+
+	/**
+	 * Send a cookie along the redirect
+	 * @uses addCookie
+	 * 
+	 * @param  Cookie $cookie The cookie to send
+	 * 
+	 * @return \Modulework\Modules\Http\RedirectResponse THIS
+	 */
+	public function withCookie(Cookie $cookie)
+	{
+		$this->addCookie($cookie);
+		return $this;
 	}
 
 
