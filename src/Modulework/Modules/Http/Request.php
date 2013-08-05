@@ -420,6 +420,55 @@ class Request
 	}
 
 	/**
+	 * Returns the root URL
+	 * @return string The root URL
+	 */
+	public function root()
+	{
+		return rtrim($this->getScheme . '//' . $this->getHost() .  $this->getBaseUrl(), '/');
+	}
+
+	/**
+	 * Returns the URL (without query string)
+	 * @return string The URL
+	 */
+	public function url()
+	{
+		return rtrim(preg_replace('/\?.*/', '', $this->getBaseUri()), '/');
+	}
+
+	
+	/**
+	 * Returns all URI segments
+	 * (or empty array if path = '/')
+	 * @return array The URI segments
+	 */
+	public function segments()
+	{
+		$path = $this->getPath();
+
+		return ($path == '/' ? array() : explode('/', $path));
+	}
+	
+	/**
+	 * Get a URI segment
+	 * 1 based index
+	 * @param  int    $index   The index
+	 * @param  mixed  $default If the segement does not exists this will get returned
+	 * @return mixed           The URI segment | $default
+	 */
+	public function segment($index, $default = null)
+	{
+		$segments = explode('/', rtrim($this->getPath(), '/'));
+
+		$segments = array_filter($segments, function($val) {
+			return $val != '';
+		});
+
+		return (isset($segments[$index - 1])) ? $segments[$index -1] : $default;
+	}
+
+	/**
 	 * Check if the request method equals the given
 	 * @param  string  $method The method to test
 	 * @return boolean         TRUE if match
