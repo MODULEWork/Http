@@ -101,3 +101,37 @@ But the Request class can do even more, we can use it for very basic routing:
     }
 
 This is very basic and not best practice, but it shows for what we can use this class for!
+
+There are also some more Response classes, like the RedirectResponse and JsonResponse class.
+
+Here is an usage example:
+
+    $res = RedirectResponse::make('http://foo.bar')
+    ->withCookie(Cookie::make('foo'))
+    ->prepare(Request::makeFromGlobals)
+    ->send();
+
+As you can see very easy to use. *NOTE!* This is just a **wrapper** for a normal Response. You could also do this:
+
+    $res = Response::make('<extra>', 302, array('Location' => 'http://foo.bar'))
+    ->addCookie(Cookie::make('foo'))
+    ->prepare(Request::makeFromGlobals)
+    ->send();
+
+The only thing what is not shown in the alternative way is the HTML meta redirect (in case the header doesn' t fire).
+
+The JsonResponse class is pretty straight forward as well:
+
+    $res = JsonResponse::make(array('foo' => 'bar'))
+    ->prepare(Request::makeFromGlobals)
+    ->send();
+
+This would result in this response:
+
+    HTTP/1.0 200 OK
+    Content-Type application/json
+    Date [...]
+    
+    {"foo": "bar"}
+
+Pretty nifty, eeh!!?
