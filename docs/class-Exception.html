@@ -6,16 +6,46 @@
 
 	<title>Class Exception</title>
 
-	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
-	<script type="text/javascript" src="elementlist.js?3950699865"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<script type="text/javascript" src="resources/combined.js?2211494443"></script>
+	<script type="text/javascript" src="elementlist.js?1841429728"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -35,8 +65,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -47,6 +75,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Countable.html">Countable</a></li>
+				<li><a href="class-DateTimeInterface.html">DateTimeInterface</a></li>
 				<li><a href="class-IteratorAggregate.html">IteratorAggregate</a></li>
 				<li><a href="class-Traversable.html">Traversable</a></li>
 			</ul>
@@ -67,34 +96,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-		</ul>
-		<ul>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class Exception</h1>
 
@@ -103,20 +105,24 @@
 
 
 	<div>
-		<h4>Direct known subclasses</h4>
-			<a href="class-LogicException.html">LogicException</a>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-LogicException.html">LogicException</a></code>
+		</p>
 	</div>
 
 	<div>
-		<h4>Indirect known subclasses</h4>
-			<a href="class-InvalidArgumentException.html">InvalidArgumentException</a>
+		<h3>Indirect known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code>
+		</p>
 	</div>
 
 
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		<b>PHP Extension:</b> <a href="http://php.net/manual" title="Go to PHP documentation">Core</a><br />
 		
@@ -127,296 +133,20 @@
 
 
 
-	<table class="summary" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="http://php.net/manual/exception.construct.php" title="Go to PHP documentation">__construct</a>( <span>mixed <var>$message</var></span>, <span>mixed <var>$code</var></span>, <span>mixed <var>$previous</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getMessage" id="_getMessage">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getMessage">#</a>
-		<code><a href="http://php.net/manual/exception.getmessage.php" title="Go to PHP documentation">getMessage</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getCode" id="_getCode">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getCode">#</a>
-		<code><a href="http://php.net/manual/exception.getcode.php" title="Go to PHP documentation">getCode</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getFile" id="_getFile">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getFile">#</a>
-		<code><a href="http://php.net/manual/exception.getfile.php" title="Go to PHP documentation">getFile</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getLine" id="_getLine">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getLine">#</a>
-		<code><a href="http://php.net/manual/exception.getline.php" title="Go to PHP documentation">getLine</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getTrace" id="_getTrace">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getTrace">#</a>
-		<code><a href="http://php.net/manual/exception.gettrace.php" title="Go to PHP documentation">getTrace</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getPrevious" id="_getPrevious">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getPrevious">#</a>
-		<code><a href="http://php.net/manual/exception.getprevious.php" title="Go to PHP documentation">getPrevious</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getTraceAsString" id="_getTraceAsString">
-
-		<td class="attributes"><code>
-			final public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getTraceAsString">#</a>
-		<code><a href="http://php.net/manual/exception.gettraceasstring.php" title="Go to PHP documentation">getTraceAsString</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__toString" id="___toString">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___toString">#</a>
-		<code><a href="http://php.net/manual/exception.tostring.php" title="Go to PHP documentation">__toString</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-
-
-
-
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="message" id="$message">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="http://php.net/manual/class.exception.php#exception.props.message" title="Go to PHP documentation"><var>$message</var></a>
-		</td>
-		<td class="value"><code><span class="php-quote">''</span></code></td>
-		<td class="description"><div>
-			<a href="#$message" class="anchor">#</a>
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="http://php.net/manual/exception.construct.php" title="Go to PHP documentation">__construct</a>( <span>mixed <var>$message</var></span>, <span>mixed <var>$code</var></span>, <span>mixed <var>$previous</var></span> )</code>
 
 			<div class="description short">
 				
@@ -425,21 +155,27 @@
 			<div class="description detailed hidden">
 				
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="code" id="$code">
-		<td class="attributes"><code>
-			protected  
-			integer
-		</code></td>
 
-		<td class="name">
-				<a href="http://php.net/manual/class.exception.php#exception.props.code" title="Go to PHP documentation"><var>$code</var></a>
-		</td>
-		<td class="value"><code><span class="php-num">0</span></code></td>
-		<td class="description"><div>
-			<a href="#$code" class="anchor">#</a>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMessage" id="_getMessage">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMessage">#</a>
+			<code><a href="http://php.net/manual/exception.getmessage.php" title="Go to PHP documentation">getMessage</a>( )</code>
 
 			<div class="description short">
 				
@@ -448,21 +184,27 @@
 			<div class="description detailed hidden">
 				
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="file" id="$file">
-		<td class="attributes"><code>
-			protected  
-			mixed
-		</code></td>
 
-		<td class="name">
-				<a href="http://php.net/manual/class.exception.php#exception.props.file" title="Go to PHP documentation"><var>$file</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$file" class="anchor">#</a>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCode" id="_getCode">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCode">#</a>
+			<code><a href="http://php.net/manual/exception.getcode.php" title="Go to PHP documentation">getCode</a>( )</code>
 
 			<div class="description short">
 				
@@ -471,21 +213,27 @@
 			<div class="description detailed hidden">
 				
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="line" id="$line">
-		<td class="attributes"><code>
-			protected  
-			mixed
-		</code></td>
 
-		<td class="name">
-				<a href="http://php.net/manual/class.exception.php#exception.props.line" title="Go to PHP documentation"><var>$line</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$line" class="anchor">#</a>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFile" id="_getFile">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFile">#</a>
+			<code><a href="http://php.net/manual/exception.getfile.php" title="Go to PHP documentation">getFile</a>( )</code>
 
 			<div class="description short">
 				
@@ -494,10 +242,264 @@
 			<div class="description detailed hidden">
 				
 
+
+
+
+
+
+
 			</div>
-		</div></td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="getLine" id="_getLine">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLine">#</a>
+			<code><a href="http://php.net/manual/exception.getline.php" title="Go to PHP documentation">getLine</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTrace" id="_getTrace">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTrace">#</a>
+			<code><a href="http://php.net/manual/exception.gettrace.php" title="Go to PHP documentation">getTrace</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPrevious" id="_getPrevious">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPrevious">#</a>
+			<code><a href="http://php.net/manual/exception.getprevious.php" title="Go to PHP documentation">getPrevious</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTraceAsString" id="_getTraceAsString">
+
+			<td class="attributes"><code>
+				final public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTraceAsString">#</a>
+			<code><a href="http://php.net/manual/exception.gettraceasstring.php" title="Go to PHP documentation">getTraceAsString</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__toString" id="___toString">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___toString">#</a>
+			<code><a href="http://php.net/manual/exception.tostring.php" title="Go to PHP documentation">__toString</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="message" id="$message">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="http://php.net/manual/class.exception.php#exception.props.message" title="Go to PHP documentation"><var>$message</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$message" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="code" id="$code">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="http://php.net/manual/class.exception.php#exception.props.code" title="Go to PHP documentation"><var>$code</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$code" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="file" id="$file">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="http://php.net/manual/class.exception.php#exception.props.file" title="Go to PHP documentation"><var>$file</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$file" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="line" id="$line">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="http://php.net/manual/class.exception.php#exception.props.line" title="Go to PHP documentation"><var>$line</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$line" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 
@@ -505,11 +507,11 @@
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>

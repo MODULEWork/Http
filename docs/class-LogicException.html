@@ -6,16 +6,46 @@
 
 	<title>Class LogicException</title>
 
-	<script type="text/javascript" src="resources/combined.js?1101431923"></script>
-	<script type="text/javascript" src="elementlist.js?3950699865"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<script type="text/javascript" src="resources/combined.js?2211494443"></script>
+	<script type="text/javascript" src="elementlist.js?1841429728"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -35,8 +65,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -47,6 +75,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Countable.html">Countable</a></li>
+				<li><a href="class-DateTimeInterface.html">DateTimeInterface</a></li>
 				<li><a href="class-IteratorAggregate.html">IteratorAggregate</a></li>
 				<li><a href="class-Traversable.html">Traversable</a></li>
 			</ul>
@@ -67,40 +96,13 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-		</ul>
-		<ul>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class LogicException</h1>
 
 
 
-	<dl class="tree">
+	<dl class="tree well">
 		<dd style="padding-left:0px">
 			<a href="class-Exception.html"><span>Exception</span></a>
 			
@@ -117,8 +119,10 @@
 
 
 	<div>
-		<h4>Direct known subclasses</h4>
-			<a href="class-InvalidArgumentException.html">InvalidArgumentException</a>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code>
+		</p>
 	</div>
 
 
@@ -126,7 +130,7 @@
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		<b>PHP Extension:</b> <a href="http://php.net/manual/book.spl.php" title="Go to PHP documentation">SPL</a><br />
 		
@@ -137,25 +141,23 @@
 
 
 
+		<h2>Methods summary</h2>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Exception.html#methods">Exception</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Exception.html#___construct">__construct()</a>, 
-			<a href="class-Exception.html#___toString">__toString()</a>, 
-			<a href="class-Exception.html#_getCode">getCode()</a>, 
-			<a href="class-Exception.html#_getFile">getFile()</a>, 
-			<a href="class-Exception.html#_getLine">getLine()</a>, 
-			<a href="class-Exception.html#_getMessage">getMessage()</a>, 
-			<a href="class-Exception.html#_getPrevious">getPrevious()</a>, 
-			<a href="class-Exception.html#_getTrace">getTrace()</a>, 
-			<a href="class-Exception.html#_getTraceAsString">getTraceAsString()</a>
-		</code></td>
-	</tr>
-	</table>
+		<h3>Methods inherited from <a href="class-Exception.html#methods">Exception</a></h3>
+		<p class="elementList">
+			<code><a href="class-Exception.html#___construct">__construct()</a></code>, 
+			<code><a href="class-Exception.html#___toString">__toString()</a></code>, 
+			<code><a href="class-Exception.html#_getCode">getCode()</a></code>, 
+			<code><a href="class-Exception.html#_getFile">getFile()</a></code>, 
+			<code><a href="class-Exception.html#_getLine">getLine()</a></code>, 
+			<code><a href="class-Exception.html#_getMessage">getMessage()</a></code>, 
+			<code><a href="class-Exception.html#_getPrevious">getPrevious()</a></code>, 
+			<code><a href="class-Exception.html#_getTrace">getTrace()</a></code>, 
+			<code><a href="class-Exception.html#_getTraceAsString">getTraceAsString()</a></code>
+		</p>
 
 
+		<h3>Magic methods summary</h3>
 
 
 
@@ -164,30 +166,26 @@
 
 
 
+		<h2>Properties summary</h2>
 
-
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Exception.html#properties">Exception</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Exception.html#$code"><var>$code</var></a>, 
-			<a href="class-Exception.html#$file"><var>$file</var></a>, 
-			<a href="class-Exception.html#$line"><var>$line</var></a>, 
-			<a href="class-Exception.html#$message"><var>$message</var></a>
-		</code></td>
-	</tr>
-	</table>
+		<h3>Properties inherited from <a href="class-Exception.html#properties">Exception</a></h3>
+		<p class="elementList">
+			<code><a href="class-Exception.html#$code"><var>$code</var></a></code>, 
+			<code><a href="class-Exception.html#$file"><var>$file</var></a></code>, 
+			<code><a href="class-Exception.html#$line"><var>$line</var></a></code>, 
+			<code><a href="class-Exception.html#$message"><var>$message</var></a></code>
+		</p>
 
 
 
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>
