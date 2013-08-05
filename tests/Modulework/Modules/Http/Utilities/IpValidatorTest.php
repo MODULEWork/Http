@@ -58,14 +58,14 @@ class IpValidatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider privateIpData
+	 * @dataProvider isPrivateData
 	 */
-	public function testprivateIp($ip, $exp)
+	public function testIsPrivate($ip, $exp)
 	{
-		$this->assertEquals($exp, IpValidator::privateIp($ip));
+		$this->assertEquals($exp, IpValidator::isPrivate($ip));
 	}
 
-	public function privateIpData()
+	public function isPrivateData()
 	{
 		return array(
 			array('127.0.0.1', true),
@@ -74,14 +74,14 @@ class IpValidatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider reservedData
+	 * @dataProvider isReservedData
 	 */
-	public function testreserved($ip, $exp)
+	public function testIsReserved($ip, $exp)
 	{
-		$this->assertEquals($exp, IpValidator::reserved($ip));
+		$this->assertEquals($exp, IpValidator::isReserved($ip));
 	}
 
-	public function reservedData()
+	public function isReservedData()
 	{
 		return array(
 			array('127.0.0.1', true),
@@ -90,14 +90,14 @@ class IpValidatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider broadcastData
+	 * @dataProvider isBroadcastData
 	 */
-	public function testBroadcast($ip, $exp)
+	public function testIsBroadcast($ip, $exp)
 	{
-		$this->assertEquals($exp, IpValidator::broadcast($ip));
+		$this->assertEquals($exp, IpValidator::isBroadcast($ip));
 	}
 
-	public function broadcastData()
+	public function isBroadcastData()
 	{
 		return array(
 			array('255.255.255.255', true),
