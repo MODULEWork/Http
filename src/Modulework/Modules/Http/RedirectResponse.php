@@ -45,7 +45,7 @@ class RedirectResponse extends Response
 	 * 
 	 * @return \Modulework\Modules\Http\RedirectResponse The new RedirectResponse object
 	 *
-	 * @throws \InvalidArgumentException (from setContent, setUrl)
+	 * @throws \InvalidArgumentException [(from setContent, setUrl)]
 	 */
 	public function __construct($url = null, $code = 302, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
@@ -65,7 +65,7 @@ class RedirectResponse extends Response
 	 *
 	 * @return \Modulework\Modules\Http\RedirectResponse THIS
 	 * 
-	 * @throws \InvalidArgumentException (from setContent, setUrl)
+	 * @throws \InvalidArgumentException [(from setContent)]
 	 */
 	public function setUrl($url)
 	{
@@ -88,7 +88,7 @@ class RedirectResponse extends Response
 					</html>'
 		);
 
-		$this->headers->set('Location', $url);
+		$this->headers->set('Location', $url, true);
 
 		return $this;
 	}

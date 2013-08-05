@@ -339,6 +339,188 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('Modulework\Modules\Http\Response', $ret);
 	}
 
+	/**
+	 * @dataProvider isSuccessData
+	 */
+	public function testIsSuccess($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isSuccess());
+	}
+
+	public function isSuccessData()
+	{
+		return array(
+			array(200, true),
+			array(199, false),
+			array(404, false),
+			array(257, true)
+			);
+	}
+
+	/**
+	 * @dataProvider isOkData
+	 */
+	public function testIsOk($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isOk());
+	}
+
+	public function isOkData()
+	{
+		return array(
+			array(200, true),
+			array(199, false),
+			array(404, false),
+			array(257, false)
+			);
+	}
+
+	/**
+	 * @dataProvider isNotFoundData
+	 */
+	public function testIsNotFound($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isNotFound());
+	}
+
+	public function isNotFoundData()
+	{
+		return array(
+			array(200, false),
+			array(199, false),
+			array(404, true),
+			array(257, false)
+			);
+	}
+
+	/**
+	 * @dataProvider isForbiddenData
+	 */
+	public function testIsForbidden($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isForbidden());
+	}
+
+	public function isForbiddenData()
+	{
+		return array(
+			array(200, false),
+			array(199, false),
+			array(403, true),
+			array(257, false)
+			);
+	}
+
+	/**
+	 * @dataProvider isRedirectData
+	 */
+	public function testIsRedirect($code, $header, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code, $header)->isRedirect());
+	}
+
+	public function isRedirectData()
+	{
+		return array(
+			array(200, array('Location' => 'foo.bar'), false),
+			array(300, array('Location' => 'foo.bar'), true),
+			array(301, array('Location' => 'foo.bar'), true),
+			array(302, array(), false),
+			);
+	}
+
+	/**
+	 * @dataProvider isClientErrorData
+	 */
+	public function testIsClientError($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isClientError());
+	}
+
+	public function isClientErrorData()
+	{
+		return array(
+			array(200, false),
+			array(199, false),
+			array(403, true),
+			array(500, false)
+			);
+	}
+
+	/**
+	 * @dataProvider isServerErrorData
+	 */
+	public function testIsServerError($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isServerError());
+	}
+
+	public function isServerErrorData()
+	{
+		return array(
+			array(200, false),
+			array(500, true),
+			array(503, true),
+			array(600, false)
+			);
+	}
+
+	/**
+	 * @dataProvider isEmptyData
+	 */
+	public function testIsEmpty($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isEmpty());
+	}
+
+	public function isEmptyData()
+	{
+		return array(
+			array(200, false),
+			array(201, true),
+			array(204, true),
+			array(304, true),
+			array(600, false),
+			);
+	}
+
+	/**
+	 * @dataProvider isInvalidData
+	 */
+	public function testIsInvalid($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isInvalid());
+	}
+
+	public function isInvalidData()
+	{
+		return array(
+			array(200, false),
+			array(800, true),
+			array(026, true),
+			array(600, true)
+			);
+	}
+
+	/**
+	 * @dataProvider isInformationalData
+	 */
+	public function testIsInformational($code, $exp)
+	{
+		$this->assertEquals($exp, Response::make('', $code)->isInformational());
+	}
+
+	public function isInformationalData()
+	{
+		return array(
+			array(200, false),
+			array(150, true),
+			array(100, true),
+			array(600, false)
+			);
+	}
+
+
 
 }
 

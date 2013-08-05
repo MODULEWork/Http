@@ -28,10 +28,12 @@ class RedirectResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(302, $response->getStatusCode());
 	}
 
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
 	public function testConstructExecption()
 	{
-		// To be written
-		$this->assertTrue(true);
+		$response = new RedirectResponse('http://foo.bar', 200);
 	}
 
 }

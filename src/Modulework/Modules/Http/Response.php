@@ -471,9 +471,54 @@ class Response
 		return $this->protocolVersion;
 	}
 
+	public function isSuccess()
+	{
+		return ($this->statusCode >= 200 && $this->statusCode < 300);
+	}
+
+	public function isOk()
+	{
+		return (200 === $this->statusCode);
+	}
+
+	public function isNotFound()
+	{
+		return (404 === $this->statusCode);
+	}
+
+	public function isForbidden()
+	{
+		return (403 === $this->statusCode);
+	}
+
 	public function isRedirect()
 	{
-		return $this->headers->has('Location');
+		return ($this->headers->has('Location') && ($this->statusCode >= 300 && $this->statusCode < 400));
+	}
+
+	public function isClientError()
+	{
+		return ($this->statusCode >= 400 && $this->statusCode < 500);
+	}
+
+	public function isServerError()
+	{
+		return ($this->statusCode >= 500 && $this->statusCode < 600);
+	}
+
+	public function isEmpty()
+	{
+		return in_array($this->statusCode, array(201, 204, 304));
+	}
+
+	public function isInvalid()
+	{
+		return ($this->statusCode < 100 || $this->statusCode >= 600);
+	}
+
+	public function isInformational()
+	{
+		return ($this->statusCode >= 100 && $this->statusCode < 200);
 	}
 
 	/**
