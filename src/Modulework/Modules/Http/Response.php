@@ -7,6 +7,7 @@
 
 use DateTime;
 use DateTimeZone;
+use RunTimeException;
 use InvalidArgumentException;
 use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Request;
@@ -304,6 +305,19 @@ class Response
 	 */
 	public function prepare(Request $request)
 	{
+		if ($this->isInvalid()) {
+			throw new RunTimeException('Response is invalid (' . $this->statusCode . ')');
+			
+		}
+
+		if ($this->isInformational()) {
+			$this->content = null;
+		}
+
+		$this->charset = $this->charset ?: 'UTF-8';
+		if (!$this->headers->has('Content-Type')) {
+			$this->headers->set('Content-Type', 'text/html; charset=' . $this->charset);
+		}
 
 		// This method tries may cause some issues, if 200 is REQUIRED even when it' s
 		// redirect response. If you want to change the status code just call it AFTER
@@ -498,6 +512,26 @@ class Response
 	public function getExpires()
 	{
 		return new DateTime($this->headers->get('Expires'));
+	}
+
+	/**
+	 * Set the charset for this response
+	 * @param string $version The charset
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
+	public function setCharset($charset)
+	{
+		$this->charset = $charset;
+		return $this;
+	}
+
+	/**
+	 * Returns the charset of this response
+	 * @return string The charset
+	 */
+	public function getCharset()
+	{
+		return $this->charset;
 	}
 
 	/**

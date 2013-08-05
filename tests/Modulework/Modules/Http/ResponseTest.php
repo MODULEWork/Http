@@ -337,6 +337,25 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals('no-cache', $response->headers->get('pragma'));
 		$this->assertEquals(-1, $response->headers->get('expires'));
 		$this->assertInstanceOf('Modulework\Modules\Http\Response', $ret);
+
+
+
+		$response = Response::make('', 100);
+		$response->prepare(new Request);
+
+		$this->assertEquals(null, $response->getContent());
+
+		$this->expectOutputString(''); // Just for extra saftey
+		$response->send();
+	}
+
+	/**
+	 * @expectedException RunTimeException
+	 */
+	public function testPrepareException()
+	{
+		$response = Response::make('', 600);
+		$response->prepare(new Request);
 	}
 
 	public function testSetExpires()
@@ -365,6 +384,29 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$response->headers->set('Expires', $date->format('D, d M Y H:i:s') . ' GMT');
 
 		$this->assertEquals($date, $response->getExpires());
+	}
+
+	public function testSetCharset()
+	{
+		$response = Response::make();
+		
+		$ret = $response->setCharset('UTF-8');
+
+		$charset = new ReflectionProperty($response, 'charset');
+		$charset->setAccessible(true);
+
+		$this->assertEquals('UTF-8', $charset->getValue($response));
+		$this->assertInstanceOf('\Modulework\Modules\Http\Response', $ret);
+
+	}
+
+	public function testGetCharset()
+	{
+		$response = Response::make();
+		
+		$response->setCharset('UTF-8');
+
+		$this->assertEquals('UTF-8', $response->getCharset());
 	}
 
 	/**
