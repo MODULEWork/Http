@@ -447,7 +447,10 @@ class Request
 	{
 		$path = $this->getPath();
 
-		return ($path == '/' ? array() : explode('/', $path));
+		$array = $path == '/' ? array() : explode('/', $path);
+		return array_filter($array, function($val) {
+			return $val != '';
+		});
 	}
 	
 	/**
@@ -459,13 +462,18 @@ class Request
 	 */
 	public function segment($index, $default = null)
 	{
-		$segments = explode('/', rtrim($this->getPath(), '/'));
+		if ('/' === $path = $this->getPath()) {
+			return '/';
+		}
+
+		$segments = explode('/', rtrim($path, '/'));
+
 
 		$segments = array_filter($segments, function($val) {
 			return $val != '';
 		});
 
-		return (isset($segments[$index - 1])) ? $segments[$index -1] : $default;
+		return (isset($segments[$index])) ? $segments[$index] : $default;
 	}
 
 	/**

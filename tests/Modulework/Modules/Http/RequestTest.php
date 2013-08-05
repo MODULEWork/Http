@@ -235,6 +235,42 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals('http://foo.bar/foo/bar', $request->root());
 	}
 
+	public function testUrl()
+	{
+		$request = new Request;
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar?baz', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals('/foo/bar', $request->url());
+	}
+
+	public function testSegments()
+	{
+		$request = new Request;
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar?baz', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals(array(1 => 'foo', 2 => 'bar'), $request->segments());
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals(array(), $request->segments());
+	}
+
+	public function testSegment()
+	{
+		$request = new Request;
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar?baz', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals('foo', $request->segment(1));
+		$this->assertEquals('bar', $request->segment(2));
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals('/', $request->segment(1));
+	}
+
 	public function testGetPath()
 	{
 		$request = new Request;
@@ -286,6 +322,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
 				array('fo+o/bar', 'fo+o', 'fo+o'),
 				array('fo%2Bo/bar', 'fo+o', 'fo%2Bo'),
 				array('foobar', 'baz', false),
+				array('¢', '¢&%/FZT', false),
 			);
 	}
 }
