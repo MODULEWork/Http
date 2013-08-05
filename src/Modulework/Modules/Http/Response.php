@@ -471,51 +471,91 @@ class Response
 		return $this->protocolVersion;
 	}
 
+	/**
+	 * Is the response successful?
+	 * @return boolean Whether the response is successful
+	 */
 	public function isSuccess()
 	{
 		return ($this->statusCode >= 200 && $this->statusCode < 300);
 	}
 
+	/**
+	 * Is the response OK?
+	 * @return boolean Whether the response is OK
+	 */
 	public function isOk()
 	{
 		return (200 === $this->statusCode);
 	}
 
+	/**
+	 * Is the response a not found error?
+	 * @return boolean Whether the response is a not found error
+	 */
 	public function isNotFound()
 	{
 		return (404 === $this->statusCode);
 	}
 
+	/**
+	 * Is the response forbidden?
+	 * @return boolean Whether the response is forbidden
+	 */
 	public function isForbidden()
 	{
 		return (403 === $this->statusCode);
 	}
 
+	/**
+	 * Is the response a redirect?
+	 * @return boolean Whether the response is a redirect
+	 */
 	public function isRedirect()
 	{
 		return ($this->headers->has('Location') && ($this->statusCode >= 300 && $this->statusCode < 400));
 	}
 
+	/**
+	 * Is the response a client error?
+	 * @return boolean Whether the response is a client error
+	 */
 	public function isClientError()
 	{
 		return ($this->statusCode >= 400 && $this->statusCode < 500);
 	}
 
+	/**
+	 * Is the response a server error?
+	 * @return boolean Whether the response is a server error
+	 */
 	public function isServerError()
 	{
 		return ($this->statusCode >= 500 && $this->statusCode < 600);
 	}
 
+	/**
+	 * Is the response empty?
+	 * @return boolean Whether the response is empty
+	 */
 	public function isEmpty()
 	{
 		return in_array($this->statusCode, array(201, 204, 304));
 	}
 
+	/**
+	 * Is the response invalid?
+	 * @return boolean Whether the response is invalid
+	 */
 	public function isInvalid()
 	{
 		return ($this->statusCode < 100 || $this->statusCode >= 600);
 	}
 
+	/**
+	 * Is the response informational?
+	 * @return boolean Whether the response is informational
+	 */
 	public function isInformational()
 	{
 		return ($this->statusCode >= 100 && $this->statusCode < 200);
