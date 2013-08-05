@@ -226,6 +226,15 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
 	}
 
+	public function testRoot()
+	{
+		$request = new Request;
+
+		$request->init(array(), array(), array(), array(), array('REQUEST_URI' => '/foo/bar', 'HTTP_HOST' => 'foo.bar'));
+
+		$this->assertEquals('http://foo.bar/foo/bar', $request->root());
+	}
+
 	public function testGetPath()
 	{
 		$request = new Request;

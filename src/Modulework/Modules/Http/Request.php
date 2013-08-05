@@ -425,7 +425,7 @@ class Request
 	 */
 	public function root()
 	{
-		return rtrim($this->getScheme . '//' . $this->getHost() .  $this->getBaseUrl(), '/');
+		return rtrim($this->getScheme() . '://' . $this->getHost() .  $this->getPath(), '/');
 	}
 
 	/**

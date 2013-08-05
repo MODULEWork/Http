@@ -8,6 +8,7 @@
  * This file is meant to be used in PHPUnit Tests
  */
 
+use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\RedirectResponse;
 
 /**
@@ -34,6 +35,14 @@ class RedirectResponseTest extends PHPUnit_Framework_TestCase
 	public function testConstructExecption()
 	{
 		$response = new RedirectResponse('http://foo.bar', 200);
+	}
+
+	public function testWithCookie()
+	{
+		$response = RedirectResponse::make('http://foo.bar');
+		$response->withCookie(Cookie::make('foo'));
+
+		$this->assertEquals(1, count($response->cookies));
 	}
 
 }
