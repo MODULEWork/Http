@@ -339,6 +339,34 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('Modulework\Modules\Http\Response', $ret);
 	}
 
+	public function testSetExpires()
+	{
+		$date = new \DateTime('Sat, 01 Jan 00 00:00:00');
+
+		$response = Response::make();
+
+		$response->setExpires($date);
+
+		$this->assertEquals($date->format('D, d M Y H:i:s') . ' GMT', $response->headers->get('Expires'));
+
+
+
+		$response->setExpires();
+
+		$this->assertNull($response->headers->get('Expires'));
+	}
+
+	public function testGetExpires()
+	{
+		$date = new \DateTime('Sat, 01 Jan 00 00:00:00 GMT');
+
+		$response = Response::make();
+
+		$response->headers->set('Expires', $date->format('D, d M Y H:i:s') . ' GMT');
+
+		$this->assertEquals($date, $response->getExpires());
+	}
+
 	/**
 	 * @dataProvider isSuccessData
 	 */

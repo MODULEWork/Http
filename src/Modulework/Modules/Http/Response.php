@@ -472,6 +472,35 @@ class Response
 	}
 
 	/**
+	 * Set the Expires HTTP header.
+	 * To remove it pass NULL as parameter
+	 * @param \DateTime|null $date A \DateTime instance | null
+	 * 
+	 * @return \Modulework\Modules\Http\Response THIS
+	 */
+	public function setExpires(DateTime $date = null)
+	{
+		if ($date === null) {
+			$this->headers->remove('Expires');
+		} else {
+			$date->setTimezone(new DateTimeZone('UTC'));
+			$this->headers->set('Expires', $date->format('D, d M Y H:i:s') . ' GMT');
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Get the Expires HTTP header (as \DateTime instance).
+	 * 
+	 * @return \DateTime The DateTime instance | null
+	 */
+	public function getExpires()
+	{
+		return new DateTime($this->headers->get('Expires'));
+	}
+
+	/**
 	 * Is the response successful?
 	 * @return boolean Whether the response is successful
 	 */
