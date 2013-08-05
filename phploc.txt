@@ -1,29 +1,29 @@
 phploc 1.7.4 by Sebastian Bergmann.
 
 Directories:                                          1
-Files:                                               13
+Files:                                               14
 
-Lines of Code (LOC):                               2384
+Lines of Code (LOC):                               2427
   Cyclomatic Complexity / Lines of Code:           0.09
-Comment Lines of Code (CLOC):                       998
-Non-Comment Lines of Code (NCLOC):                 1386
+Comment Lines of Code (CLOC):                      1025
+Non-Comment Lines of Code (NCLOC):                 1402
 
 Namespaces:                                           2
-Interfaces:                                           2
+Interfaces:                                           3
 Traits:                                               0
 Classes:                                             11
   Abstract:                                           0 (0.00%)
   Concrete:                                          11 (100.00%)
-  Average Class Length (NCLOC):                     136
-Methods:                                            136
+  Average Class Length (NCLOC):                     138
+Methods:                                            142
   Scope:
-    Non-Static:                                     114 (83.82%)
-    Static:                                          22 (16.18%)
+    Non-Static:                                     114 (80.28%)
+    Static:                                          28 (19.72%)
   Visibility:
-    Public:                                         122 (89.71%)
-    Non-Public:                                      14 (10.29%)
-  Average Method Length (NCLOC):                     11
-  Cyclomatic Complexity / Number of Methods:       1.94
+    Public:                                         128 (90.14%)
+    Non-Public:                                      14 (9.86%)
+  Average Method Length (NCLOC):                     10
+  Cyclomatic Complexity / Number of Methods:       1.90
 
 Anonymous Functions:                                  2
 Functions:                                            0
