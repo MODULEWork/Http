@@ -1,6 +1,3 @@
-env: 
-  global: 
-  - secure: I3VlcSE8pKDMlZXPXDQQzaO6BCNdWMQsMMfmJqyx4CaeXGFqvYDOlhRyxZgLZLZ1JQ08yeNKU/x266PQTRWnEHNOzKnE1ERvMYbKAkJlDtITca12Szwp03n3sNLu0veHv0qWR0LHw0zdzaVgTrPTe2Rh5AmhrLD774EFMNURWuQ=
 language: php
 
 php: 
@@ -22,4 +19,3 @@ after_script:
   - unzip ApiGen-2.8.0-standalone.zip
   - rm ApiGen-2.8.0-standalone.zip
   - php apigen/apigen.php --source src/ --destination build/result/docs/ --template-config apigen/templates/bootstrap/config.neon
-  - bash ./build/scripts/push_to_gh_pages.sh
