@@ -11,6 +11,7 @@
 use Modulework\Modules\Http\Cookie;
 use Modulework\Modules\Http\Request;
 use Modulework\Modules\Http\Response;
+use Modulework\Modules\Http\Exceptions\HttpNotFoundException;
 
 /**
 * PHPUnit Test
@@ -30,6 +31,32 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(302, $response->getStatusCode());
 		$this->assertEquals('FooBarBody', $response->getContent());
 		$this->assertEquals('bar', $response->headers->get('Foo'));
+	}
+
+	public function testFromException()
+	{
+		$e = new HttpNotFoundException();
+		
+		$response = Response::fromException($e);
+
+		$this->assertEquals(404, $response->getStatusCode());
+		$this->assertEquals('Not Found', $response->getContent());
+
+
+		$e = new HttpNotFoundException(700);
+		
+		$response = Response::fromException($e);
+
+		$this->assertEquals(700, $response->getStatusCode());
+		$this->assertEquals('', $response->getContent());
+
+		$e = new HttpNotFoundException(404, 'Y U NO USE REAL URL');
+		
+		$response = Response::fromException($e);
+
+		$this->assertEquals(404, $response->getStatusCode());
+		$this->assertEquals('Y U NO USE REAL URL', $response->getContent());
+
 	}
 
 	public function testConstruct()

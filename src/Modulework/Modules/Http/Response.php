@@ -15,6 +15,7 @@ use Modulework\Modules\Http\Utilities\ArrayCase;
 use Modulework\Modules\Http\Utilities\HeaderCase;
 use Modulework\Modules\Http\Utilities\HeaderWrapper;
 use Modulework\Modules\Http\Utilities\HeaderWrapperInterface;
+use Modulework\Modules\Http\Exceptions\HttpExceptionInterface;
 
 
 /**
@@ -158,6 +159,14 @@ class Response
 	public static function make($content = '', $code = 200, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		return new static($content, $code, $headers, $headerWrapper);
+	}
+
+	public static function fromException(HttpExceptionInterface $e, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
+	{
+		$content = isset(self::$statusCodeRegistry[$e->getStatusCode()]) ? self::$statusCodeRegistry[$e->getStatusCode()] : '';
+		$content = $e->getMessage() ?: $content;
+		
+		return new static($content, $e->getStatusCode(), $headers, $headerWrapper);
 	}
 
 	/**
