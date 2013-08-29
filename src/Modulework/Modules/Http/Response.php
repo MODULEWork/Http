@@ -161,6 +161,18 @@ class Response
 		return new static($content, $code, $headers, $headerWrapper);
 	}
 
+	/**
+	 * Factory for the Response object
+	 * Create a Response from a HttpException
+	 * @param  HttpExceptionInterface $e             The exception
+	 * @param  array                  $headers       The HTTP headers
+	 *
+	 * @param  \Modulework\Modules\Http\Utilities\HeaderWrapperInterface | null $headerWrapper The wrapper for PHP' s native header releated functions
+	 * 
+	 * @return \Modulework\Modules\Http\Response The new Response object
+	 *
+	 * @throws \InvalidArgumentException (from Constructor)
+	 */
 	public static function fromException(HttpExceptionInterface $e, array $headers = array(), HeaderWrapperInterface $headerWrapper = null)
 	{
 		$content = isset(self::$statusCodeRegistry[$e->getStatusCode()]) ? self::$statusCodeRegistry[$e->getStatusCode()] : '';
