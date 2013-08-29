@@ -7,7 +7,7 @@
 	<title>Class Modulework\Modules\Http\Response</title>
 
 	<script type="text/javascript" src="resources/combined.js?2211494443"></script>
-	<script type="text/javascript" src="elementlist.js?2775565393"></script>
+	<script type="text/javascript" src="elementlist.js?3196577250"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -57,6 +57,8 @@
 						<ul>
 				<li class="active"><a href="namespace-Modulework.Modules.Http.html">Http<span></span></a>
 						<ul>
+				<li><a href="namespace-Modulework.Modules.Http.Exceptions.html">Exceptions</a>
+						</li>
 				<li><a href="namespace-Modulework.Modules.Http.Utilities.html">Utilities</a>
 						</li>
 							</ul></li></ul></li></ul></li>
@@ -120,7 +122,7 @@ application.</p>
 		<b>Namespace:</b> <a href="namespace-Modulework.html">Modulework</a>\<a href="namespace-Modulework.Modules.html">Modules</a>\<a href="namespace-Modulework.Modules.Http.html">Http</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Response.html#20-649" title="Go to source code">Modulework/Modules/Http/Response.php</a><br />
+		<b>Located at</b> <a href="source-class-Modulework.Modules.Http.Response.html#21-670" title="Go to source code">Modulework/Modules/Http/Response.php</a><br />
 	</div>
 
 
@@ -138,7 +140,7 @@ application.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_make">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#146-161" title="Go to source code">make</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#147-162" title="Go to source code">make</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -179,6 +181,56 @@ application.</p>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="fromException" id="_fromException">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fromException">#</a>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#164-182" title="Go to source code">fromException</a>( <span><code><a href="class-Modulework.Modules.Http.Exceptions.HttpExceptionInterface.html">Modulework\Modules\Http\Exceptions\HttpExceptionInterface</a></code> <var>$e</var></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Factory for the Response object Create a Response from a HttpException</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Factory for the Response object Create a Response from a HttpException</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$e</var></dt>
+						<dd><code><code><a href="class-Modulework.Modules.Http.Exceptions.HttpExceptionInterface.html">Modulework\Modules\Http\Exceptions\HttpExceptionInterface</a></code></code><br>$e The exception</dd>
+						<dt><var>$headers</var></dt>
+						<dd><code>array</code><br>$headers The HTTP headers</dd>
+						<dt><var>$headerWrapper</var></dt>
+						<dd><code><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code></code><br>| null $headerWrapper The wrapper for PHP' s native header releated functions</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Modulework.Modules.Http.Response.html">Modulework\Modules\Http\Response</a></code></code><br>The new Response object<br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>(from Constructor)<br />
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="__construct" id="___construct">
 
 			<td class="attributes"><code>
@@ -190,7 +242,7 @@ application.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#163-188" title="Go to source code">__construct</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#184-209" title="Go to source code">__construct</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span>, <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -242,7 +294,7 @@ application.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#190-205" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#211-226" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
@@ -281,7 +333,7 @@ application.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setHeaderWrapper">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#207-232" title="Go to source code">setHeaderWrapper</a>( <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#228-253" title="Go to source code">setHeaderWrapper</a>( <span><code><a href="class-Modulework.Modules.Http.Utilities.HeaderWrapperInterface.html">Modulework\Modules\Http\Utilities\HeaderWrapperInterface</a></code> <var>$headerWrapper</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -329,7 +381,7 @@ constructor) If null is passed it will create a new instance of
 
 			<td class="name"><div>
 			<a class="anchor" href="#_sendHeaders">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#234-255" title="Go to source code">sendHeaders</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#255-276" title="Go to source code">sendHeaders</a>( )</code>
 
 			<div class="description short">
 				
@@ -374,7 +426,7 @@ constructor) If null is passed it will create a new instance of
 
 			<td class="name"><div>
 			<a class="anchor" href="#_sendCookies">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#257-271" title="Go to source code">sendCookies</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#278-292" title="Go to source code">sendCookies</a>( )</code>
 
 			<div class="description short">
 				
@@ -415,7 +467,7 @@ constructor) If null is passed it will create a new instance of
 
 			<td class="name"><div>
 			<a class="anchor" href="#_sendContent">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#273-282" title="Go to source code">sendContent</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#294-303" title="Go to source code">sendContent</a>( )</code>
 
 			<div class="description short">
 				
@@ -456,7 +508,7 @@ constructor) If null is passed it will create a new instance of
 
 			<td class="name"><div>
 			<a class="anchor" href="#_send">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#284-296" title="Go to source code">send</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#305-317" title="Go to source code">send</a>( )</code>
 
 			<div class="description short">
 				
@@ -498,7 +550,7 @@ constructor) If null is passed it will create a new instance of
 
 			<td class="name"><div>
 			<a class="anchor" href="#_prepare">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#298-340" title="Go to source code">prepare</a>( <span><code><a href="class-Modulework.Modules.Http.Request.html">Modulework\Modules\Http\Request</a></code> <var>$request</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#319-361" title="Go to source code">prepare</a>( <span><code><a href="class-Modulework.Modules.Http.Request.html">Modulework\Modules\Http\Request</a></code> <var>$request</var></span> )</code>
 
 			<div class="description short">
 				
@@ -544,7 +596,7 @@ does some other stuff under the hood.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addCookie">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#342-349" title="Go to source code">addCookie</a>( <span><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code> <var>$cookie</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#363-370" title="Go to source code">addCookie</a>( <span><code><a href="class-Modulework.Modules.Http.Cookie.html">Modulework\Modules\Http\Cookie</a></code> <var>$cookie</var></span> )</code>
 
 			<div class="description short">
 				
@@ -582,7 +634,7 @@ does some other stuff under the hood.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addHeader">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#351-360" title="Go to source code">addHeader</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span>, <span>boolean <var>$overwrite</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#372-381" title="Go to source code">addHeader</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span>, <span>boolean <var>$overwrite</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -624,7 +676,7 @@ does some other stuff under the hood.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setStatusCode">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#362-386" title="Go to source code">setStatusCode</a>( <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>string <var>$txt</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#383-407" title="Go to source code">setStatusCode</a>( <span>integer <var>$code</var> = <span class="php-num">200</span></span>, <span>string <var>$txt</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -670,7 +722,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getStatusCode">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#388-395" title="Go to source code">getStatusCode</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#409-416" title="Go to source code">getStatusCode</a>( )</code>
 
 			<div class="description short">
 				
@@ -707,7 +759,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setContent">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#397-413" title="Go to source code">setContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#418-434" title="Go to source code">setContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				
@@ -753,7 +805,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_appendContent">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#415-435" title="Go to source code">appendContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#436-456" title="Go to source code">appendContent</a>( <span>string <var>$content</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				
@@ -799,7 +851,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getContent">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#436-443" title="Go to source code">getContent</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#457-464" title="Go to source code">getContent</a>( )</code>
 
 			<div class="description short">
 				
@@ -836,7 +888,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setDate">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#445-454" title="Go to source code">setDate</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#466-475" title="Go to source code">setDate</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var></span> )</code>
 
 			<div class="description short">
 				
@@ -878,7 +930,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getDate">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#456-466" title="Go to source code">getDate</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#477-487" title="Go to source code">getDate</a>( )</code>
 
 			<div class="description short">
 				
@@ -915,7 +967,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setProtocolVersion">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#468-477" title="Go to source code">setProtocolVersion</a>( <span>string <var>$version</var> = <span class="php-quote">'1.0'</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#489-498" title="Go to source code">setProtocolVersion</a>( <span>string <var>$version</var> = <span class="php-quote">'1.0'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -957,7 +1009,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getProtocolVersion">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#479-486" title="Go to source code">getProtocolVersion</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#500-507" title="Go to source code">getProtocolVersion</a>( )</code>
 
 			<div class="description short">
 				
@@ -994,7 +1046,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setExpires">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#488-505" title="Go to source code">setExpires</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#509-526" title="Go to source code">setExpires</a>( <span><code><a href="class-DateTime.html">DateTime</a></code> <var>$date</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -1036,7 +1088,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getExpires">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#507-515" title="Go to source code">getExpires</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#528-536" title="Go to source code">getExpires</a>( )</code>
 
 			<div class="description short">
 				
@@ -1073,7 +1125,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setCharset">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#517-526" title="Go to source code">setCharset</a>( <span>string <var>$charset</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#538-547" title="Go to source code">setCharset</a>( <span>string <var>$charset</var></span> )</code>
 
 			<div class="description short">
 				
@@ -1115,7 +1167,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCharset">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#528-535" title="Go to source code">getCharset</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#549-556" title="Go to source code">getCharset</a>( )</code>
 
 			<div class="description short">
 				
@@ -1152,7 +1204,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isSuccess">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#537-544" title="Go to source code">isSuccess</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#558-565" title="Go to source code">isSuccess</a>( )</code>
 
 			<div class="description short">
 				
@@ -1189,7 +1241,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isOk">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#546-553" title="Go to source code">isOk</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#567-574" title="Go to source code">isOk</a>( )</code>
 
 			<div class="description short">
 				
@@ -1226,7 +1278,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isNotFound">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#555-562" title="Go to source code">isNotFound</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#576-583" title="Go to source code">isNotFound</a>( )</code>
 
 			<div class="description short">
 				
@@ -1263,7 +1315,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isForbidden">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#564-571" title="Go to source code">isForbidden</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#585-592" title="Go to source code">isForbidden</a>( )</code>
 
 			<div class="description short">
 				
@@ -1300,7 +1352,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isRedirect">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#573-580" title="Go to source code">isRedirect</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#594-601" title="Go to source code">isRedirect</a>( )</code>
 
 			<div class="description short">
 				
@@ -1337,7 +1389,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isClientError">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#582-589" title="Go to source code">isClientError</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#603-610" title="Go to source code">isClientError</a>( )</code>
 
 			<div class="description short">
 				
@@ -1374,7 +1426,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isServerError">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#591-598" title="Go to source code">isServerError</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#612-619" title="Go to source code">isServerError</a>( )</code>
 
 			<div class="description short">
 				
@@ -1411,7 +1463,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isEmpty">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#600-607" title="Go to source code">isEmpty</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#621-628" title="Go to source code">isEmpty</a>( )</code>
 
 			<div class="description short">
 				
@@ -1448,7 +1500,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isInvalid">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#609-616" title="Go to source code">isInvalid</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#630-637" title="Go to source code">isInvalid</a>( )</code>
 
 			<div class="description short">
 				
@@ -1485,7 +1537,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isInformational">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#618-625" title="Go to source code">isInformational</a>( )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#639-646" title="Go to source code">isInformational</a>( )</code>
 
 			<div class="description short">
 				
@@ -1522,7 +1574,7 @@ determine the text from the internal lib</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_validateContent">#</a>
-			<code><a href="source-class-Modulework.Modules.Http.Response.html#627-644" title="Go to source code">validateContent</a>( <span>mixed <var>$content</var></span> )</code>
+			<code><a href="source-class-Modulework.Modules.Http.Response.html#648-665" title="Go to source code">validateContent</a>( <span>mixed <var>$content</var></span> )</code>
 
 			<div class="description short">
 				
@@ -1591,7 +1643,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#28-32" title="Go to source code"><var>$content</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#29-33" title="Go to source code"><var>$content</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$content" class="anchor">#</a>
@@ -1617,7 +1669,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#34-38" title="Go to source code"><var>$statusCode</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#35-39" title="Go to source code"><var>$statusCode</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$statusCode" class="anchor">#</a>
@@ -1643,7 +1695,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#40-44" title="Go to source code"><var>$statusText</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#41-45" title="Go to source code"><var>$statusText</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$statusText" class="anchor">#</a>
@@ -1669,7 +1721,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#46-50" title="Go to source code"><var>$charset</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#47-51" title="Go to source code"><var>$charset</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$charset" class="anchor">#</a>
@@ -1695,7 +1747,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#52-56" title="Go to source code"><var>$protocolVersion</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#53-57" title="Go to source code"><var>$protocolVersion</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$protocolVersion" class="anchor">#</a>
@@ -1721,7 +1773,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#58-126" title="Go to source code"><var>$statusCodeRegistry</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#59-127" title="Go to source code"><var>$statusCodeRegistry</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$statusCodeRegistry" class="anchor">#</a>
@@ -1747,7 +1799,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#128-132" title="Go to source code"><var>$headers</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#129-133" title="Go to source code"><var>$headers</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$headers" class="anchor">#</a>
@@ -1773,7 +1825,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#134-138" title="Go to source code"><var>$cookies</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#135-139" title="Go to source code"><var>$cookies</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$cookies" class="anchor">#</a>
@@ -1799,7 +1851,7 @@ determine the text from the internal lib</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modulework.Modules.Http.Response.html#140-144" title="Go to source code"><var>$headerWrapper</var></a>
+					<a href="source-class-Modulework.Modules.Http.Response.html#141-145" title="Go to source code"><var>$headerWrapper</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$headerWrapper" class="anchor">#</a>
